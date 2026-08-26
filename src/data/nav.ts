@@ -27,7 +27,7 @@ export const brand = {
   short: "Meridian",
   tagline:
     "Meridian is a San Francisco-based destination wedding photography studio documenting celebrations filled with romance and grandeur, at home and around the world.",
-  email: "hello@meridianstudio.example",
+  email: "hello@meridianstudio.com",
   phone: "+1 (415) 555-0142",
   location: "San Francisco, CA — available worldwide",
 };

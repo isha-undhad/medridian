@@ -141,7 +141,7 @@ export const privacyPolicyData: PrivacyPolicyData = {
         "If you have any questions, suggestions, or requests regarding this Privacy Policy or how your personal information is handled, please reach out to our studio directly:",
       ],
       bulletPoints: [
-        "Studio Email: hello@meridianstudio.example",
+        "Studio Email: hello@meridianstudio.com",
         "Direct Phone: +1 (415) 555-0142",
         "Location: San Francisco, California — Available Worldwide",
       ],

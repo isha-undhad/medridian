@@ -103,8 +103,35 @@ export default function ContactSection() {
                   id="phone"
                   name="phone"
                   type="tel"
-                  placeholder="+1 (555) 000-0000"
+                  inputMode="numeric"
+                  pattern="[0-9]{10}"
+                  maxLength={10}
+                  minLength={10}
+                  placeholder="e.g. 9876543210"
+                  title="Please enter a 10-digit phone number"
                   required
+                  onKeyDown={(e) => {
+                    const allowedKeys = [
+                      "Backspace",
+                      "Delete",
+                      "Tab",
+                      "Escape",
+                      "Enter",
+                      "ArrowLeft",
+                      "ArrowRight",
+                      "Home",
+                      "End",
+                    ];
+                    if (allowedKeys.includes(e.key) || e.ctrlKey || e.metaKey) {
+                      return;
+                    }
+                    if (!/^[0-9]$/.test(e.key)) {
+                      e.preventDefault();
+                    }
+                  }}
+                  onInput={(e) => {
+                    e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, "").slice(0, 10);
+                  }}
                   className="rounded-lg border border-[var(--color-line)] bg-white/80 px-4 py-2.5 text-sm text-[var(--color-ink)] placeholder:text-[var(--color-muted)]/60 outline-none transition-all duration-300 focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)]"
                 />
               </div>
