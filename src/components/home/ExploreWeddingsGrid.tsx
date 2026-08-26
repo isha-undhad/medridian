@@ -240,7 +240,7 @@ export default function ExploreWeddingsGrid({
 
         {/* Subtitle — Clean Times Now Light */}
         <p
-          className="font-times-now mt-1 sm:mt-2 max-w-sm sm:max-w-md text-body leading-snug font-light text-white/95 [text-shadow:0_2px_10px_rgba(0,0,0,0.95)]"
+          className="font-times-now mt-1 sm:mt-2 max-w-sm sm:max-w-md text-sm sm:text-base leading-snug font-light text-white [text-shadow:0_2px_10px_rgba(0,0,0,0.95)]"
         >
           {subtext}
         </p>

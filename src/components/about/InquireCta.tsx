@@ -39,18 +39,18 @@ export default function InquireCta({
       <div className="relative z-10 flex flex-col items-center gap-3 sm:gap-4 px-4 sm:px-6 text-center">
         {eyebrow ? (
           <Reveal variants={fadeUp}>
-            <span className="text-[10px] sm:text-xs font-medium tracking-[0.3em] text-white/90 uppercase">
+            <span className="text-[10px] sm:text-xs font-medium tracking-[0.3em] text-white uppercase drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]">
               {eyebrow}
             </span>
           </Reveal>
         ) : null}
         <Reveal variants={fadeUp} delay={0.08}>
-          <h2 className="font-serif text-2xl sm:text-4xl md:text-5xl lg:text-7xl leading-[1.08] text-white text-balance">
+          <h2 className="font-serif text-2xl sm:text-4xl md:text-5xl lg:text-7xl leading-[1.08] text-white text-balance drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)]">
             {heading}
           </h2>
         </Reveal>
         <Reveal variants={fadeUp} delay={0.15}>
-          <p className="max-w-md text-xs sm:text-sm lg:text-body leading-relaxed text-white/90 text-pretty">
+          <p className="max-w-md text-xs sm:text-sm lg:text-base leading-relaxed !text-white text-white font-normal text-pretty drop-shadow-[0_1px_4px_rgba(0,0,0,0.6)]">
             {subtitle}
           </p>
         </Reveal>

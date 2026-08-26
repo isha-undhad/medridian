@@ -69,7 +69,7 @@ export default function VideoHero({ src, poster, credit, names, location }: Vide
         <h1 className="font-serif text-heading text-balance tracking-wide text-white uppercase">
           {names}
         </h1>
-        <p className="mt-1 text-body tracking-[0.15em] text-white/80 uppercase">
+        <p className="mt-1 text-xs sm:text-sm tracking-[0.15em] text-white/90 uppercase">
           {location}
         </p>
       </div>

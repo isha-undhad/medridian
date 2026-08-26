@@ -100,7 +100,7 @@ export default function AboutPhotographerSection({
           </h2>
 
           <p
-            className={`${inter.className} mix-blend-overlay mt-3 sm:mt-6 max-w-xs sm:max-w-md md:max-w-lg text-body leading-relaxed font-light text-white text-pretty [text-shadow:0_1px_2px_rgba(0,0,0,0.25)]`}
+            className={`${inter.className} mix-blend-overlay mt-3 sm:mt-6 max-w-xs sm:max-w-md md:max-w-lg text-sm sm:text-base leading-relaxed font-light text-white text-pretty [text-shadow:0_1px_2px_rgba(0,0,0,0.25)]`}
           >
             {tagline}
           </p>

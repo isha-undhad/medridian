@@ -104,7 +104,7 @@ export default function PageHeader({
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.45 }}
             className={`mt-2.5 sm:mt-4 max-w-full sm:max-w-xl text-[11px] sm:text-xs md:text-sm lg:text-base leading-relaxed ${image
-                ? "text-white/90 [text-shadow:0_1px_4px_rgba(0,0,0,0.5)]"
+                ? "text-white [text-shadow:0_1px_4px_rgba(0,0,0,0.7)]"
                 : "text-[var(--color-ink)]/70"
               }`}
           >

@@ -115,7 +115,12 @@ body {
 
 ::selection {
   background: var(--color-accent);
-  color: var(--color-surface);
+  color: #ffffff !important;
+}
+
+::-moz-selection {
+  background: var(--color-accent);
+  color: #ffffff !important;
 }
 
 /* PhotoMarquee's conveyor-belt scroll. Duration is read from the

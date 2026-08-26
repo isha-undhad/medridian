@@ -159,7 +159,7 @@ export default function ExploreSection({
         </Reveal>
 
         <Reveal variants={fadeUp} delay={0.15}>
-          <p className={`${inter.className} mt-6 max-w-md text-body leading-relaxed text-white/70`}>
+          <p className={`${inter.className} mt-6 max-w-md text-sm sm:text-base leading-relaxed text-white font-light drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]`}>
             {subtext}
           </p>
         </Reveal>

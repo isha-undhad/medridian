@@ -35,7 +35,7 @@ export default function ExperienceClosing() {
         </Reveal>
 
         <Reveal variants={fadeUp} delay={0.08}>
-          <p className="max-w-md text-[11px] sm:text-xs md:text-sm lg:text-base leading-relaxed text-white/90 font-light drop-shadow-[0_1px_4px_rgba(0,0,0,0.3)]">
+          <p className="max-w-md text-[11px] sm:text-xs md:text-sm lg:text-base leading-relaxed text-white font-normal drop-shadow-[0_1px_4px_rgba(0,0,0,0.5)]">
             I&apos;d love to hear more about your celebration.
             <br />
             Let&apos;s create something beautiful together.
