@@ -291,7 +291,7 @@ export default function PhotoMarquee({
     // the sections above and below without adding padding *inside* this section, since
     // the strip itself must stay full-bleed with nothing but the track in it.
     <section
-      className={cn("relative my-16 w-full overflow-x-hidden md:my-24", className)}
+      className={cn("relative my-10 sm:my-14 md:my-16 lg:my-20 w-full overflow-x-hidden", className)}
       onKeyDown={handleKeyDown}
     >
       <div

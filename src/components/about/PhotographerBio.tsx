@@ -13,9 +13,9 @@ export default function PhotographerBio() {
     // the large blank band this was fixed for. Each pt-0 has to repeat
     // Section's own md:/lg: prefixes — an unprefixed pt-0 only cancels the
     // base py-16's top half.
-    <Section className="mx-auto max-w-7xl px-6 pt-0 sm:px-10 md:pt-0 lg:pt-0">
-      <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 md:gap-16">
-        <Reveal variants={slideInLeft}>
+    <Section className="mx-auto max-w-7xl px-6 pt-6 sm:px-10 sm:pt-8 md:pt-10 lg:pt-12">
+      <div className="grid grid-cols-1 items-center gap-8 sm:gap-10 md:grid-cols-2 md:gap-14 lg:gap-16">
+        <Reveal variants={slideInLeft} className="w-full">
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-md">
             <Image
               src="/about/photographer.jpg"
@@ -31,15 +31,15 @@ export default function PhotographerBio() {
           <span className="text-xs font-medium uppercase tracking-[0.25em] text-[var(--color-accent-ink)]">
             {photographer.role}
           </span>
-          <h2 className="font-serif text-3xl text-[var(--color-ink)] sm:text-4xl">
+          <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[var(--color-ink)]">
             {photographer.name}
           </h2>
           <div className="flex flex-col gap-4 leading-relaxed text-[var(--color-body)]">
             {photographer.bio.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
+              <p key={paragraph} className="text-xs sm:text-sm lg:text-body">{paragraph}</p>
             ))}
           </div>
-          <blockquote className="mt-2 border-l-2 border-[var(--color-accent)] pl-5 font-serif text-xl italic text-[var(--color-ink)]">
+          <blockquote className="mt-2 border-l-2 border-[var(--color-accent)] pl-4 sm:pl-5 font-serif text-sm sm:text-base lg:text-xl italic text-[var(--color-ink)]">
             &ldquo;{photographer.quote}&rdquo;
           </blockquote>
         </Reveal>

@@ -92,7 +92,7 @@ export default function IntroSection({
             ))}
           </h2>
 
-          <p className="max-w-[460px] text-xs sm:text-sm lg:text-base leading-relaxed text-[var(--color-body)] text-pretty">
+          <p className="max-w-[460px] text-body leading-relaxed text-[var(--color-body)] text-pretty">
             {subtext}
           </p>
 

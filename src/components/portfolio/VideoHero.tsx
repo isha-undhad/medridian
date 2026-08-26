@@ -66,10 +66,10 @@ export default function VideoHero({ src, poster, credit, names, location }: Vide
       </button>
 
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 bg-gradient-to-t from-black/70 via-black/15 to-transparent px-4 pt-20 pb-16 sm:px-6 sm:pb-20">
-        <h1 className="font-serif text-2xl tracking-wide text-white uppercase sm:text-3xl lg:text-4xl">
+        <h1 className="font-serif text-heading text-balance tracking-wide text-white uppercase">
           {names}
         </h1>
-        <p className="mt-1 text-xs tracking-[0.15em] text-white/80 uppercase sm:text-sm">
+        <p className="mt-1 text-body tracking-[0.15em] text-white/80 uppercase">
           {location}
         </p>
       </div>

@@ -33,10 +33,10 @@ export default function ContactSection() {
         {/* Form Column */}
         <Reveal variants={slideInRight} delay={0.1} className="flex flex-col gap-6 sm:gap-8">
           <div>
-            <h1 className="font-serif text-2xl sm:text-4xl md:text-5xl tracking-tight text-[var(--color-ink)] uppercase text-balance">
+            <h1 className="font-serif text-heading text-balance tracking-tight text-[var(--color-ink)] uppercase">
               Contact {brand.short}
             </h1>
-            <p className="mt-3 sm:mt-4 max-w-md text-xs sm:text-sm md:text-base leading-relaxed text-[var(--color-body)] text-pretty">
+            <p className="mt-3 sm:mt-4 max-w-md text-body leading-relaxed text-[var(--color-body)] text-pretty">
               I would love to hear about you and your celebration! Please complete the form below or email{" "}
               <a
                 href={`mailto:${brand.email}`}
@@ -203,7 +203,7 @@ export default function ContactSection() {
             </div>
 
             {submitted ? (
-              <p className="text-xs sm:text-sm text-[var(--color-accent-ink)]" role="status">
+              <p className="text-body text-[var(--color-accent-ink)]" role="status">
                 Thank you — we&apos;ll be in touch shortly regarding your session!
               </p>
             ) : null}

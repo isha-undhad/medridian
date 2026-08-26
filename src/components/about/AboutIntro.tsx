@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import Reveal from "@/components/ui/Reveal";
 import Section from "@/components/ui/Section";
@@ -63,60 +64,47 @@ export default function AboutIntro({
 }: AboutIntroProps) {
   return (
     <Section className="mx-auto max-w-7xl px-6 pt-20 pb-10 sm:px-10 md:pt-24 md:pb-12 lg:pt-28 lg:pb-14">
-      <div className="grid grid-cols-1 gap-y-8 lg:grid-cols-5 lg:items-start lg:gap-x-16">
-        {/* Left: heading + staggered image collage, stacked — 3 of 5 columns
-            (60%). Top of the grid track = top of the heading, no offset. */}
+      <div className="grid grid-cols-1 gap-y-8 lg:grid-cols-5 lg:items-start lg:gap-x-12 xl:gap-x-16">
+        {/* Left: heading + 50-50 2-image row (3 of 5 cols on lg) */}
         <div className="lg:col-span-3">
           <Reveal variants={slideInLeft} className="relative z-10">
-            <h2 className="max-w-[20ch] text-left font-serif text-2xl leading-[1.05] font-medium tracking-tight text-[var(--color-ink)] uppercase sm:text-3xl lg:text-4xl">
+            <h2 className="max-w-[22ch] text-left font-serif text-2xl leading-[1.08] font-medium tracking-tight text-[var(--color-ink)] uppercase sm:text-3xl lg:text-4xl text-balance">
               {heading}
             </h2>
           </Reveal>
 
-          {/* Mobile/tablet: images sit side by side in normal flow, no
-              overlap — a small positive mt-3 keeps them just below the
-              heading. From lg: up, both switch to absolute inside a short,
-              fixed-height frame, and the frame itself gets pulled up with a
-              small negative margin so its top edge just grazes the heading's
-              last line — never covers it, since the heading above carries
-              `relative z-10` and stacks above this frame. The smaller tile
-              then overlaps well into the larger one's bottom-left corner,
-              so the pair reads as one compact, layered collage. */}
+          {/* 50-50 side-by-side equal images with zero cropping or distortion */}
           <Reveal
             variants={slideInLeft}
             delay={0.1}
-            className="relative mt-3 flex flex-col gap-3 sm:flex-row lg:-mt-6 lg:block lg:h-[580px]"
+            className="relative mt-4 sm:mt-6 grid grid-cols-2 gap-3 sm:gap-4 lg:gap-5 w-full"
           >
-            <div className="relative aspect-[3/4] w-full overflow-hidden rounded-sm sm:w-[62%] lg:absolute lg:top-0 lg:right-0 lg:aspect-auto lg:h-[80%] lg:w-[62%]">
+            <div className="relative aspect-[3/4] w-full overflow-hidden rounded-sm bg-[var(--color-line)]/20 shadow-sm">
               <Image
                 src={primaryImage}
                 alt={primaryImageAlt}
                 fill
-                sizes="(min-width: 1024px) 35vw, (min-width: 640px) 50vw, 100vw"
+                sizes="(min-width: 1024px) 30vw, 48vw"
                 className="object-cover"
               />
             </div>
-            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm ring-4 ring-[var(--color-bg)] sm:w-[38%] lg:absolute lg:bottom-0 lg:left-[14%] lg:z-10 lg:aspect-auto lg:h-[52%] lg:w-[42%]">
+            <div className="relative aspect-[3/4] w-full overflow-hidden rounded-sm bg-[var(--color-line)]/20 shadow-sm">
               <Image
                 src={secondaryImage}
                 alt={secondaryImageAlt}
                 fill
-                sizes="(min-width: 1024px) 22vw, (min-width: 640px) 40vw, 100vw"
+                sizes="(min-width: 1024px) 30vw, 48vw"
                 className="object-cover"
               />
             </div>
           </Reveal>
         </div>
 
-        {/* Right: label + paragraph — 2 of 5 columns (40%). Pushed down with
-            lg:mt-* (instead of sitting flush with the heading's top edge)
-            so "MY APPROACH" lands roughly level with the collage's vertical
-            middle, matching the reference. Capped at 440px so the paragraph
-            wraps into a few longer lines rather than a tall narrow column. */}
+        {/* Right: label + paragraph (2 of 5 cols on lg) */}
         <Reveal
           variants={slideInRight}
           delay={0.15}
-          className="flex max-w-[440px] flex-col gap-5 lg:col-span-2 lg:mt-56 lg:justify-self-end"
+          className="flex max-w-[440px] flex-col gap-4 sm:gap-5 lg:col-span-2 lg:mt-24 xl:mt-28 lg:justify-self-end"
         >
           <span className="text-xs font-medium tracking-[0.25em] text-[var(--color-accent-ink)] uppercase">
             {label}

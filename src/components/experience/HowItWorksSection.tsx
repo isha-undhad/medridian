@@ -135,15 +135,15 @@ function StackedServiceCard({
     >
       {/* Text Box Side (~50% on desktop) */}
       <div
-        className={`w-full md:w-1/2 p-6 sm:p-8 md:p-10 lg:p-12 flex flex-col justify-center gap-2.5 sm:gap-3.5 ${card.textColor} h-[52%] md:h-full shrink-0`}
+        className={`w-full md:w-1/2 p-4 sm:p-6 md:p-8 lg:p-10 flex flex-col justify-center gap-1.5 sm:gap-2.5 ${card.textColor} h-[52%] md:h-full shrink-0`}
       >
-        <span className={`font-serif text-base sm:text-lg font-medium tracking-wide ${card.numberColor}`}>
+        <span className={`font-serif text-xs sm:text-sm font-medium tracking-wide ${card.numberColor}`}>
           {card.number}
         </span>
-        <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl font-semibold leading-[1.2] text-balance">
+        <h3 className="font-serif text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold leading-[1.18] text-balance">
           {card.heading}
         </h3>
-        <p className={`text-xs sm:text-sm leading-relaxed text-pretty ${card.descColor}`}>
+        <p className={`text-[11px] sm:text-xs md:text-sm leading-relaxed text-pretty ${card.descColor}`}>
           {card.description}
         </p>
       </div>
@@ -174,12 +174,12 @@ export default function HowItWorksSection({ className }: { className?: string } 
     <section
       ref={containerRef}
       className={cn(
-        "relative h-[420vh] w-full my-10 sm:my-14 md:my-16 lg:my-20",
+        "relative h-[420vh] w-full my-0",
         className
       )}
     >
       {/* Sticky Viewport Stage — stays 100% pinned on screen while cards stack one on top of another */}
-      <div className="sticky top-0 flex h-screen w-full flex-col items-center justify-center overflow-hidden z-10">
+      <div className="sticky top-0 flex h-dvh w-full flex-col items-center justify-start md:justify-center overflow-hidden z-10 px-4 sm:px-6 pt-14 sm:pt-16 md:pt-12 pb-4 sm:pb-8 md:pb-12">
         {/* Soft Blurred Background Photograph (/service/20.jpg) */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -194,16 +194,19 @@ export default function HowItWorksSection({ className }: { className?: string } 
           <div className="absolute inset-0 bg-[#1A1815]/55 backdrop-brightness-95" />
         </div>
 
-        {/* Header Eyebrow Label — Pinned below fixed navbar */}
-        <div className="absolute top-20 sm:top-24 md:top-20 left-1/2 -translate-x-1/2 z-40 pointer-events-none text-center">
-          <span className="text-xs sm:text-sm font-medium tracking-[0.3em] text-[#F9F7F2]/90 uppercase drop-shadow-md">
-            HOW IT WORKS
+        {/* Header Eyebrow & Label Container */}
+        <div className="relative z-40 mb-2 sm:mb-3 md:mb-4 text-center shrink-0 flex flex-col items-center gap-0.5 sm:gap-1">
+          <span className="text-[10px] sm:text-xs font-medium tracking-[0.3em] text-[#D4CFA0] uppercase drop-shadow-sm">
+            OUR PROCESS
           </span>
+          <h2 className="text-xs sm:text-sm font-semibold tracking-[0.25em] text-[#F9F7F2] uppercase drop-shadow-md">
+            HOW IT WORKS
+          </h2>
         </div>
 
         {/* Center Cards Viewport Container — Stacking Frame */}
-        <div className="relative z-20 w-full flex items-center justify-center pointer-events-auto px-4 sm:px-6 pt-12 md:pt-14">
-          <div className="relative w-[92vw] sm:w-[86vw] md:w-[780px] lg:w-[880px] max-w-[900px] h-[500px] sm:h-[450px] md:h-[420px] lg:h-[440px]">
+        <div className="relative z-20 w-full flex items-center justify-center pointer-events-auto">
+          <div className="relative w-[92vw] sm:w-[86vw] md:w-[780px] lg:w-[880px] max-w-[900px] h-[430px] sm:h-[450px] md:h-[420px] lg:h-[460px]">
             {serviceCards.map((card, index) => (
               <StackedServiceCard
                 key={card.number}

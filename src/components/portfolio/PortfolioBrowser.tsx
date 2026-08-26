@@ -54,17 +54,17 @@ export default function PortfolioBrowser() {
         {isEngagements ? (
           <>
             {/* Video section comes first for Engagements tab */}
-            <EngagementCinematicSection className="mt-10 lg:mt-14" />
-            <div className="mt-14 lg:mt-20">
+            <EngagementCinematicSection className="mt-8 sm:mt-10 lg:mt-12" />
+            <div className="mt-10 sm:mt-12 lg:mt-16">
               <PortfolioGrid items={filteredItems} layout="flex" />
             </div>
           </>
         ) : isFamilyMaternity ? (
-          <div className="mt-12 lg:mt-14">
+          <div className="mt-8 sm:mt-10 lg:mt-12">
             <FamilyMaternityGrid />
           </div>
         ) : (
-          <div className="mt-12 lg:mt-14">
+          <div className="mt-8 sm:mt-10 lg:mt-12">
             <PortfolioGrid items={filteredItems} layout="columns" />
           </div>
         )}
@@ -75,7 +75,7 @@ export default function PortfolioBrowser() {
         <div className="w-full">
           <PhotoMarquee className="my-0 md:my-0" />
           <div className="w-full bg-[var(--color-bg)] px-4 py-3.5 text-center sm:py-5">
-            <p className="mx-auto max-w-4xl font-serif text-[11px] sm:text-xs md:text-sm font-light tracking-wide sm:tracking-wider text-[var(--color-body)]/85 leading-relaxed whitespace-normal sm:whitespace-nowrap">
+            <p className="mx-auto max-w-4xl font-serif text-body font-light tracking-wide sm:tracking-wider text-[var(--color-body)]/85 leading-relaxed whitespace-normal sm:whitespace-nowrap">
               <span className="sm:hidden">
                 Based in California, photographing modern weddings worldwide.
               </span>

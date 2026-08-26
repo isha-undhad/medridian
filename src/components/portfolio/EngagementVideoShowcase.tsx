@@ -57,9 +57,8 @@ export default function EngagementVideoShowcase({
             className="absolute inset-0 z-20 flex items-center justify-center bg-black/0 transition-colors group-hover:bg-black/15 focus:outline-none"
           >
             <div
-              className={`flex h-16 w-16 items-center justify-center rounded-full bg-black/75 text-white shadow-2xl backdrop-blur-md transition-all duration-300 hover:scale-110 hover:bg-black/90 ${
-                isPlaying ? "opacity-0 group-hover:opacity-100" : "opacity-100"
-              }`}
+              className={`flex h-16 w-16 items-center justify-center rounded-full bg-black/75 text-white shadow-2xl backdrop-blur-md transition-all duration-300 hover:scale-110 hover:bg-black/90 ${isPlaying ? "opacity-0 group-hover:opacity-100" : "opacity-100"
+                }`}
             >
               {isPlaying ? (
                 <Pause className="h-7 w-7 fill-white text-white" />

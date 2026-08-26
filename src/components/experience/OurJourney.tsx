@@ -20,27 +20,23 @@ import { fadeUp } from "@/lib/motion";
  */
 export default function OurJourney() {
   return (
-    <Section className="mx-auto max-w-7xl px-6 sm:px-10">
+    <Section className="mx-auto max-w-7xl px-4 sm:px-8 md:px-10">
       <div className="mx-auto max-w-4xl">
-        <Reveal variants={fadeUp} className="flex flex-col items-start gap-3 text-left">
-          <span className="text-xs font-medium tracking-[0.25em] text-[var(--color-accent-ink)] uppercase">
-            Our Journey
+        <Reveal variants={fadeUp} className="flex flex-col items-start gap-1.5 sm:gap-2 text-left">
+          <span className="text-[10px] sm:text-xs font-medium tracking-[0.25em] text-[var(--color-accent-ink)] uppercase">
+            OUR JOURNEY
           </span>
-          <h2 className="font-serif text-3xl leading-[1.1] text-[var(--color-ink)] sm:text-4xl md:text-5xl">
+          <h2 className="font-serif text-[clamp(1.15rem,4.8vw,2.75rem)] leading-[1.15] text-[var(--color-ink)] whitespace-nowrap">
             The Meridian Timeline
           </h2>
+          <span className="mt-0.5 text-[10px] sm:text-xs tracking-[0.25em] text-[var(--color-muted)] uppercase">
+            Meridian Studio, Est. 2014
+          </span>
         </Reveal>
 
-        <div className="mt-12 md:mt-16">
+        <div className="mt-8 md:mt-12">
           <Timeline />
         </div>
-
-        <Reveal
-          variants={fadeUp}
-          className="mt-12 text-center text-xs font-medium tracking-[0.3em] text-[var(--color-muted)] uppercase md:mt-16"
-        >
-          Meridian Studio, Est. 2014
-        </Reveal>
       </div>
     </Section>
   );

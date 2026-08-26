@@ -103,7 +103,7 @@ function StackingCard({
           <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl leading-[1.1] text-white text-balance">
             {service.title}
           </h3>
-          <p className="text-xs sm:text-sm md:text-base leading-relaxed text-white/80 text-pretty">
+          <p className="text-body leading-relaxed text-white/80 text-pretty">
             {service.description}
           </p>
         </div>

@@ -143,14 +143,13 @@ export default function ExploreSection({
                 OfferingsHeadline.tsx, just for text instead of images.
                 Plain CSS transitions only (no mount/unmount timing to get
                 wrong), so the fade is guaranteed to run on every tick. */}
-            <div className="relative mt-2 h-[3.2rem] w-full sm:h-[4rem] md:h-[4.8rem] lg:h-[6.3rem]">
+            <div className="relative mt-3 sm:mt-4 md:mt-5 h-[3.2rem] w-full sm:h-[4rem] md:h-[4.8rem] lg:h-[6.3rem]">
               {categories.map((category, index) => (
                 <h2
                   key={category}
                   aria-hidden={index !== categoryIndex}
-                  className={`${playfair.className} absolute inset-0 flex items-center justify-center text-5xl leading-[1.05] font-bold tracking-tight text-white uppercase transition-all duration-500 ease-in-out sm:text-6xl md:text-7xl lg:text-8xl ${
-                    index === categoryIndex ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0"
-                  }`}
+                  className={`${playfair.className} absolute inset-0 flex items-center justify-center text-5xl leading-[1.05] font-bold tracking-tight text-white uppercase transition-all duration-500 ease-in-out sm:text-6xl md:text-7xl lg:text-8xl ${index === categoryIndex ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0"
+                    }`}
                 >
                   {category}
                 </h2>
@@ -160,7 +159,7 @@ export default function ExploreSection({
         </Reveal>
 
         <Reveal variants={fadeUp} delay={0.15}>
-          <p className={`${inter.className} mt-6 max-w-md text-sm leading-relaxed text-white/70 sm:text-base`}>
+          <p className={`${inter.className} mt-6 max-w-md text-body leading-relaxed text-white/70`}>
             {subtext}
           </p>
         </Reveal>

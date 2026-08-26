@@ -26,7 +26,7 @@ export default function HeroGallery({
   rightAlt = "",
 }: HeroGalleryProps) {
   return (
-    <section className="relative w-full overflow-hidden grid grid-cols-1 h-[75vh] min-h-[480px] sm:h-[85vh] md:h-dvh md:grid-cols-2">
+    <section className="relative w-full overflow-hidden grid grid-cols-1 h-dvh md:grid-cols-2">
       {/* 1st image: full hero banner on mobile, left column on desktop */}
       <div className="relative h-full w-full overflow-hidden">
         <Image

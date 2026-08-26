@@ -19,7 +19,7 @@ export type PhotoGridProps = {
  */
 export default function PhotoGrid({ photos }: PhotoGridProps) {
   return (
-    <div className="grid grid-cols-2 gap-2 sm:gap-4 lg:grid-cols-3 lg:gap-6">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
       {photos.map((photo, index) => (
         <Reveal key={photo.id} variants={fadeUp} delay={(index % 3) * 0.08}>
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm">

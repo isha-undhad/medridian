@@ -62,11 +62,11 @@ export default function InquireEditorial({
           <h2 className="font-serif text-3xl leading-[1.1] tracking-tight text-white uppercase sm:text-4xl md:text-5xl">
             Let&apos;s Create Something Timeless
           </h2>
-          <p className="max-w-xl leading-relaxed text-white/85">
+          <p className="max-w-xl text-body leading-relaxed text-white/85">
             Planning a wedding is about more than a single day. It is about the people, places,
             emotions, and quiet moments you will want to remember for years to come.
           </p>
-          <p className="max-w-xl leading-relaxed text-white/85">
+          <p className="max-w-xl text-body leading-relaxed text-white/85">
             I would love to hear about your story, your plans, and what matters most to you.
           </p>
         </Reveal>
@@ -95,7 +95,7 @@ export default function InquireEditorial({
           <span className="text-xs font-medium tracking-[0.25em] text-white/70 uppercase">
             Destination Weddings
           </span>
-          <p className="text-sm text-white/85 sm:text-base">
+          <p className="text-body text-white/85">
             Available for celebrations across India and worldwide.
           </p>
         </Reveal>

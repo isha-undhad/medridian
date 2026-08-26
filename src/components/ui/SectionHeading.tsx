@@ -49,7 +49,7 @@ export default function SectionHeading({
         {title}
       </h2>
       {subtitle ? (
-        <p className="max-w-xl text-xs sm:text-sm md:text-base leading-relaxed text-[var(--color-muted)] text-pretty">
+        <p className="max-w-xl text-body leading-relaxed text-[var(--color-muted)] text-pretty">
           {subtitle}
         </p>
       ) : null}

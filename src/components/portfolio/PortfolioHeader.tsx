@@ -36,7 +36,7 @@ export default function PortfolioHeader({
         <span className="text-xs font-medium tracking-[0.25em] text-[var(--color-muted)] uppercase">
           {label}
         </span>
-        <h1 className="font-serif text-4xl tracking-tight text-[var(--color-ink)] uppercase sm:text-5xl lg:text-6xl">
+        <h1 className="font-serif text-heading text-balance tracking-tight text-[var(--color-ink)] uppercase">
           {heading}
         </h1>
       </Reveal>

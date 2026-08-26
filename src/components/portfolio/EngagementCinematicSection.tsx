@@ -16,7 +16,7 @@ export type EngagementCinematicSectionProps = {
 };
 
 export default function EngagementCinematicSection({
-  videoUrl = "https://player.vimeo.com/video/1154346909?title=0&byline=0&portrait=0&controls=1&autopause=0&autoplay=true",
+  videoUrl = "https://player.vimeo.com/video/1154346909?title=0&byline=0&portrait=0&controls=0&autopause=0&autoplay=1&muted=1&playsinline=1",
   image = "/home/catagory3.jpg",
   imageAlt = "Bride and groom kissing on garden steps at golden hour, surrounded by white floral arrangements",
   className = "mt-10 lg:mt-14",
@@ -51,7 +51,7 @@ export default function EngagementCinematicSection({
         <h2 className="font-serif text-3xl leading-[1.1] text-[var(--color-ink)] sm:text-4xl lg:text-5xl">
           Cinematic Stories
         </h2>
-        <p className="max-w-md text-base leading-relaxed text-[var(--color-muted)]">
+        <p className="max-w-md text-body leading-relaxed text-[var(--color-muted)]">
           A collection of moments, beautifully remembered.
         </p>
       </Reveal>

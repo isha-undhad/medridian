@@ -166,9 +166,8 @@ export default function ExploreWeddingsGrid({
           {topRow.map((tile, index) => (
             <div
               key={`${tile.src}-${index}`}
-              className={`group relative h-full shrink-0 overflow-hidden rounded-sm bg-neutral-900 ${
-                tile.className ?? "aspect-[4/3]"
-              } shadow-2xl shadow-black/80`}
+              className={`group relative h-full shrink-0 overflow-hidden rounded-sm bg-neutral-900 ${tile.className ?? "aspect-[4/3]"
+                } shadow-2xl shadow-black/80`}
             >
               <Image
                 src={tile.src}
@@ -194,9 +193,8 @@ export default function ExploreWeddingsGrid({
           {bottomRow.map((tile, index) => (
             <div
               key={`${tile.src}-${index}`}
-              className={`group relative h-full shrink-0 overflow-hidden rounded-sm bg-neutral-900 ${
-                tile.className ?? "aspect-[4/3]"
-              } shadow-2xl shadow-black/80`}
+              className={`group relative h-full shrink-0 overflow-hidden rounded-sm bg-neutral-900 ${tile.className ?? "aspect-[4/3]"
+                } shadow-2xl shadow-black/80`}
             >
               <Image
                 src={tile.src}
@@ -227,14 +225,13 @@ export default function ExploreWeddingsGrid({
         </span>
 
         {/* Rotating category word — Tight luxury editorial letter spacing */}
-        <div className="relative -mt-1 sm:-mt-2 md:-mt-3 h-[2.5rem] w-full sm:h-[3.5rem] md:h-[4.5rem] lg:h-[5.5rem] xl:h-[6.5rem]">
+        <div className="relative mt-2 sm:mt-3 md:mt-4 h-[2.5rem] w-full sm:h-[3.5rem] md:h-[4.5rem] lg:h-[5.5rem] xl:h-[6.5rem]">
           {categories.map((category, index) => (
             <h2
               key={category}
               aria-hidden={index !== categoryIndex}
-              className={`font-times-now absolute inset-0 flex items-center justify-center text-4xl sm:text-5xl md:text-6xl lg:text-[5.5rem] xl:text-[6.6rem] font-light uppercase tracking-[0.03em] leading-[0.88] text-white [text-shadow:0_4px_30px_rgba(0,0,0,0.95)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] select-none ${
-                index === categoryIndex ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0"
-              }`}
+              className={`font-times-now absolute inset-0 flex items-center justify-center text-4xl sm:text-5xl md:text-6xl lg:text-[5.5rem] xl:text-[6.6rem] font-light uppercase tracking-[0.03em] leading-[0.88] text-white [text-shadow:0_4px_30px_rgba(0,0,0,0.95)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] select-none ${index === categoryIndex ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0"
+                }`}
             >
               {category}
             </h2>
@@ -243,7 +240,7 @@ export default function ExploreWeddingsGrid({
 
         {/* Subtitle — Clean Times Now Light */}
         <p
-          className="font-times-now mt-1 sm:mt-2 max-w-sm sm:max-w-md text-xs sm:text-[13px] md:text-[14px] leading-snug font-light text-white/95 [text-shadow:0_2px_10px_rgba(0,0,0,0.95)]"
+          className="font-times-now mt-1 sm:mt-2 max-w-sm sm:max-w-md text-body leading-snug font-light text-white/95 [text-shadow:0_2px_10px_rgba(0,0,0,0.95)]"
         >
           {subtext}
         </p>

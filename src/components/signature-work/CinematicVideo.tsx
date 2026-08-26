@@ -46,7 +46,7 @@ export default function CinematicVideo({ videoSrc, poster }: CinematicVideoProps
           The Art of the Moment
         </span>
         <h3 className="font-serif text-3xl text-[var(--color-ink)] sm:text-4xl">Cinematic Stories</h3>
-        <p className="text-sm text-[var(--color-muted)]">
+        <p className="text-body text-[var(--color-muted)]">
           Motion, shot the same way we shoot stills — quietly, and up close.
         </p>
       </div>

@@ -15,7 +15,7 @@ export default function InquireFaqSection() {
         <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[var(--color-ink)] leading-[1.2] text-balance">
           Your Questions, Answered
         </h2>
-        <p className="text-xs sm:text-sm text-[var(--color-muted)] leading-relaxed">
+        <p className="text-body text-[var(--color-muted)] leading-relaxed">
           A few helpful details as you plan your celebration.
         </p>
       </Reveal>
@@ -42,7 +42,7 @@ export default function InquireFaqSection() {
             <h3 className="text-base sm:text-lg font-medium text-[var(--color-ink)]">
               Q. Are you willing to travel?
             </h3>
-            <p className="text-xs sm:text-sm leading-relaxed text-[var(--color-muted)]">
+            <p className="text-body leading-relaxed text-[var(--color-muted)]">
               Absolutely! I&apos;ve traveled all over the world for my clients and jump at any opportunity to capture your celebration.
             </p>
           </div>
@@ -52,7 +52,7 @@ export default function InquireFaqSection() {
             <h3 className="text-base sm:text-lg font-medium text-[var(--color-ink)]">
               Q. How many images will we receive?
             </h3>
-            <p className="text-xs sm:text-sm leading-relaxed text-[var(--color-muted)]">
+            <p className="text-body leading-relaxed text-[var(--color-muted)]">
               Typically, I curate 80–100 final high-resolution images per hour of coverage, fully edited in our signature style.
             </p>
           </div>
@@ -62,7 +62,7 @@ export default function InquireFaqSection() {
             <h3 className="text-base sm:text-lg font-medium text-[var(--color-ink)]">
               Q. Do you shoot film or digital?
             </h3>
-            <p className="text-xs sm:text-sm leading-relaxed text-[var(--color-muted)]">
+            <p className="text-body leading-relaxed text-[var(--color-muted)]">
               Both! I combine medium format film with modern digital to deliver a timeless, luminous gallery with rich textures and emotional depth.
             </p>
           </div>

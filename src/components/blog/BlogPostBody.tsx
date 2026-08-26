@@ -19,7 +19,7 @@ export default function BlogPostBody({ paragraphs }: BlogPostBodyProps) {
           {paragraphs.map((paragraph, index) => (
             <p
               key={index}
-              className={`text-base leading-relaxed text-[var(--color-body)] sm:text-lg sm:leading-loose ${
+              className={`text-body leading-relaxed text-[var(--color-body)] ${
                 index === 0 ? "first-letter:float-left first-letter:mr-3 first-letter:font-serif first-letter:text-5xl first-letter:font-bold first-letter:text-[var(--color-ink)]" : ""
               }`}
             >
@@ -31,9 +31,9 @@ export default function BlogPostBody({ paragraphs }: BlogPostBodyProps) {
         <Reveal
           variants={fadeUp}
           delay={0.15}
-          className="flex flex-col gap-4 text-base leading-relaxed text-[var(--color-body)] sm:text-lg sm:leading-loose"
+          className="flex flex-col gap-4 text-body leading-relaxed text-[var(--color-body)]"
         >
-          <p className="line-clamp-3">
+          <p className="text-body line-clamp-3">
             {paragraphs[0]}
           </p>
         </Reveal>
@@ -43,6 +43,7 @@ export default function BlogPostBody({ paragraphs }: BlogPostBodyProps) {
         <div className="mt-6 flex justify-start">
           <button
             type="button"
+            suppressHydrationWarning
             onClick={() => setExpanded((value) => !value)}
             aria-expanded={expanded}
             className="inline-flex items-center gap-2 rounded-full border border-[var(--color-line)] bg-[var(--color-surface)] px-5 py-2 text-xs font-medium tracking-[0.2em] text-[var(--color-ink)] uppercase transition-all duration-300 hover:border-[var(--color-accent)] hover:shadow-sm cursor-pointer"

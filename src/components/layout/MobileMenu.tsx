@@ -48,19 +48,20 @@ export default function MobileMenu({ open, onClose, pathname }: MobileMenuProps)
           animate="visible"
           exit="hidden"
           variants={panelVariants}
-          className="fixed inset-0 top-[68px] sm:top-20 z-50 flex flex-col justify-start overflow-y-auto bg-[var(--color-bg)] px-6 pb-8 pt-3 sm:px-10 sm:pt-6 sm:pb-8 md:hidden"
+          className="fixed inset-0 top-[68px] sm:top-20 z-50 flex flex-col justify-start overflow-y-auto overscroll-contain bg-[var(--color-bg)] px-6 pt-2 pb-8 sm:px-10 sm:pt-4 sm:pb-10 md:hidden"
         >
-          <nav className="flex flex-col">
+          <nav className="flex flex-col divide-y divide-[var(--color-line)]">
             {mobileNavLinks.map((link) => {
-              const isActive = pathname === link.href;
+              const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
               return (
                 <motion.div key={link.href} variants={itemVariants}>
                   <Link
                     href={link.href}
                     onClick={onClose}
-                    className={`block border-b border-[var(--color-line)] py-2.5 sm:py-3 font-serif text-xl sm:text-2xl transition-colors duration-300 ${
-                      isActive ? "text-[var(--color-accent-ink)]" : "text-[var(--color-ink)]"
-                    }`}
+                    className={`block w-full py-2.5 sm:py-3 font-serif text-xl sm:text-2xl transition-colors duration-300 ${isActive
+                        ? "text-black font-semibold underline underline-offset-8 decoration-1 decoration-black"
+                        : "text-[var(--color-ink)]/60 hover:text-black font-normal"
+                      }`}
                   >
                     {link.label}
                   </Link>
@@ -71,30 +72,38 @@ export default function MobileMenu({ open, onClose, pathname }: MobileMenuProps)
               <Link
                 href={inquireLink.href}
                 onClick={onClose}
-                className={`block border-b border-[var(--color-line)] py-2.5 sm:py-3 font-serif text-xl sm:text-2xl italic transition-colors duration-300 ${
-                  pathname === inquireLink.href
-                    ? "text-[var(--color-accent-ink)]"
-                    : "text-[var(--color-ink)]"
-                }`}
+                className={`block w-full py-2.5 sm:py-3 font-serif text-xl sm:text-2xl italic transition-colors duration-300 ${pathname === inquireLink.href
+                    ? "text-black font-semibold underline underline-offset-8 decoration-1 decoration-black"
+                    : "text-[var(--color-ink)]/60 hover:text-black font-normal"
+                  }`}
               >
                 {inquireLink.label}
               </Link>
             </motion.div>
           </nav>
 
-          <motion.div variants={itemVariants} className="mt-5 sm:mt-6 flex gap-5">
-            {socialLinks.map((social) => (
-              <a
-                key={social.label}
-                href={social.href}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={social.label}
-                className="text-[var(--color-muted)] transition-opacity duration-300 hover:opacity-60"
-              >
-                <SocialIconGlyph icon={social.icon} className="h-[18px] w-[18px]" />
-              </a>
-            ))}
+          {/* Follow Along footer directly after Inquire — no extra border line or boxed gap */}
+          <motion.div
+            variants={itemVariants}
+            className="mt-4 sm:mt-5 flex items-center justify-between"
+          >
+            <span className="text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">
+              Follow Along
+            </span>
+            <div className="flex gap-4 sm:gap-5">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={social.label}
+                  className="text-[var(--color-ink)] transition-opacity duration-300 hover:opacity-60"
+                >
+                  <SocialIconGlyph icon={social.icon} className="h-[18px] w-[18px]" />
+                </a>
+              ))}
+            </div>
           </motion.div>
         </motion.div>
       ) : null}

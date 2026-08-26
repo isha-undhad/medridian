@@ -16,7 +16,7 @@ export default function CtaBanner() {
           <h2 className="max-w-xl font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white leading-tight text-balance">
             Let&apos;s make something worth printing.
           </h2>
-          <p className="max-w-md text-xs sm:text-sm md:text-base text-white/90 text-pretty">
+          <p className="max-w-md text-body text-white/90 text-pretty">
             Available for weddings, portraits, and editorial assignments worldwide.
           </p>
           <LinkButton href="/contact" variant="light" className="mt-2">

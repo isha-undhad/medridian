@@ -29,13 +29,13 @@ export default function ExperienceClosing() {
       {/* Centered Content */}
       <div className="relative z-10 flex flex-col items-center gap-4 sm:gap-5 px-6 text-center max-w-3xl">
         <Reveal variants={fadeUp}>
-          <h2 className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-normal leading-[1.08] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.35)] text-balance">
+          <h2 className="font-serif text-[clamp(1.6rem,7vw,4.5rem)] font-normal leading-[1.1] text-white drop-shadow-[0_2px_10px_rgba(0,0,0,0.35)] whitespace-nowrap">
             Ready to do this?
           </h2>
         </Reveal>
 
         <Reveal variants={fadeUp} delay={0.08}>
-          <p className="max-w-lg text-sm sm:text-base md:text-lg leading-relaxed text-white/95 font-light drop-shadow-[0_1px_4px_rgba(0,0,0,0.3)] text-pretty">
+          <p className="max-w-md text-[11px] sm:text-xs md:text-sm lg:text-base leading-relaxed text-white/90 font-light drop-shadow-[0_1px_4px_rgba(0,0,0,0.3)]">
             I&apos;d love to hear more about your celebration.
             <br />
             Let&apos;s create something beautiful together.
@@ -45,7 +45,7 @@ export default function ExperienceClosing() {
         <Reveal variants={fadeUp} delay={0.16}>
           <Link
             href="/contact"
-            className="mt-3 inline-flex items-center justify-center rounded-full bg-white px-9 py-3 sm:py-3.5 text-xs sm:text-sm font-medium tracking-[0.2em] text-black uppercase transition-all duration-300 hover:bg-black hover:text-white shadow-[0_4px_20px_rgba(0,0,0,0.25)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.45)] cursor-pointer"
+            className="mt-2 sm:mt-3 inline-flex items-center justify-center rounded-full border border-white/60 bg-white/80 px-6 py-2 sm:px-7 sm:py-2.5 text-[11px] sm:text-xs font-medium tracking-[0.2em] text-black/90 uppercase backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-black shadow-sm cursor-pointer min-h-[36px] sm:min-h-[40px]"
           >
             Inquire
           </Link>

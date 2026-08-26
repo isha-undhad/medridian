@@ -14,13 +14,13 @@ export default function Timeline() {
 
   return (
     <div ref={containerRef} className="relative">
-      <div className="absolute left-4 top-0 h-full w-px bg-[var(--color-line)] md:left-1/2 md:-translate-x-1/2" />
+      <div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-[var(--color-line)]" />
       <motion.div
         style={{ scaleY: scrollYProgress }}
-        className="absolute left-4 top-0 h-full w-px origin-top bg-[var(--color-accent)] md:left-1/2 md:-translate-x-1/2"
+        className="absolute left-1/2 top-0 h-full w-px origin-top -translate-x-1/2 bg-[var(--color-accent)]"
       />
 
-      <div className="flex flex-col">
+      <div className="flex flex-col gap-2 sm:gap-4 md:gap-6">
         {timeline.map((milestone, index) => (
           <TimelineItem key={milestone.id} milestone={milestone} index={index} />
         ))}

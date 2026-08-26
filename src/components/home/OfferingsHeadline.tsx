@@ -110,7 +110,7 @@ export default function OfferingsHeadline() {
         </div>
 
         {/* BOTTOM: Small italicized serif tagline */}
-        <p className="text-center font-serif text-base sm:text-lg italic text-[var(--color-muted)] shrink-0 pb-2">
+        <p className="text-center font-serif text-body italic text-[var(--color-muted)] shrink-0 pb-2">
           the art of noticing.
         </p>
       </div>

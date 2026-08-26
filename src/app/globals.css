@@ -26,6 +26,21 @@
   --color-burgundy: var(--color-burgundy);
   --font-sans: var(--font-geist-sans);
   --font-serif: var(--font-playfair);
+  --font-size-heading: clamp(1.35rem, 4.5vw, 2.5rem);
+  --font-size-heading--line-height: 1.2;
+  --font-size-body: 1rem;
+  --font-size-body--line-height: 1.6;
+}
+
+@layer base {
+  h1:not(.sr-only) {
+    font-size: clamp(1.35rem, 4.5vw, 2.5rem);
+    line-height: 1.2;
+  }
+  p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
 }
 
 @font-face {

@@ -56,52 +56,51 @@ const testimonialSlides: TestimonialSlide[] = [
 
 export default function FromTheHeartSlider() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState(1);
+  const [isPaused, setIsPaused] = useState(false);
 
-  // 2-second infinite loop auto transition (1 -> 2 -> 3 -> 4 -> 1 ...)
+  // 5-second relaxed auto-rotation with hover-pause
   useEffect(() => {
+    if (isPaused) return;
     const timer = setInterval(() => {
-      setDirection(1);
       setCurrentIndex((prev) => (prev + 1) % testimonialSlides.length);
-    }, 2000);
+    }, 5000);
 
     return () => clearInterval(timer);
-  }, [currentIndex]);
+  }, [currentIndex, isPaused]);
 
   const handlePrev = () => {
-    setDirection(-1);
     setCurrentIndex((prev) => (prev === 0 ? testimonialSlides.length - 1 : prev - 1));
   };
 
   const handleNext = () => {
-    setDirection(1);
     setCurrentIndex((prev) => (prev + 1) % testimonialSlides.length);
   };
 
   const currentSlide = testimonialSlides[currentIndex];
 
-  // Ultra-smooth slide & crossfade variants with gentle motion curve
+  // Silky-smooth vertical crossfade without horizontal jumps or harsh snaps
   const slideVariants = {
-    enter: (dir: number) => ({
-      x: dir > 0 ? 20 : -20,
+    enter: {
       opacity: 0,
-      scale: 0.98,
-    }),
-    center: {
-      x: 0,
-      opacity: 1,
-      scale: 1,
+      y: 12,
     },
-    exit: (dir: number) => ({
-      x: dir > 0 ? -20 : 20,
+    center: {
+      opacity: 1,
+      y: 0,
+    },
+    exit: {
       opacity: 0,
-      scale: 0.98,
-    }),
+      y: -12,
+    },
   };
 
   return (
-    <Section className="w-full bg-[var(--color-bg)] py-16 md:py-24 border-t border-[var(--color-line)]">
-      <div className="mx-auto max-w-4xl px-6 text-center">
+    <Section className="w-full bg-[var(--color-bg)] py-10 sm:py-14 md:py-16 lg:py-20 border-t border-[var(--color-line)]">
+      <div
+        className="mx-auto max-w-4xl px-6 text-center"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
         {/* Eyebrow */}
         <span className="text-xs font-medium tracking-[0.25em] text-[var(--color-muted)] uppercase">
           From the Heart
@@ -112,9 +111,10 @@ export default function FromTheHeartSlider() {
           {/* Previous Arrow Button (Left) */}
           <button
             type="button"
+            suppressHydrationWarning
             onClick={handlePrev}
             aria-label="Previous quote"
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 text-[var(--color-ink)] transition-all duration-300 hover:scale-125 hover:text-[var(--color-accent-ink)] focus:outline-none cursor-pointer"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2 text-[var(--color-ink)] transition-all duration-300 hover:scale-110 hover:text-[var(--color-accent-ink)] focus:outline-none cursor-pointer"
           >
             <MoveLeft className="h-6 w-10 stroke-[1.2]" />
           </button>
@@ -122,36 +122,36 @@ export default function FromTheHeartSlider() {
           {/* Next Arrow Button (Right) */}
           <button
             type="button"
+            suppressHydrationWarning
             onClick={handleNext}
             aria-label="Next quote"
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 text-[var(--color-ink)] transition-all duration-300 hover:scale-125 hover:text-[var(--color-accent-ink)] focus:outline-none cursor-pointer"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2 text-[var(--color-ink)] transition-all duration-300 hover:scale-110 hover:text-[var(--color-accent-ink)] focus:outline-none cursor-pointer"
           >
             <MoveRight className="h-6 w-10 stroke-[1.2]" />
           </button>
 
           {/* Animated Quote Content */}
           <div className="mx-auto max-w-2xl px-12 sm:px-16 overflow-hidden">
-            <AnimatePresence mode="wait" custom={direction}>
+            <AnimatePresence mode="wait">
               <motion.div
                 key={currentSlide.id}
-                custom={direction}
                 variants={slideVariants}
                 initial="enter"
                 animate="center"
                 exit="exit"
                 transition={{
-                  duration: 0.6,
-                  ease: [0.25, 1, 0.5, 1],
+                  duration: 0.45,
+                  ease: [0.16, 1, 0.3, 1],
                 }}
                 className="flex flex-col items-center text-center"
               >
                 {/* Quote Text */}
-                <p className="font-serif text-2xl leading-snug text-[var(--color-ink)] sm:text-3xl lg:text-4xl text-balance">
+                <p className="font-serif text-body leading-snug text-[var(--color-ink)] text-balance">
                   {currentSlide.quote}
                 </p>
 
                 {/* Author Credit */}
-                <p className="mt-6 text-xs sm:text-sm font-medium tracking-wider text-[var(--color-muted)]">
+                <p className="mt-6 text-body font-medium tracking-wider text-[var(--color-muted)]">
                   — {currentSlide.author}, {currentSlide.role}
                 </p>
 
@@ -176,10 +176,8 @@ export default function FromTheHeartSlider() {
             <button
               key={slide.id}
               type="button"
-              onClick={() => {
-                setDirection(idx > currentIndex ? 1 : -1);
-                setCurrentIndex(idx);
-              }}
+              suppressHydrationWarning
+              onClick={() => setCurrentIndex(idx)}
               aria-label={`Go to slide ${idx + 1}`}
               className={`h-2 rounded-full transition-all duration-500 cursor-pointer ${
                 idx === currentIndex

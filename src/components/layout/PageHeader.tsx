@@ -91,8 +91,8 @@ export default function PageHeader({
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
-          className={`font-serif text-2xl sm:text-4xl md:text-5xl lg:text-6xl leading-[1.1] ${image
-              ? "max-w-[85%] sm:max-w-xl text-white [text-shadow:0_2px_8px_rgba(0,0,0,0.5)]"
+          className={`font-serif text-heading text-balance leading-[1.15] max-w-xl ${image
+              ? "text-white [text-shadow:0_2px_8px_rgba(0,0,0,0.5)]"
               : "text-[var(--color-ink)]"
             }`}
         >
@@ -103,7 +103,7 @@ export default function PageHeader({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.45 }}
-            className={`mt-2.5 sm:mt-5 max-w-[90%] sm:max-w-xl text-xs sm:text-base leading-relaxed ${image
+            className={`mt-2.5 sm:mt-4 max-w-full sm:max-w-xl text-[11px] sm:text-xs md:text-sm lg:text-base leading-relaxed ${image
                 ? "text-white/90 [text-shadow:0_1px_4px_rgba(0,0,0,0.5)]"
                 : "text-[var(--color-ink)]/70"
               }`}

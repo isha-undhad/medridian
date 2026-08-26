@@ -98,7 +98,7 @@ export default function EditorialExperience() {
         subtitle="From quiet preparations to unforgettable celebrations, every photograph is part of a larger story. We believe the experience should feel as intentional, effortless, and meaningful as the images themselves."
       />
 
-      <div className="mt-16 flex flex-col gap-3 sm:gap-4 lg:mt-20 lg:gap-5">
+      <div className="mt-10 sm:mt-12 md:mt-14 lg:mt-16 flex flex-col gap-3 sm:gap-4 lg:gap-5">
         {/* Row 1 — large landscape feature (~55%) beside a nested column:
             two portraits side by side on top, one medium landscape spanning
             underneath them. */}
@@ -181,7 +181,7 @@ export default function EditorialExperience() {
 
       <Reveal
         variants={fadeUp}
-        className="mx-auto mt-14 max-w-xl text-center font-serif text-xl text-[var(--color-ink)] italic lg:mt-16 lg:text-2xl"
+        className="mx-auto mt-8 sm:mt-10 md:mt-12 max-w-lg text-center font-serif text-sm sm:text-base md:text-lg lg:text-xl text-[var(--color-ink)] italic leading-relaxed text-pretty"
       >
         The photographs are only part of the experience. The rest is how it feels.
       </Reveal>

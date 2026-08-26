@@ -20,11 +20,12 @@ export default function ServiceCard({ service, delay = 0 }: ServiceCardProps) {
         className="group flex h-full flex-col overflow-hidden rounded-lg border border-[var(--color-line)] bg-[var(--color-surface)] transition-all duration-300 hover:-translate-y-1.5 hover:border-[var(--color-accent)]/50 hover:shadow-xl"
       >
         {service.image ? (
-          <div className="relative aspect-[16/10] w-full overflow-hidden">
+          <div className="relative aspect-[16/10] w-full overflow-hidden bg-[var(--color-line)]/20">
             <Image
               src={service.image}
               alt={service.title}
               fill
+              priority={delay < 0.1}
               sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
               className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
             />
@@ -32,10 +33,10 @@ export default function ServiceCard({ service, delay = 0 }: ServiceCardProps) {
         ) : null}
         <div className="flex flex-1 flex-col p-4 sm:p-6 md:p-8">
           <h3 className="font-serif text-lg sm:text-xl text-[var(--color-ink)] text-balance">{service.title}</h3>
-          <p className="mt-2 sm:mt-3 flex-1 text-xs sm:text-sm leading-relaxed text-[var(--color-muted)] text-pretty">
+          <p className="mt-2 sm:mt-3 flex-1 text-body leading-relaxed text-[var(--color-muted)] text-pretty">
             {service.description}
           </p>
-          <span className="mt-4 sm:mt-5 inline-flex w-fit items-center gap-1.5 text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[var(--color-accent-ink)] opacity-100 sm:opacity-0 transition-all duration-300 group-hover:opacity-100 min-h-[36px]">
+          <span className="mt-4 sm:mt-5 inline-flex w-fit items-center gap-1.5 text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[var(--color-accent-ink)]">
             Learn more
             <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
           </span>

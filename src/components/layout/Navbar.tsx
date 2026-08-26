@@ -30,10 +30,17 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Lock body scroll while the mobile menu is open.
+  // Lock html and body scroll completely while the mobile menu is open.
   useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
+    if (menuOpen) {
+      document.documentElement.style.overflow = "hidden";
+      document.body.style.overflow = "hidden";
+    } else {
+      document.documentElement.style.overflow = "";
+      document.body.style.overflow = "";
+    }
     return () => {
+      document.documentElement.style.overflow = "";
       document.body.style.overflow = "";
     };
   }, [menuOpen]);

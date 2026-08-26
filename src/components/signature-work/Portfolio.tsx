@@ -122,7 +122,7 @@ export default function Portfolio() {
       ) : null}
 
       {images ? (
-        <div className="mx-auto mt-12 grid max-w-6xl grid-cols-3 gap-4">
+        <div className="mx-auto mt-12 grid max-w-6xl grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
           {images.map((image) => (
             <div key={image.src} className="relative aspect-[4/5] w-full overflow-hidden">
               <Image

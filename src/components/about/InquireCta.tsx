@@ -1,3 +1,4 @@
+
 import Image from "next/image";
 import Reveal from "@/components/ui/Reveal";
 import { LinkButton } from "@/components/ui/Button";
@@ -49,12 +50,16 @@ export default function InquireCta({
           </h2>
         </Reveal>
         <Reveal variants={fadeUp} delay={0.15}>
-          <p className="max-w-md text-xs sm:text-sm md:text-base leading-relaxed text-white/90 text-pretty">
+          <p className="max-w-md text-xs sm:text-sm lg:text-body leading-relaxed text-white/90 text-pretty">
             {subtitle}
           </p>
         </Reveal>
         <Reveal variants={fadeUp} delay={0.22}>
-          <LinkButton href={ctaLink} variant="light" className="mt-2 sm:mt-3">
+          <LinkButton
+            href={ctaLink}
+            variant="light"
+            className="mt-2 sm:mt-3 !px-4 !py-2 sm:!px-6 sm:!py-2.5 !text-[11px] sm:!text-xs md:!text-sm !min-h-[36px] sm:!min-h-[42px] tracking-[0.15em] uppercase font-medium"
+          >
             {ctaText}
           </LinkButton>
         </Reveal>

@@ -147,7 +147,7 @@ export default function PrivacyPolicyModal({
                   >
                     {privacyPolicyData.title}
                   </h2>
-                  <p className="text-[11px] sm:text-xs text-[var(--color-muted)] mt-0.5 sm:mt-1">
+                  <p className="text-body text-[var(--color-muted)] mt-0.5 sm:mt-1">
                     Last updated: {privacyPolicyData.lastUpdated} • Effective: {privacyPolicyData.effectiveDate}
                   </p>
                 </div>
@@ -169,13 +169,10 @@ export default function PrivacyPolicyModal({
             {acceptedDate ? (
               <div className="flex items-center gap-2.5 bg-emerald-500/10 px-5 sm:px-8 py-2.5 text-xs text-emerald-800 border-b border-emerald-500/20">
                 <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
-                <span>
-                  <strong>Accepted:</strong> You previously accepted this policy on{" "}
-                  <span className="font-semibold">{acceptedDate}</span>.
-                </span>
+                <span>You accepted this privacy policy on <strong>{acceptedDate}</strong>.</span>
               </div>
             ) : (
-              <div className="flex items-center justify-between gap-2.5 bg-[var(--color-accent)]/10 px-5 sm:px-8 py-2.5 text-xs text-[var(--color-accent-ink)] border-b border-[var(--color-accent)]/20">
+              <div className="flex items-center justify-between gap-2 bg-amber-500/10 px-5 sm:px-8 py-2 text-xs text-amber-900 border-b border-amber-500/20">
                 <div className="flex items-center gap-2">
                   <AlertCircle className="h-4 w-4 text-[var(--color-accent)] shrink-0" />
                   <span>Please review our studio privacy terms and accept below to proceed.</span>
@@ -194,10 +191,10 @@ export default function PrivacyPolicyModal({
             {/* Scrollable Policy Content */}
             <div
               ref={scrollContainerRef}
-              className="flex-1 overflow-y-auto px-5 sm:px-8 py-5 sm:py-6 space-y-6 text-xs sm:text-sm text-[var(--color-body)] leading-relaxed scrollbar-thin scrollbar-thumb-[var(--color-line)]"
+              className="flex-1 overflow-y-auto px-5 sm:px-8 py-5 sm:py-6 space-y-6 text-body text-[var(--color-body)] leading-relaxed scrollbar-thin scrollbar-thumb-[var(--color-line)]"
             >
               {/* Introduction */}
-              <p className="text-xs sm:text-base font-light italic text-[var(--color-ink)] border-l-2 border-[var(--color-accent)] pl-3 sm:pl-4 py-1">
+              <p className="text-body font-light italic text-[var(--color-ink)] border-l-2 border-[var(--color-accent)] pl-3 sm:pl-4 py-1">
                 &ldquo;{privacyPolicyData.subtitle}&rdquo;
               </p>
 
@@ -218,7 +215,7 @@ export default function PrivacyPolicyModal({
                           {item.title}
                         </span>
                       </div>
-                      <p className="text-[11px] sm:text-xs text-[var(--color-muted)] leading-relaxed">
+                      <p className="text-body text-[var(--color-muted)] leading-relaxed">
                         {item.description}
                       </p>
                     </div>
@@ -244,7 +241,7 @@ export default function PrivacyPolicyModal({
                     </div>
 
                     {section.content.map((paragraph, idx) => (
-                      <p key={idx} className="text-xs sm:text-sm text-[var(--color-body)] leading-relaxed">
+                      <p key={idx} className="text-body text-[var(--color-body)] leading-relaxed">
                         {paragraph}
                       </p>
                     ))}
@@ -352,8 +349,8 @@ export default function PrivacyPolicyModal({
                     <Check className="h-4 w-4" />
                   </div>
                   <div>
-                    <p className="text-xs font-semibold">Privacy Policy Accepted</p>
-                    <p className="text-[11px] text-emerald-200">
+                    <p className="text-body font-semibold">Privacy Policy Accepted</p>
+                    <p className="text-body text-emerald-200">
                       Your preferences have been saved. Thank you!
                     </p>
                   </div>

@@ -37,10 +37,10 @@ export default function BlogCard({ post, delay = 0 }: BlogCardProps) {
           <h3 className="font-serif text-lg sm:text-xl text-[var(--color-ink)] text-balance transition-colors duration-300 group-hover:text-[var(--color-accent-ink)]">
             {post.title}
           </h3>
-          <p className="mt-2.5 flex-1 text-xs sm:text-sm leading-relaxed text-[var(--color-muted)] text-pretty line-clamp-3">
+          <p className="mt-2.5 flex-1 text-body leading-relaxed text-[var(--color-muted)] text-pretty line-clamp-3">
             {post.excerpt}
           </p>
-          <span className="mt-4 sm:mt-5 inline-flex w-fit items-center gap-1.5 text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[var(--color-accent-ink)] opacity-100 sm:opacity-0 transition-all duration-300 group-hover:opacity-100 min-h-[32px]">
+          <span className="mt-4 sm:mt-5 inline-flex w-fit items-center gap-1.5 text-[10px] sm:text-xs uppercase tracking-[0.2em] text-[var(--color-accent-ink)]">
             Read Article
             <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
           </span>

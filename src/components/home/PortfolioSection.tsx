@@ -87,7 +87,7 @@ export default function PortfolioSection({
         ) : null}
 
         {/* Responsive grid: 1 col on mobile, 2 cols on tablet, 3 cols on desktop */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 md:gap-4 lg:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
           {items.slice(0, 3).map((item) => {
             const lines = item.hoverText
               ? Array.isArray(item.hoverText)

@@ -28,5 +28,5 @@ type SectionProps = {
  * design, with no padding of their own, and stay that way.
  */
 export default function Section({ as: Tag = "section", id, className, children }: SectionProps) {
-  return <Tag id={id} className={cn("py-10 sm:py-14 md:py-18 lg:py-24", className)}>{children}</Tag>;
+  return <Tag id={id} className={cn("py-10 sm:py-14 md:py-16 lg:py-20", className)}>{children}</Tag>;
 }

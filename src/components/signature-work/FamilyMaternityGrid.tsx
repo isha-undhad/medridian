@@ -45,7 +45,7 @@ const FAMILY_PORTRAITS: FamilyPortrait[] = [
 
 export default function FamilyMaternityGrid() {
   return (
-    <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 sm:gap-8 lg:gap-10">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6">
       {FAMILY_PORTRAITS.map((portrait, index) => (
         <Reveal key={portrait.name} variants={fadeUp} delay={index * 0.08}>
           <figure className="group flex flex-col cursor-pointer">

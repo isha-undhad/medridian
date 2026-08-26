@@ -52,18 +52,19 @@ export default function BlogPostView({ post }: { post: BlogPost }) {
         </div>
 
         {/* Title beside image on top */}
-        <h1 className="font-serif text-3xl sm:text-4xl lg:text-[2.65rem] leading-[1.14] text-[var(--color-ink)] mb-4 md:pt-1">
+        <h1 className="font-serif text-heading text-balance leading-[1.14] text-[var(--color-ink)] mb-4 md:pt-1">
           {post.title}
         </h1>
 
         {/* Body Text: Flows to the right of image and wraps continuously underneath from the left */}
-        <div className="text-base sm:text-[16px] leading-[1.8] sm:leading-[1.85] text-[var(--color-body)] space-y-4">
+        <div className="leading-[1.8] sm:leading-[1.85] text-[var(--color-body)] space-y-4">
           {!isExpanded ? (
-            <p>
+            <p className="text-body">
               {firstParagraph}
               {remainingParagraphs.length > 0 && (
                 <button
                   type="button"
+                  suppressHydrationWarning
                   onClick={() => setIsExpanded(true)}
                   className="ml-2 inline font-sans text-[10px] sm:text-[11px] font-semibold tracking-[0.22em] uppercase text-[var(--color-accent-ink)] underline underline-offset-4 cursor-pointer hover:opacity-70 transition-opacity select-none"
                 >
@@ -76,11 +77,12 @@ export default function BlogPostView({ post }: { post: BlogPost }) {
               {post.content.map((paragraph, index) => {
                 const isLast = index === post.content.length - 1;
                 return (
-                  <p key={index}>
+                  <p key={index} className="text-body">
                     {paragraph}
                     {isLast && (
                       <button
                         type="button"
+                        suppressHydrationWarning
                         onClick={() => setIsExpanded(false)}
                         className="ml-2 inline font-sans text-[10px] sm:text-[11px] font-semibold tracking-[0.22em] uppercase text-[var(--color-accent-ink)] underline underline-offset-4 cursor-pointer hover:opacity-70 transition-opacity select-none"
                       >
