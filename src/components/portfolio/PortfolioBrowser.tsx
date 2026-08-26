@@ -73,8 +73,8 @@ export default function PortfolioBrowser() {
       {/* Infinity slider (PhotoMarquee) and editorial caption line below */}
       {!isEngagements && !isFamilyMaternity ? (
         <div className="w-full">
-          <PhotoMarquee className="my-0 md:my-0" />
-          <div className="w-full bg-[var(--color-bg)] px-4 py-3.5 text-center sm:py-5">
+          <PhotoMarquee className="my-0" />
+          <div className="w-full bg-[var(--color-bg)] px-4 py-3 text-center sm:py-4">
             <p className="mx-auto max-w-4xl font-serif text-body font-light tracking-wide sm:tracking-wider text-[var(--color-body)]/85 leading-relaxed whitespace-normal sm:whitespace-nowrap">
               <span className="sm:hidden">
                 Based in California, photographing modern weddings worldwide.

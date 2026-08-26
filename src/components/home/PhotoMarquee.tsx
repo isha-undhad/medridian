@@ -62,7 +62,6 @@ const defaultImages: MarqueeImage[] = [
   { src: "/home/autoslider/2.jpeg", alt: "Wedding guests cheering and clapping at the reception table", category: "candid" },
   { src: "/home/autoslider/3.jpg", alt: "Bride and groom walking the grounds of a stone castle, viewed from behind", category: "venue" },
   { src: "/home/autoslider/4.jpg", alt: "Bride and groom holding hands walking through a grand hall past a green velvet curtain", category: "portrait" },
-  { src: "/home/autoslider/5.jpeg", alt: "Bride and groom pausing by a tall arched window in a gilded room", category: "portrait" },
   { src: "/home/autoslider/6.jpg", alt: "Reception table setting with pink garden roses, candlelight, and place settings", category: "detail" },
   { src: "/home/autoslider/7.jpg", alt: "Bride and groom embracing at golden hour with sunlight breaking through the trees", category: "ceremony" },
   { src: "/home/autoslider/8.jpeg", alt: "Wedding party laughing and running together across the lawn, one guest piggybacking", category: "candid" },
@@ -287,11 +286,8 @@ export default function PhotoMarquee({
   };
 
   return (
-    // my-* (not py-*) on purpose — the brief wants visible separation from
-    // the sections above and below without adding padding *inside* this section, since
-    // the strip itself must stay full-bleed with nothing but the track in it.
     <section
-      className={cn("relative my-10 sm:my-14 md:my-16 lg:my-20 w-full overflow-x-hidden", className)}
+      className={cn("relative w-full overflow-x-hidden", className)}
       onKeyDown={handleKeyDown}
     >
       <div
