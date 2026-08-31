@@ -6,8 +6,8 @@ import ExperienceClosing from "@/components/experience/ExperienceClosing";
 import InstagramFollow from "@/components/home/InstagramFollow";
 
 export const metadata: Metadata = {
-  title: "Experience — Meridian Studio",
-  description: "The story of Meridian Studio, from a single camera bag to a small collaborative studio.",
+  title: "Experience — Dream Stories",
+  description: "The story of Dream Stories, from a single camera bag to a small collaborative studio.",
 };
 
 export default function ExperiencePage() {

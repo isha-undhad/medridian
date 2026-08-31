@@ -13,14 +13,14 @@ export type Award = {
   organization: string;
 };
 
-/** Placeholder profile for Meridian's founder/lead photographer — swap for
+/** Placeholder profile for Dream Stories's founder/lead photographer — swap for
  * her real bio, portrait, and accolades when ready. */
 export const photographer = {
   name: "Ava Bennett",
   role: "Lead Photographer & Founder",
   portraitTone: "sand" as Tone,
   bio: [
-    "Ava started Meridian in 2014 with a single camera bag and a background in documentary photojournalism — a discipline that still shapes every frame she shoots today.",
+    "Ava started Dream Stories in 2014 with a single camera bag and a background in documentary photojournalism — a discipline that still shapes every frame she shoots today.",
     "She works almost entirely in natural and available light, favoring quiet, unscripted moments over posed formality. Her work has taken her from vineyard weddings in Napa to elopements on the Amalfi Coast.",
     "When she isn't shooting, she's usually in the darkroom, hand-processing film for the studio's fine-art print archive.",
   ],
@@ -76,6 +76,6 @@ export const awards: Award[] = [
     id: "aw4",
     year: "2018",
     title: "Rising Talent in Wedding Photography",
-    organization: "Meridian Region Bridal Awards",
+    organization: "Dream Stories Region Bridal Awards",
   },
 ];

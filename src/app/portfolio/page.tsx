@@ -5,8 +5,8 @@ import PortfolioBrowser from "@/components/portfolio/PortfolioBrowser";
 import InstagramFollow from "@/components/home/InstagramFollow";
 
 export const metadata: Metadata = {
-  title: "Portfolio — Meridian Studio",
-  description: "Weddings, portraits, editorial, and travel work from Meridian Studio.",
+  title: "Portfolio — Dream Stories",
+  description: "Weddings, portraits, editorial, and travel work from Dream Stories.",
 };
 
 export default function PortfolioPage() {

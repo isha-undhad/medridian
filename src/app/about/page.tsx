@@ -7,8 +7,8 @@ import InquireCta from "@/components/about/InquireCta";
 import InstagramFollow from "@/components/home/InstagramFollow";
 
 export const metadata: Metadata = {
-  title: "About — Meridian Studio",
-  description: "Meet Ava Bennett, the photographer and founder behind Meridian Studio.",
+  title: "About — Dream Stories",
+  description: "Meet Ava Bennett, the photographer and founder behind Dream Stories.",
 };
 
 export default function AboutPage() {
@@ -16,7 +16,7 @@ export default function AboutPage() {
     <>
       <PageHeader
         eyebrow="About"
-        title="The Eye Behind Meridian"
+        title="The Eye Behind Dream Stories"
         description="Photographer, founder, and the person behind every frame."
         tone="clay"
         image="/home/about2.jpeg"

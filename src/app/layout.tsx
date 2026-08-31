@@ -4,6 +4,7 @@ import { MotionConfig } from "framer-motion";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import TextMarquee from "@/components/home/TextMarquee";
+import CookieConsent from "@/components/ui/CookieConsent";
 import { brand } from "@/data/nav";
 import "./globals.css";
 
@@ -50,6 +51,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <main className="flex-1 w-full">{children}</main>
           <TextMarquee />
           <Footer />
+          <CookieConsent />
         </MotionConfig>
       </body>
     </html>

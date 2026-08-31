@@ -20,7 +20,7 @@ export async function generateMetadata({ params }: BlogPostPageProps): Promise<M
   if (!post) return {};
 
   return {
-    title: `${post.title} — Meridian Studio`,
+    title: `${post.title} — Dream Stories`,
     description: post.excerpt,
   };
 }

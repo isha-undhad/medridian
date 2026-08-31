@@ -27,10 +27,10 @@ export default function OurJourney() {
             OUR JOURNEY
           </span>
           <h2 className="font-serif text-[clamp(1.15rem,4.8vw,2.75rem)] leading-[1.15] text-[var(--color-ink)] whitespace-nowrap">
-            The Meridian Timeline
+            The Dream Stories Timeline
           </h2>
           <span className="mt-0.5 text-[10px] sm:text-xs tracking-[0.25em] text-[var(--color-muted)] uppercase">
-            Meridian Studio, Est. 2014
+            Dream Stories, Est. 2014
           </span>
         </Reveal>
 

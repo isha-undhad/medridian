@@ -23,13 +23,13 @@ export const mobileNavLinks: NavLink[] = [...headerPrimaryNav, ...headerUtilityN
 export const inquireLink: NavLink = { label: "Inquire", href: "/contact" };
 
 export const brand = {
-  name: "Meridian Studio",
-  short: "Meridian",
+  name: "Dream Stories",
+  short: "Dream Stories",
   tagline:
-    "Meridian is a San Francisco-based destination wedding photography studio documenting celebrations filled with romance and grandeur, at home and around the world.",
+    "Dream Stories is a Surat, India-based destination wedding photography studio documenting celebrations filled with romance and grandeur, at home and around the world.",
   email: "hello@meridianstudio.com",
   phone: "+1 (415) 555-0142",
-  location: "San Francisco, CA — available worldwide",
+  location: "Surat, India — available worldwide",
 };
 
 export type SocialIcon = "facebook" | "instagram" | "pinterest";
@@ -56,9 +56,3 @@ export const footerExploreColumnB: NavLink[] = [
   { label: "Testimonials", href: "#" },
 ];
 
-/** Footer "Galleries" column — links directly to portfolio category tabs with anchor scroll. */
-export const footerGalleries: NavLink[] = [
-  { label: "Weddings", href: "/portfolio?category=Weddings#portfolio-browser" },
-  { label: "Engagements", href: "/portfolio?category=Engagements#portfolio-browser" },
-  { label: "Family & Maternity", href: "/portfolio?category=Family%20%26%20Maternity#portfolio-browser" },
-];

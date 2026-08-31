@@ -9,7 +9,7 @@ const defaultPhrases = [
   { text: "RESERVE YOUR DATE", href: "/contact", external: false },
   { text: "INQUIRE FOR 2026-2027", href: "/contact", external: false },
   { text: "DOCUMENTARY & EDITORIAL", href: "/portfolio", external: false },
-  { text: "CALIFORNIA & WORLDWIDE", href: "/about", external: false },
+  { text: "SURAT, INDIA & WORLDWIDE", href: "/about", external: false },
   { text: "LET'S CREATE SOMETHING TIMELESS", href: "/contact", external: false },
 ];
 

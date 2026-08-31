@@ -5,7 +5,7 @@ import InquireFaqSection from "@/components/contact/InquireFaqSection";
 import InstagramFollow from "@/components/home/InstagramFollow";
 
 export const metadata: Metadata = {
-  title: "Contact — Meridian Studio",
+  title: "Contact — Dream Stories",
   description: "Get in touch about weddings, portraits, and editorial commissions.",
 };
 

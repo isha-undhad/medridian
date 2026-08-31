@@ -1,4 +1,4 @@
-# Project Documentation — Meridian Studio Website
+# Project Documentation — Dream Stories Website
 
 > **Purpose of this document:** a complete snapshot of the site as it exists today (a fully static, hardcoded-content Next.js site), written so a future migration to a dynamic stack (database, CMS, API, auth) can be scoped and executed without re-discovering the codebase from scratch. Wherever content currently lives in a TypeScript file instead of a database, this doc calls it out explicitly.
 
@@ -8,7 +8,7 @@ Last generated: **2026-08-26**, against commit `53af984` on `main`.
 
 ## 1. Project Overview
 
-**What it is:** the marketing/portfolio website for **Meridian Studio**, a fictional/placeholder San Francisco-based destination wedding photography studio (see [src/data/nav.ts](src/data/nav.ts) — `brand`). It's a fine-art photography brand site: hero imagery, portfolio galleries, services, an "about the photographer" story, a journal/blog, and a contact/inquiry form.
+**What it is:** the marketing/portfolio website for **Dream Stories**, a fictional/placeholder Surat, India-based destination wedding photography studio (see [src/data/nav.ts](src/data/nav.ts) — `brand`). It's a fine-art photography brand site: hero imagery, portfolio galleries, services, an "about the photographer" story, a journal/blog, and a contact/inquiry form.
 
 **Target audience:** prospective wedding/portrait/editorial clients browsing the studio's work and submitting an inquiry; secondarily, real-estate for the studio's brand/editorial presence (Instagram cross-promotion, journal content for SEO).
 

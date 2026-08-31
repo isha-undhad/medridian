@@ -6,7 +6,7 @@ import FromTheHeartSlider from "@/components/blog/FromTheHeartSlider";
 import InstagramFollow from "@/components/home/InstagramFollow";
 
 export const metadata: Metadata = {
-  title: "Journal — Meridian Studio",
+  title: "Journal — Dream Stories",
   description: "Notes on technique, craft, and stories from behind the camera.",
 };
 

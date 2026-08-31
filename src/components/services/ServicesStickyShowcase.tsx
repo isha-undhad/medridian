@@ -144,7 +144,7 @@ export default function ServicesStickyShowcase() {
         {/* Header */}
         <div className="absolute top-8 sm:top-12 z-0 text-center">
           <span className="text-[10px] sm:text-xs font-medium tracking-[0.3em] text-white/70 uppercase">
-            Meridian Services
+            Dream Stories Services
           </span>
         </div>
 

@@ -94,7 +94,7 @@ export default function Navbar() {
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-5 sm:px-10">
           <Link
             href="/"
-            aria-label="Meridian — Home"
+            aria-label="Dream Stories — Home"
             className={`transition-colors duration-300 hover:opacity-70 ${logoTextClass}`}
           >
             <Logo variant="full" />

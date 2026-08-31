@@ -23,7 +23,7 @@ export const timeline: TimelineMilestone[] = [
     year: "2014",
     title: "A studio of one",
     description:
-      "Meridian began as a single camera bag and a handful of wedding bookings, shot on borrowed weekends.",
+      "Dream Stories began as a single camera bag and a handful of wedding bookings, shot on borrowed weekends.",
     image: "/Experience/2.jpg",
     imageAlt: "Bride and groom embracing under a flowing veil against a sunlit building facade, in black and white",
     tone: "mono",
@@ -60,7 +60,7 @@ export const timeline: TimelineMilestone[] = [
     year: "2023",
     title: "A second photographer joins",
     description:
-      "Meridian grew from a solo practice into a small collaborative studio, without changing how a shoot is run.",
+      "Dream Stories grew from a solo practice into a small collaborative studio, without changing how a shoot is run.",
     image: "/Experience/3.jpg",
     imageAlt: "Bride and groom feeding a giraffe together on a wedding day, a candid documentary moment",
     tone: "color",

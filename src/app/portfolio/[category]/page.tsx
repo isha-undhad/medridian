@@ -23,8 +23,8 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
   if (!content) return {};
 
   return {
-    title: `${content.label} — Meridian Studio`,
-    description: `${content.label} photography from Meridian Studio.`,
+    title: `${content.label} — Dream Stories`,
+    description: `${content.label} photography from Dream Stories.`,
   };
 }
 

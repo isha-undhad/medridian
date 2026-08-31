@@ -7,7 +7,7 @@ import { MonogramBadge, LogoWordmark } from "@/components/ui/Logo";
 import { SocialIconGlyph } from "@/components/ui/SocialIcons";
 import PrivacyPolicyModal from "@/components/ui/PrivacyPolicyModal";
 import { usePrivacyConsent } from "@/lib/usePrivacyConsent";
-import { brand, footerExploreColumnA, footerGalleries, socialLinks } from "@/data/nav";
+import { brand, footerExploreColumnA, socialLinks } from "@/data/nav";
 
 const columnHeadingClasses = "text-xs font-semibold uppercase tracking-[0.2em] text-black";
 const ruleClasses = "mt-3 mb-5 block h-px w-8 bg-[var(--color-line)]";
@@ -39,14 +39,14 @@ export default function Footer() {
       </div>
 
       <div className="mx-auto max-w-7xl px-6 sm:px-10 pt-12 sm:pt-16 md:pt-18 pb-8 sm:pb-10 md:pb-12">
-        <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:flex lg:justify-between lg:gap-10">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-8 lg:gap-12">
           {/* Brand */}
-          <div className="lg:max-w-[280px]">
+          <div className="md:col-span-5 lg:col-span-5">
             <LogoWordmark className="text-xl sm:text-2xl text-[var(--color-ink)]">
               {brand.short.toUpperCase()}
             </LogoWordmark>
             <span aria-hidden className={ruleClasses} />
-            <p className="text-body leading-relaxed text-[var(--color-muted)]">{brand.tagline}</p>
+            <p className="text-body leading-relaxed text-[var(--color-muted)] max-w-md">{brand.tagline}</p>
             <div className="mt-5 sm:mt-6 flex gap-4">
               {socialLinks.map((social) => (
                 <a
@@ -64,7 +64,7 @@ export default function Footer() {
           </div>
 
           {/* Explore */}
-          <div>
+          <div className="md:col-span-3 lg:col-span-3 md:pl-4 lg:pl-8">
             <span className={columnHeadingClasses}>Explore</span>
             <span aria-hidden className={ruleClasses} />
             <nav className="flex flex-col items-start gap-1.5" aria-label="Explore">
@@ -76,21 +76,8 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Galleries */}
-          <div>
-            <span className={columnHeadingClasses}>Galleries</span>
-            <span aria-hidden className={ruleClasses} />
-            <nav className="flex flex-col items-start gap-1.5" aria-label="Galleries">
-              {footerGalleries.map((link) => (
-                <NavLink key={link.label} href={link.href} className={footerLinkClasses}>
-                  {link.label}
-                </NavLink>
-              ))}
-            </nav>
-          </div>
-
           {/* Stay in the loop */}
-          <div className="lg:max-w-[280px] w-full">
+          <div className="md:col-span-4 lg:col-span-4 w-full">
             <span className={columnHeadingClasses}>Stay in the Loop</span>
             <span aria-hidden className={ruleClasses} />
             <p className="text-body leading-relaxed text-[var(--color-muted)]">

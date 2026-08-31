@@ -78,7 +78,7 @@ export default function HeroSlider() {
       </div>
 
       {/* Visually hidden h1 for accessibility */}
-      <h1 className="sr-only">Meridian Studio — Timeless Wedding Photography</h1>
+      <h1 className="sr-only">Dream Stories — Timeless Wedding Photography</h1>
 
       <SliderControls current={current} total={total} onPrev={prev} onNext={next} />
     </section>

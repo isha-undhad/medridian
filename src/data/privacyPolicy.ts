@@ -49,7 +49,7 @@ export const privacyPolicyData: PrivacyPolicyData = {
       title: "1. Information We Collect",
       badge: "Collection",
       content: [
-        "Meridian Studio collects information necessary to deliver bespoke photography, videography, and creative consultation services.",
+        "Dream Stories collects information necessary to deliver bespoke photography, videography, and creative consultation services.",
         "We collect personal and event data through our website inquiry forms, direct email/phone communications, and client questionnaires, including:",
       ],
       bulletPoints: [
@@ -143,7 +143,7 @@ export const privacyPolicyData: PrivacyPolicyData = {
       bulletPoints: [
         "Studio Email: hello@meridianstudio.com",
         "Direct Phone: +1 (415) 555-0142",
-        "Location: San Francisco, California — Available Worldwide",
+        "Location: Surat, India — Available Worldwide",
       ],
     },
   ],

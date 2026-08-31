@@ -77,10 +77,10 @@ export default function PortfolioBrowser() {
           <div className="w-full bg-[var(--color-bg)] px-4 py-3 text-center sm:py-4">
             <p className="mx-auto max-w-4xl font-serif text-body font-light tracking-wide sm:tracking-wider text-[var(--color-body)]/85 leading-relaxed whitespace-normal sm:whitespace-nowrap">
               <span className="sm:hidden">
-                Based in California, photographing modern weddings worldwide.
+                Based in Surat, India, photographing modern weddings worldwide.
               </span>
               <span className="hidden sm:inline">
-                Based in California, photographing modern, heartfelt weddings across the US and Europe.
+                Based in Surat, India, photographing modern, heartfelt weddings across India and worldwide.
               </span>
             </p>
           </div>

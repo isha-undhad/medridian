@@ -64,7 +64,7 @@ function EditorialTile({ src, alt, grow, mobileHeight, delay = 0, imageClassName
 
 /**
  * Asymmetric editorial photo composition for the Experience page — sits
- * between the Meridian Timeline and the Instagram section.
+ * between the Dream Stories Timeline and the Instagram section.
  *
  * Deliberately wider than the rest of the page's content sections: this
  * <Section> uses max-w-[1400px] instead of the site's usual max-w-6xl
@@ -93,7 +93,7 @@ export default function EditorialExperience() {
     // "required spacing around Instagram" gap.
     <Section className="mx-auto max-w-7xl px-6 pt-0 sm:px-10 md:pt-0 lg:pt-0">
       <SectionHeading
-        eyebrow="The Meridian Experience"
+        eyebrow="The Dream Stories Experience"
         title="A collection of moments, thoughtfully preserved."
         subtitle="From quiet preparations to unforgettable celebrations, every photograph is part of a larger story. We believe the experience should feel as intentional, effortless, and meaningful as the images themselves."
       />

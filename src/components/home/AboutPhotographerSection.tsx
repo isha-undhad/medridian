@@ -45,7 +45,7 @@ export interface AboutPhotographerSectionProps {
 
 export default function AboutPhotographerSection({
   photographerImage = "/home/photographer.jpg",
-  photographerImageAlt = "Ava Bennett, lead photographer at Meridian Studio",
+  photographerImageAlt = "Ava Bennett, lead photographer at Dream Stories",
   secondaryImage = "/home/insta2.jpg",
   imagePosition = "center",
   eyebrowText = "Behind the Lens",

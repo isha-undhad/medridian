@@ -16,7 +16,7 @@ export interface InquireCtaProps {
 }
 
 export default function InquireCta({
-  eyebrow = "MERIDIAN STUDIO",
+  eyebrow = "DREAM STORIES",
   heading = "The Story Continues",
   subtitle = "Every chapter leads to another story worth remembering.",
   ctaText = "Inquire",

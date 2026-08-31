@@ -6,7 +6,7 @@ type LogoProps = {
 };
 
 /** Circular monogram badge — a thin bordered circle with a centered serif
- * capital "M". Exported (not just used internally by `Logo`) so Footer.tsx
+ * capital "D". Exported (not just used internally by `Logo`) so Footer.tsx
  * can render its own standalone floating badge from this same shape/style
  * instead of duplicating the markup — the one thing Footer.tsx still adds
  * itself is a solid background fill (`bg-[var(--color-bg)]`, via the
@@ -22,12 +22,12 @@ type LogoProps = {
 export function MonogramBadge({ className = "" }: { className?: string }) {
   return (
     <span className={`flex items-center justify-center rounded-full border border-current ${className}`}>
-      <span className="font-serif leading-none">M</span>
+      <span className="font-serif leading-none">D</span>
     </span>
   );
 }
 
-/** The "MERIDIAN" wordmark's typography — font-serif + tracking-wide, same
+/** The "DREAM STORIES" wordmark's typography — font-serif + tracking-wide, same
  * as Footer.tsx's Brand-column wordmark. Takes `children` rather than
  * hardcoding the text so Footer.tsx can keep driving it from `brand.short`
  * (the data/nav.ts source of truth) while still sharing this styling. */
@@ -45,5 +45,5 @@ export function Logo({ variant = "full", className = "" }: LogoProps) {
   // height; same font/tracking either way. `className` (color, hover,
   // transition) lands directly on this span since there's no wrapper to
   // put it on anymore.
-  return <LogoWordmark className={`text-lg ${className}`}>MERIDIAN</LogoWordmark>;
+  return <LogoWordmark className={`text-lg ${className}`}>DREAM STORIES</LogoWordmark>;
 }

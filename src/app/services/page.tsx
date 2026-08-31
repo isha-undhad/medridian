@@ -7,7 +7,7 @@ import HowItWorksSection from "@/components/experience/HowItWorksSection";
 import InstagramFollow from "@/components/home/InstagramFollow";
 
 export const metadata: Metadata = {
-  title: "Services — Meridian Studio",
+  title: "Services — Dream Stories",
   description: "Wedding, portrait, editorial, travel, and fine-art print services.",
 };
 
@@ -27,7 +27,7 @@ export default function ServicesPage() {
       </Section>
 
       <InquireCta
-        eyebrow="MERIDIAN STUDIO"
+        eyebrow="DREAM STORIES"
         heading="Tailored to Your Vision"
         subtitle="From quiet, intimate moments to grand celebrations — let's curate the perfect coverage for your story."
         ctaText="Start a Conversation"
