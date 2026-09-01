@@ -5,7 +5,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 
 const defaultPhrases = [
-  { text: "FOLLOW ALONG ON INSTAGRAM", href: "https://instagram.com/meridianphotography", external: true },
+  { text: "FOLLOW ALONG ON INSTAGRAM", href: "https://www.instagram.com/the_dream_stories_", external: true },
   { text: "RESERVE YOUR DATE", href: "/contact", external: false },
   { text: "INQUIRE FOR 2026-2027", href: "/contact", external: false },
   { text: "DOCUMENTARY & EDITORIAL", href: "/portfolio", external: false },

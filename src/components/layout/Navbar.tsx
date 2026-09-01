@@ -95,9 +95,13 @@ export default function Navbar() {
           <Link
             href="/"
             aria-label="Dream Stories — Home"
-            className={`transition-colors duration-300 hover:opacity-70 ${logoTextClass}`}
+            className="flex items-center transition-opacity duration-300 hover:opacity-75"
           >
-            <Logo variant="full" />
+            <Logo
+              variant="full"
+              tone={solid ? "dark" : "light"}
+              priority
+            />
           </Link>
 
           <nav className="hidden items-center gap-4 md:flex lg:gap-6" aria-label="Primary">

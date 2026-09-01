@@ -3,13 +3,11 @@ import { SocialIconGlyph } from "@/components/ui/SocialIcons";
 import Section from "@/components/ui/Section";
 import { cn } from "@/lib/utils";
 
-// Single source of truth for both the handle text and the profile link, per
-// the brief — update here once a real account exists.
-const INSTAGRAM_HANDLE = "meridianphotography";
-const INSTAGRAM_URL = `https://instagram.com/${INSTAGRAM_HANDLE}`;
+// Single source of truth for both the handle text and the profile link
+const INSTAGRAM_HANDLE = "the_dream_stories_";
+const INSTAGRAM_URL = "https://www.instagram.com/the_dream_stories_";
 
-/** Placeholder feed — real photos in /public/home, standing in for an actual
- * Instagram feed pull until one is wired up. */
+/** Real wedding photos from /public/home */
 const instagramImages = [
   "/home/insta1.jpg",
   "/home/insta2.jpg",
@@ -17,8 +15,6 @@ const instagramImages = [
   "/home/insta4.jpg",
 ];
 
-// Parallel to instagramImages (same index order) — kept separate since the
-// array above intentionally stays a plain string[].
 const instagramImageAlts = [
   "Bride in a strapless gown holding a bouquet amid tropical palm leaves",
   "Couple laughing together in a vintage red convertible parked by the coast",
@@ -27,11 +23,6 @@ const instagramImageAlts = [
 ];
 
 type InstagramFollowProps = {
-  /** Extra classes merged onto the default `bg-white text-center` (via
-   * tailwind-merge, so e.g. `pt-0 md:pt-0 lg:pt-0` cleanly cancels the
-   * shared <Section>'s top padding). Use when the section right above this
-   * one already ends in its own bottom padding, so the two don't stack into
-   * a double gap. */
   className?: string;
 };
 
@@ -54,7 +45,7 @@ export default function InstagramFollow({ className }: InstagramFollowProps = {}
             key={src}
             href={INSTAGRAM_URL}
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
             className="group relative block w-full aspect-square overflow-hidden bg-[var(--color-line)]/20"
           >
             <Image
@@ -68,18 +59,14 @@ export default function InstagramFollow({ className }: InstagramFollowProps = {}
         ))}
       </div>
 
-      {/* Each segment gets its own muted tone for a subtle multi-color
-          effect — tracking is set once on the parent so it cascades evenly
-          across spans instead of compounding between them. */}
       <a
         href={INSTAGRAM_URL}
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
         className="mt-6 sm:mt-8 inline-block text-sm tracking-wide transition-opacity duration-300 hover:opacity-70"
       >
         <span className="text-slate-400">@</span>
-        <span className="text-rose-300">meridian</span>
-        <span className="text-amber-600">photography</span>
+        <span className="text-[var(--color-ink)] font-medium">the_dream_stories_</span>
       </a>
     </Section>
   );

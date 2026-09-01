@@ -76,7 +76,7 @@ export default function IntroSection({
   headline = defaultHeadline,
   subtext = defaultSubtext,
   ctaText = "Wedding Experience",
-  ctaLink = "/services",
+  ctaLink = "/portfolio",
   images = defaultImages,
 }: IntroSectionProps) {
   return (

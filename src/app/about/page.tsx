@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/layout/PageHeader";
-import AboutIntro from "@/components/about/AboutIntro";
+import AboutHero from "@/components/about/AboutHero";
 import PhotographerBio from "@/components/about/PhotographerBio";
 import Specialties from "@/components/about/Specialties";
+import AboutTimeline from "@/components/about/AboutTimeline";
 import InquireCta from "@/components/about/InquireCta";
 import InstagramFollow from "@/components/home/InstagramFollow";
 
@@ -22,9 +23,10 @@ export default function AboutPage() {
         image="/home/about2.jpeg"
         imageAlt="Bride and groom walking the grounds of a grand estate, the bride glancing back over her shoulder"
       />
-      <AboutIntro />
+      <AboutHero />
       <Specialties />
       <PhotographerBio />
+      <AboutTimeline />
       <InquireCta />
       <InstagramFollow />
     </>

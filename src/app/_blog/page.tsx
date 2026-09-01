@@ -1,3 +1,4 @@
+// Disabled as part of Phase 1 redesign — pending deletion, keep for reference
 import type { Metadata } from "next";
 import PageHeader from "@/components/layout/PageHeader";
 import BlogGrid from "@/components/blog/BlogGrid";

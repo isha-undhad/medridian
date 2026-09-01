@@ -141,8 +141,8 @@ export const privacyPolicyData: PrivacyPolicyData = {
         "If you have any questions, suggestions, or requests regarding this Privacy Policy or how your personal information is handled, please reach out to our studio directly:",
       ],
       bulletPoints: [
-        "Studio Email: hello@meridianstudio.com",
-        "Direct Phone: +1 (415) 555-0142",
+        "Studio Email: Hi.tdswedding@gmail.com",
+        "Direct Phone: +91 98989 26919",
         "Location: Surat, India — Available Worldwide",
       ],
     },

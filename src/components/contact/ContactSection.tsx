@@ -37,12 +37,19 @@ export default function ContactSection() {
               Contact {brand.short}
             </h1>
             <p className="mt-3 sm:mt-4 max-w-md text-body leading-relaxed text-[var(--color-body)] text-pretty">
-              I would love to hear about you and your celebration! Please complete the form below or email{" "}
+              I would love to hear about you and your celebration! Please complete the form below, email{" "}
               <a
                 href={`mailto:${brand.email}`}
-                className="text-[var(--color-accent-ink)] underline underline-offset-2"
+                className="text-[var(--color-accent-ink)] underline underline-offset-2 transition-colors hover:opacity-80"
               >
                 {brand.email}
+              </a>
+              , or reach out at{" "}
+              <a
+                href={`tel:${brand.phone.replace(/[^0-9+]/g, "")}`}
+                className="text-[var(--color-accent-ink)] underline underline-offset-2 transition-colors hover:opacity-80"
+              >
+                {brand.phone}
               </a>
               .
             </p>

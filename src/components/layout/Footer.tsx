@@ -1,9 +1,10 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import Image from "next/image";
 import { MapPin, Mail, Phone, ArrowRight, ShieldCheck } from "lucide-react";
 import { NavLink } from "@/components/ui/NavLink";
-import { MonogramBadge, LogoWordmark } from "@/components/ui/Logo";
+import { MonogramBadge } from "@/components/ui/Logo";
 import { SocialIconGlyph } from "@/components/ui/SocialIcons";
 import PrivacyPolicyModal from "@/components/ui/PrivacyPolicyModal";
 import { usePrivacyConsent } from "@/lib/usePrivacyConsent";
@@ -42,9 +43,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-10 md:grid-cols-12 md:gap-8 lg:gap-12">
           {/* Brand */}
           <div className="md:col-span-5 lg:col-span-5">
-            <LogoWordmark className="text-xl sm:text-2xl text-[var(--color-ink)]">
-              {brand.short.toUpperCase()}
-            </LogoWordmark>
+            <Image
+              src="/logo-dark.png"
+              alt="Dream Stories"
+              width={200}
+              height={80}
+              style={{ objectFit: "contain" }}
+              className="h-14 sm:h-16 w-auto object-contain"
+            />
             <span aria-hidden className={ruleClasses} />
             <p className="text-body leading-relaxed text-[var(--color-muted)] max-w-md">{brand.tagline}</p>
             <div className="mt-5 sm:mt-6 flex gap-4">
@@ -53,7 +59,7 @@ export default function Footer() {
                   key={social.label}
                   href={social.href}
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
                   aria-label={social.label}
                   className="text-[var(--color-muted)] transition-colors duration-300 hover:text-[var(--color-accent-ink)] p-1 -m-1"
                 >

@@ -70,10 +70,10 @@ export default function InquireFaqSection() {
           {/* More Link */}
           <div className="pt-2">
             <a
-              href="/experience"
+              href="/portfolio"
               className="inline-flex items-center gap-3 text-xs font-medium tracking-[0.2em] uppercase text-[var(--color-ink)] transition-colors duration-300 hover:text-[var(--color-accent-ink)] group"
             >
-              <span>Explore The Full Experience</span>
+              <span>Explore The Portfolio</span>
               <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
           </div>
