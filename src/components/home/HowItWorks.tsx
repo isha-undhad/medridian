@@ -151,7 +151,7 @@ function StackedServiceCard({
   );
 }
 
-export default function HowItWorksSection({ className }: { className?: string } = {}) {
+export default function HowItWorks({ className }: { className?: string } = {}) {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
