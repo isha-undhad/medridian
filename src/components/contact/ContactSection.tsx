@@ -190,15 +190,16 @@ export default function ContactSection() {
             {/* Photography Budget Field (Strictly Numerical) */}
             <div className="flex flex-col gap-2">
               <label htmlFor="budget" className="text-xs font-medium tracking-wide text-[var(--color-ink)]">
-                Photography Budget ($ USD) <span className="text-rose-500">*</span>
+                Photography Budget (₹ INR) <span className="text-rose-500">*</span>
               </label>
               <input
                 id="budget"
                 name="budget"
                 type="text"
                 inputMode="numeric"
-                pattern="[0-9]*"
-                placeholder="e.g. 5000"
+                pattern="[0-9]+"
+                placeholder="e.g. 50000"
+                title="Please enter numbers only"
                 required
                 onKeyDown={(e) => {
                   const allowedKeys = [
@@ -221,6 +222,17 @@ export default function ContactSection() {
                 }}
                 onInput={(e) => {
                   e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, "");
+                }}
+                onPaste={(e) => {
+                  e.preventDefault();
+                  const pastedData = e.clipboardData.getData("text");
+                  const cleanNumbers = pastedData.replace(/[^0-9]/g, "");
+                  if (cleanNumbers) {
+                    const target = e.currentTarget;
+                    const start = target.selectionStart ?? target.value.length;
+                    const end = target.selectionEnd ?? target.value.length;
+                    target.value = target.value.slice(0, start) + cleanNumbers + target.value.slice(end);
+                  }
                 }}
                 className="rounded-lg border border-[var(--color-line)] bg-white/80 px-4 py-2.5 text-sm text-[var(--color-ink)] placeholder:text-[var(--color-muted)]/60 outline-none transition-all duration-300 focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)] sm:w-2/3"
               />

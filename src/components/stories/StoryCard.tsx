@@ -13,11 +13,11 @@ export default function StoryCard({ story, priority = false }: StoryCardProps) {
 
   return (
     <article className="group w-full flex flex-col items-start bg-transparent">
-      {/* Full-width horizontal banner image with couple's names overlay/artwork */}
+      {/* Viewport-scaled horizontal banner image with couple's names overlay/artwork */}
       <Link
         href={storyUrl}
         aria-label={`Read story of ${story.coupleNames}`}
-        className="relative block w-full aspect-[16/9] sm:aspect-[21/9] md:aspect-[24/9] overflow-hidden rounded-sm bg-[var(--color-line)]/20 shadow-sm"
+        className="relative block w-full h-[40vh] sm:h-[46vh] md:h-[48vh] max-h-[460px] min-h-[260px] overflow-hidden rounded-sm bg-[var(--color-bg)] shadow-sm"
       >
         <Image
           src={story.bannerImage}
@@ -25,48 +25,48 @@ export default function StoryCard({ story, priority = false }: StoryCardProps) {
           fill
           priority={priority}
           sizes="(min-width: 1280px) 1200px, 100vw"
-          className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+          className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.02]"
         />
 
         {/* Artistic Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent transition-opacity duration-500 group-hover:opacity-85" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/15 to-transparent transition-opacity duration-500 group-hover:opacity-70" />
 
         {/* Overlay Couple Names Artwork */}
-        <div className="absolute inset-0 flex items-center justify-center p-6 text-center">
-          <span className="font-cormorant text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-light tracking-wide text-white uppercase drop-shadow-[0_2px_8px_rgba(0,0,0,0.6)] transition-transform duration-500 group-hover:scale-105">
+        <div className="absolute inset-0 flex items-center justify-center p-4 sm:p-6 text-center pointer-events-none">
+          <span className="font-cormorant text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light tracking-wide text-white uppercase drop-shadow-[0_2px_10px_rgba(0,0,0,0.7)] transition-transform duration-500 group-hover:scale-105">
             {story.coupleNames}
           </span>
         </div>
       </Link>
 
-      {/* Content below the banner */}
-      <div className="mt-5 sm:mt-6 md:mt-8 w-full flex flex-col items-start max-w-3xl">
+      {/* Content below the banner — compact to fit cleanly within one screen view */}
+      <div className="mt-3 sm:mt-4 w-full flex flex-col items-start max-w-3xl">
         {/* Metadata Line */}
-        <div className="flex items-center gap-3 text-[11px] sm:text-xs font-normal uppercase tracking-[0.2em] text-[var(--color-accent-ink)]">
+        <div className="flex items-center gap-2.5 text-[10.5px] sm:text-xs font-normal uppercase tracking-[0.2em] text-[var(--color-accent-ink)]">
           <span>{story.location}</span>
           <span aria-hidden className="text-[var(--color-muted)]/50">&middot;</span>
           <span>{story.date}</span>
         </div>
 
         {/* Couple Names Heading */}
-        <h2 className="mt-2 font-serif text-2xl sm:text-3xl md:text-4xl font-normal text-[var(--color-ink)] transition-colors duration-300 group-hover:text-[var(--color-accent-ink)]">
+        <h2 className="mt-1 font-serif text-xl sm:text-2xl md:text-3xl font-normal text-[var(--color-ink)] transition-colors duration-300 group-hover:text-[var(--color-accent-ink)]">
           <Link href={storyUrl}>
             {story.coupleNames}
           </Link>
         </h2>
 
         {/* 1-2 line Excerpt */}
-        <p className="mt-3 text-sm sm:text-base leading-relaxed text-[var(--color-body)] text-pretty line-clamp-2">
+        <p className="mt-1.5 text-xs sm:text-sm md:text-[14.5px] leading-relaxed text-[var(--color-body)] text-pretty line-clamp-2">
           {story.excerptText}
         </p>
 
         {/* Read More Link */}
         <Link
           href={storyUrl}
-          className="mt-4 sm:mt-5 inline-flex items-center gap-2 text-xs sm:text-sm font-medium tracking-[0.15em] uppercase text-[var(--color-ink)] transition-all duration-300 hover:text-[var(--color-accent-ink)] hover:translate-x-1"
+          className="mt-2.5 sm:mt-3 inline-flex items-center gap-2 text-xs font-medium tracking-[0.15em] uppercase text-[var(--color-ink)] transition-all duration-300 hover:text-[var(--color-accent-ink)] hover:translate-x-1"
         >
           <span>Read Story</span>
-          <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+          <ArrowRight className="h-3 w-3 transition-transform duration-300 group-hover:translate-x-1" />
         </Link>
       </div>
     </article>

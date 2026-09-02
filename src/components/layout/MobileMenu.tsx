@@ -48,7 +48,7 @@ export default function MobileMenu({ open, onClose, pathname }: MobileMenuProps)
           animate="visible"
           exit="hidden"
           variants={panelVariants}
-          className="fixed inset-0 top-[68px] sm:top-20 z-50 flex flex-col justify-start overflow-y-auto overscroll-contain bg-[var(--color-bg)] px-6 pt-2 pb-8 sm:px-10 sm:pt-4 sm:pb-10 md:hidden"
+          className="fixed inset-0 top-[56px] sm:top-[62px] z-50 flex flex-col justify-start overflow-y-auto overscroll-contain bg-[var(--color-bg)] px-6 pt-2 pb-8 sm:px-10 sm:pt-4 sm:pb-10 md:hidden"
         >
           <nav className="flex flex-col divide-y divide-[var(--color-line)]">
             {mobileNavLinks.map((link) => {

@@ -31,8 +31,8 @@ export default function Home() {
       </Section>
       <PortfolioSection />
 
-      {/* 5. How It Works */}
-      <HowItWorks className="mb-10 sm:mb-14 md:mb-16 lg:mb-20" />
+      {/* 5. How It Works (Temporarily commented out per request) */}
+      {/* <HowItWorks className="mb-10 sm:mb-14 md:mb-16 lg:mb-20" /> */}
 
       {/* 6. About the Photographer */}
       <AboutPhotographerSection />

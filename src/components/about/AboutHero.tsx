@@ -50,44 +50,47 @@ export default function AboutHero({
         <div className="relative flex flex-col items-start w-full lg:w-[540px] xl:w-[560px] shrink-0">
           {/* 1. Heading on the upper-left (z-30 so it renders on top of the overlapping photo) */}
           <Reveal variants={slideInLeft} className="relative z-30 w-full">
-            <h2 className="font-cormorant text-[25px] sm:text-[28px] md:text-[31px] font-light tracking-[0.01em] leading-[1.25] text-neutral-900 uppercase text-left max-w-[320px] sm:max-w-[350px] md:max-w-[380px]">
+            <h2 className="font-cormorant text-[22px] sm:text-[26px] md:text-[28px] lg:text-[31px] font-light tracking-[0.01em] leading-[1.25] text-neutral-900 uppercase text-left max-w-full sm:max-w-[460px] lg:max-w-[380px]">
               {heading}
             </h2>
           </Reveal>
 
-          {/* 2. Color Photo: sits directly below the heading on the left */}
-          <div className="mt-8 sm:mt-10 md:mt-12 relative z-10 w-[230px] sm:w-[260px] md:w-[280px]">
+          {/* 2. Responsive Photo Composition (Staggered layered collage on mobile, exact absolute positioning on desktop) */}
+          <div className="relative mt-8 sm:mt-10 lg:mt-0 w-full max-w-[330px] sm:max-w-[400px] lg:max-w-none">
+            {/* Color Photo (Primary) */}
+            <div className="relative z-10 w-[72%] sm:w-[68%] lg:w-[280px] lg:mt-12">
+              <Reveal
+                variants={fadeUp}
+                delay={0.15}
+                className="relative w-full aspect-[4/5] lg:aspect-auto lg:h-[400px] overflow-hidden rounded-none shadow-none border-none bg-[var(--color-line)]/20"
+              >
+                <Image
+                  src={colorImageSrc}
+                  alt={colorImageAlt}
+                  fill
+                  sizes="(min-width: 1024px) 280px, (min-width: 640px) 270px, 230px"
+                  className="object-cover"
+                  priority
+                />
+              </Reveal>
+            </div>
+
+            {/* B&W Photo (Secondary Overlapping) */}
             <Reveal
               variants={fadeUp}
-              delay={0.15}
-              className="relative w-full h-[330px] sm:h-[370px] md:h-[400px] overflow-hidden rounded-none shadow-none border-none bg-[var(--color-line)]/20"
+              delay={0.25}
+              className="absolute right-0 bottom-[-16px] sm:bottom-[-20px] lg:bottom-auto lg:right-auto lg:left-[230px] lg:top-[90px] z-20 w-[55%] sm:w-[52%] lg:w-[305px] aspect-[3/4] lg:aspect-auto lg:h-[425px] overflow-hidden rounded-none shadow-none ring-[4px] sm:ring-[5px] ring-[#faf8f5] bg-[var(--color-line)]/20"
             >
               <Image
-                src={colorImageSrc}
-                alt={colorImageAlt}
+                src={bwImageSrc}
+                alt={bwImageAlt}
                 fill
-                sizes="(min-width: 768px) 280px, 230px"
-                className="object-cover"
+                sizes="(min-width: 1024px) 305px, (min-width: 640px) 210px, 175px"
+                className="object-cover grayscale"
                 priority
               />
             </Reveal>
           </div>
-
-          {/* 3. B&W Photo: absolute, starts beside heading lines 3-4, with a subtle ~4-5px separation ring over color photo */}
-          <Reveal
-            variants={fadeUp}
-            delay={0.25}
-            className="absolute left-[160px] sm:left-[190px] md:left-[215px] lg:left-[230px] top-[70px] sm:top-[80px] md:top-[90px] z-20 w-[240px] sm:w-[280px] md:w-[305px] h-[340px] sm:h-[390px] md:h-[425px] overflow-hidden rounded-none shadow-none ring-[4px] sm:ring-[5px] ring-[#faf8f5] bg-[var(--color-line)]/20"
-          >
-            <Image
-              src={bwImageSrc}
-              alt={bwImageAlt}
-              fill
-              sizes="(min-width: 768px) 305px, 240px"
-              className="object-cover grayscale"
-              priority
-            />
-          </Reveal>
         </div>
 
         {/* COLUMN 2 (Right: MY APPROACH text block, positioned closely beside the B&W photo) */}

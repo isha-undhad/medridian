@@ -92,7 +92,7 @@ export default function Navbar() {
             : "border-b border-transparent bg-transparent"
           }`}
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-5 sm:px-10">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-3 sm:px-10 sm:py-3.5">
           <Link
             href="/"
             aria-label="Dream Stories — Home"
@@ -131,17 +131,17 @@ export default function Navbar() {
             aria-expanded={menuOpen}
             suppressHydrationWarning
             onClick={() => setMenuOpen((value) => !value)}
-            className="relative z-10 flex h-10 w-10 flex-col items-center justify-center gap-[6px] md:hidden cursor-pointer"
+            className="relative z-10 flex h-9 w-9 flex-col items-center justify-center gap-[5px] md:hidden cursor-pointer"
           >
             <motion.span
-              animate={menuOpen ? { rotate: 45, y: 3.5 } : { rotate: 0, y: 0 }}
+              animate={menuOpen ? { rotate: 45, y: 3 } : { rotate: 0, y: 0 }}
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className={`block h-px w-6 transition-colors duration-300 ${barClass}`}
+              className={`block h-px w-5 transition-colors duration-300 ${barClass}`}
             />
             <motion.span
-              animate={menuOpen ? { rotate: -45, y: -3.5 } : { rotate: 0, y: 0 }}
+              animate={menuOpen ? { rotate: -45, y: -3 } : { rotate: 0, y: 0 }}
               transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-              className={`block h-px w-6 transition-colors duration-300 ${barClass}`}
+              className={`block h-px w-5 transition-colors duration-300 ${barClass}`}
             />
           </button>
         </div>

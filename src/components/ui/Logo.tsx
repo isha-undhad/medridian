@@ -55,7 +55,7 @@ export function Logo({
       height={70}
       style={{ objectFit: "contain" }}
       priority={priority}
-      className={cn("h-10 sm:h-12 w-auto object-contain transition-all duration-300", className)}
+      className={cn("h-8 sm:h-9 md:h-10 w-auto object-contain transition-all duration-300", className)}
     />
   );
 }

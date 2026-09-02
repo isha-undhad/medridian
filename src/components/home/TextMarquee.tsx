@@ -46,7 +46,7 @@ export default function TextMarquee({
           {repeatedTrack.map((item, index) => (
             <span key={`${item.text}-${index}`} className="flex items-center">
               {item.href ? (
-                 <Link
+                <Link
                   href={item.href}
                   target={item.external ? "_blank" : undefined}
                   rel={item.external ? "noreferrer" : undefined}
