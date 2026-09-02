@@ -45,14 +45,6 @@ export default function Navbar() {
     };
   }, [menuOpen]);
 
-  // Every other page opens on a full-bleed dark photo (PageHeader / a hero
-  // banner), which is what makes transparent + white nav text legible
-  // before the user scrolls. The blog post template is the one page in the
-  // app with no hero under the header at all — just the cream page
-  // background — so white-on-cream text there is illegible from the first
-  // frame. Force the solid (cream bg / ink text) styling on those routes
-  // regardless of scroll position; /blog itself keeps the normal
-  // scroll-based behavior since it does have its own PageHeader.
   const [navHidden, setNavHidden] = useState(false);
 
   useEffect(() => {
@@ -64,8 +56,17 @@ export default function Navbar() {
     return () => window.removeEventListener("toggle-hide-nav", handleHideNav);
   }, []);
 
-  const isBlogPost = pathname !== "/blog" && pathname.startsWith("/blog/");
-  const solid = scrolled || menuOpen || isBlogPost;
+  // Determine whether the current route opens with a full-bleed dark hero image
+  // (where transparent navbar + white text is legible before scrolling).
+  // Pages with a light cream background (e.g. /about, /stories, /stories/*)
+  // always render in solid dark mode so text and logo are 100% legible.
+  const hasDarkHero =
+    pathname === "/" ||
+    pathname === "/portfolio" ||
+    pathname.startsWith("/portfolio/") ||
+    pathname === "/contact";
+
+  const solid = scrolled || menuOpen || !hasDarkHero;
 
   // White over the transparent hero (any photo underneath could be dark or
   // light, so a drop-shadow keeps it legible either way), ink once the

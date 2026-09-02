@@ -8,6 +8,7 @@ export const headerPrimaryNav: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Portfolio", href: "/portfolio" },
+  { label: "Stories", href: "/stories" },
   // { label: "Services", href: "/services" }, // Disabled as part of Phase 1 redesign
 ];
 
@@ -45,6 +46,7 @@ export const footerExploreColumnA: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "Portfolio", href: "/portfolio" },
+  { label: "Stories", href: "/stories" },
   // { label: "Services", href: "/services" }, // Disabled as part of Phase 1 redesign
   { label: "Contact", href: "/contact" },
 ];

@@ -42,9 +42,9 @@ export default function PortfolioGrid({
     }));
 
     return (
-      <div className="flex flex-col gap-4 sm:gap-5 lg:gap-6">
+      <div className="flex flex-col gap-[4px]">
         {/* Block 1: Left tall featured photo (1 col) + Right 3-photo grid (2 rows) */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-5 lg:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-[4px]">
           {/* Left tall photo — full height of the 2 right rows */}
           <Reveal variants={fadeUp} className="md:col-span-6 flex">
             <Link
@@ -62,9 +62,9 @@ export default function PortfolioGrid({
           </Reveal>
 
           {/* Right side block */}
-          <div className="md:col-span-6 flex flex-col gap-4 sm:gap-5 lg:gap-6">
+          <div className="md:col-span-6 flex flex-col gap-[4px]">
             {/* Top row: 1 photo on mobile, 2 photos on tablet/desktop */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 lg:gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-[4px]">
               <Reveal variants={fadeUp} delay={0.05}>
                 <Link
                   href={`/portfolio#${photos[1].id}`}
@@ -113,7 +113,7 @@ export default function PortfolioGrid({
         </div>
 
         {/* Block 2: Wide landscape left + 2 vertical photos right — aligned heights */}
-        <div className="grid grid-cols-1 md:grid-cols-12 md:items-stretch gap-4 sm:gap-5 lg:gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-12 md:items-stretch gap-[4px]">
           <Reveal variants={fadeUp} delay={0.2} className="md:col-span-7 flex">
             <Link
               href={`/portfolio#${photos[4].id}`}
@@ -128,7 +128,7 @@ export default function PortfolioGrid({
               />
             </Link>
           </Reveal>
-          <div className="md:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 lg:gap-6">
+          <div className="md:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-[4px]">
             <Reveal variants={fadeUp} delay={0.25} className="flex h-full">
               <Link
                 href={`/portfolio#${photos[5].id}`}
@@ -164,7 +164,7 @@ export default function PortfolioGrid({
   }
 
   return (
-    <div className="columns-1 gap-4 sm:columns-2 sm:gap-5 lg:columns-3 lg:gap-6">
+    <div className="columns-1 gap-[4px] sm:columns-2 lg:columns-3">
       {visible.map((item, index) => (
         <PortfolioCard key={item.id} item={item} delay={(index % 3) * 0.08} />
       ))}
