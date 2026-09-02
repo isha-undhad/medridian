@@ -36,7 +36,7 @@ export default function InquireEditorial({
   inquiryHref?: string;
 } = {}) {
   return (
-    <section className="relative flex min-h-dvh w-full flex-col overflow-hidden my-0">
+    <section className="relative flex min-h-dvh w-full flex-col justify-between overflow-hidden my-0">
       <motion.div
         initial={{ opacity: 0, scale: 1.04 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -57,16 +57,16 @@ export default function InquireEditorial({
       </motion.div>
       <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/50 to-black/65" />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-1 flex-col justify-center gap-10 px-6 py-24 sm:px-10 md:py-28">
-        <Reveal variants={fadeUp} className="flex flex-col gap-5">
-          <h2 className="font-serif text-3xl leading-[1.1] tracking-tight text-white uppercase sm:text-4xl md:text-5xl">
+      <div className="relative z-10 mx-auto flex w-full max-w-3xl flex-1 flex-col justify-center gap-6 px-6 pt-20 pb-6 sm:px-10 sm:pt-24 sm:pb-8 md:gap-7 md:pt-28 md:pb-8">
+        <Reveal variants={fadeUp} className="flex flex-col gap-2.5 sm:gap-3">
+          <h2 className="font-serif text-2xl leading-[1.1] tracking-tight text-white uppercase sm:text-3xl md:text-4xl lg:text-5xl">
             Let&apos;s Create Something Timeless
           </h2>
-          <p className="max-w-xl text-sm sm:text-base leading-relaxed !text-white text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]">
+          <p className="max-w-xl text-xs sm:text-sm md:text-base leading-relaxed !text-white text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]">
             Planning a wedding is about more than a single day. It is about the people, places,
             emotions, and quiet moments you will want to remember for years to come.
           </p>
-          <p className="max-w-xl text-sm sm:text-base leading-relaxed !text-white text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]">
+          <p className="max-w-xl text-xs sm:text-sm md:text-base leading-relaxed !text-white text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]">
             I would love to hear about your story, your plans, and what matters most to you.
           </p>
         </Reveal>
@@ -75,11 +75,11 @@ export default function InquireEditorial({
           <div className="h-px w-full bg-white/25" />
         </Reveal>
 
-        <Reveal variants={fadeUp} delay={0.15} className="flex flex-col gap-4">
+        <Reveal variants={fadeUp} delay={0.15} className="flex flex-col gap-2.5">
           <span className="text-xs font-medium tracking-[0.25em] text-white/70 uppercase">
             Wedding Photography
           </span>
-          <ul className="flex flex-col gap-2 text-sm text-white/85 sm:text-base">
+          <ul className="flex flex-col gap-1 text-xs sm:text-sm md:text-base text-white/85">
             {weddingPhotographyList.map((item) => (
               <li key={item} className="flex gap-2">
                 <span aria-hidden className="text-white/50">
@@ -91,11 +91,11 @@ export default function InquireEditorial({
           </ul>
         </Reveal>
 
-        <Reveal variants={fadeUp} delay={0.2} className="flex flex-col gap-2">
+        <Reveal variants={fadeUp} delay={0.2} className="flex flex-col gap-1.5">
           <span className="text-xs font-medium tracking-[0.25em] text-white/70 uppercase">
             Destination Weddings
           </span>
-          <p className="text-sm sm:text-base !text-white text-white">
+          <p className="text-xs sm:text-sm md:text-base !text-white text-white">
             Available for celebrations across India and worldwide.
           </p>
         </Reveal>
@@ -108,7 +108,7 @@ export default function InquireEditorial({
       <Reveal
         variants={fadeUp}
         delay={0.3}
-        className="relative z-10 mx-auto w-full max-w-7xl flex items-center justify-between px-6 pb-10 sm:px-10 sm:pb-12"
+        className="relative z-10 mx-auto w-full max-w-7xl flex items-center justify-between px-6 pb-6 sm:px-10 sm:pb-8"
       >
         <span className="text-xs font-medium tracking-[0.25em] text-white/60 uppercase">
           Enquire
