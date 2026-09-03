@@ -17,37 +17,136 @@ type GalleryBlock =
   | { type: "single"; image: StoryImageItem; index: number }
   | { type: "pair"; images: [StoryImageItem, StoryImageItem]; indices: [number, number] };
 
+/**
+ * Seeded 32-bit pseudo-random number generator (Mulberry32).
+ * Ensures deterministic, layout-shift-free random distributions across SSR and hydration.
+ */
+function mulberry32(a: number) {
+  return function () {
+    let t = (a += 0x6d2b79f5);
+    t = Math.imul(t ^ (t >>> 15), t | 1);
+    t ^= t + Math.imul(t ^ (t >>> 7), t | 61);
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+/**
+ * Converts a string into a deterministic 32-bit integer seed.
+ */
+function stringToSeed(str: string): number {
+  let hash = 0;
+  for (let i = 0; i < str.length; i++) {
+    hash = (Math.imul(31, hash) + str.charCodeAt(i)) | 0;
+  }
+  return hash;
+}
+
+/**
+ * Generates an organic, pseudo-random sequence of row sizes (1 or 2 images per row).
+ *
+ * Hard Constraints:
+ * 1. Two 1-image rows must NEVER appear back-to-back (no adjacent 1s).
+ * 2. Sum of row counts strictly equals totalImages.
+ * 3. Seeded generation prevents re-render layout shifts and hydration mismatches.
+ */
+function generateRowPattern(totalImages: number, seed: number): (1 | 2)[] {
+  if (totalImages <= 0) return [];
+  if (totalImages === 1) return [1];
+  if (totalImages === 2) return [2];
+
+  const rng = mulberry32(seed);
+
+  function generate(
+    remaining: number,
+    consecutiveTwos: number,
+    prevWasOne: boolean
+  ): (1 | 2)[] | null {
+    if (remaining === 0) return [];
+    if (remaining === 1) {
+      // If previous was 1, we cannot have another 1 (violates no-adjacent-1s rule)
+      if (prevWasOne) return null;
+      return [1];
+    }
+    if (remaining === 2) {
+      // Single pair of 2 is always valid
+      return [2];
+    }
+    if (remaining === 3) {
+      // [2, 1] is always valid; [1, 2] is only valid if previous was not 1
+      if (prevWasOne) return [2, 1];
+      return rng() < 0.5 ? [2, 1] : [1, 2];
+    }
+
+    // If previous row was a 1, current row MUST be a 2
+    if (prevWasOne) {
+      const rest = generate(remaining - 2, 1, false);
+      if (rest !== null) return [2, ...rest];
+      return null;
+    }
+
+    // Organic weighting: naturally balance pairs and singles while avoiding long monotonous runs
+    let probOne = 0.35;
+    if (consecutiveTwos === 2) probOne = 0.65;
+    else if (consecutiveTwos >= 3) probOne = 0.9;
+
+    const firstChoice: 1 | 2 = rng() < probOne ? 1 : 2;
+    const secondChoice: 1 | 2 = firstChoice === 1 ? 2 : 1;
+
+    for (const choice of [firstChoice, secondChoice]) {
+      const nextConsecutiveTwos = choice === 2 ? consecutiveTwos + 1 : 0;
+      const rest = generate(
+        remaining - choice,
+        nextConsecutiveTwos,
+        choice === 1
+      );
+      if (rest !== null) {
+        return [choice, ...rest];
+      }
+    }
+
+    return null;
+  }
+
+  return generate(totalImages, 0, false) || [2];
+}
+
 export default function StoryGallery({ images, coupleNames }: StoryGalleryProps) {
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
 
-  // Group into alternating rhythmic pattern: 1 image -> 2 images -> 1 image -> 2 images
+  // Group images into an organic, pseudo-randomized sequence of 1s and 2s
+  // Hard constraint: No two 1-image rows can ever appear back-to-back.
+  // Seeded per story to eliminate layout shift on re-render / lightbox open.
   const blocks = useMemo(() => {
-    const result: GalleryBlock[] = [];
-    let i = 0;
-    let isSingle = true;
+    if (!images.length) return [];
 
-    while (i < images.length) {
-      if (isSingle || i === images.length - 1) {
+    const seed = stringToSeed(
+      `${coupleNames}-${images.length}-${images[0]?.src || ""}`
+    );
+    const pattern = generateRowPattern(images.length, seed);
+
+    const result: GalleryBlock[] = [];
+    let imgIdx = 0;
+
+    for (const count of pattern) {
+      if (count === 1) {
         result.push({
           type: "single",
-          image: images[i],
-          index: i,
+          image: images[imgIdx],
+          index: imgIdx,
         });
-        i += 1;
-        isSingle = false;
+        imgIdx += 1;
       } else {
         result.push({
           type: "pair",
-          images: [images[i], images[i + 1]],
-          indices: [i, i + 1],
+          images: [images[imgIdx], images[imgIdx + 1]],
+          indices: [imgIdx, imgIdx + 1],
         });
-        i += 2;
-        isSingle = true;
+        imgIdx += 2;
       }
     }
 
     return result;
-  }, [images]);
+  }, [images, coupleNames]);
 
   const handleClose = useCallback(() => {
     setSelectedIndex(null);
@@ -92,16 +191,18 @@ export default function StoryGallery({ images, coupleNames }: StoryGalleryProps)
 
   return (
     <>
-      {/* Mixed Masonry-Style Editorial Stream with tight 2-3px gap */}
+      {/* Mixed Masonry-Style Editorial Stream with uniform hairline 2-3px gap */}
       <div className="flex flex-col gap-[2px] sm:gap-[3px] w-full">
         {blocks.map((block) => {
           if (block.type === "single") {
             const { image, index } = block;
+            const isLandscape = image.width > image.height;
+
             return (
               <Reveal
                 key={`single-${image.src}-${index}`}
                 variants={fadeUp}
-                delay={0.05}
+                delay={0.04}
                 className="w-full"
               >
                 <button
@@ -109,16 +210,22 @@ export default function StoryGallery({ images, coupleNames }: StoryGalleryProps)
                   suppressHydrationWarning
                   onClick={() => setSelectedIndex(index)}
                   aria-label={`View photo ${index + 1} of ${images.length} from ${coupleNames}'s wedding`}
-                  className="relative block w-full overflow-hidden text-left cursor-pointer focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
+                  className="group relative block w-full overflow-hidden text-left cursor-pointer focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
                 >
-                  <div className="relative w-full h-[320px] sm:h-[420px] md:h-[480px] lg:h-[520px] overflow-hidden bg-[var(--color-line)]/15">
+                  <div
+                    className={`relative w-full overflow-hidden bg-[var(--color-line)]/15 ${
+                      isLandscape
+                        ? "aspect-[16/10]"
+                        : "aspect-[4/5] max-h-[85vh]"
+                    }`}
+                  >
                     <Image
                       src={image.src}
                       alt={image.alt || `${coupleNames} Wedding Story Photo ${index + 1}`}
                       fill
                       sizes="(min-width: 1024px) 896px, 100vw"
-                      className="object-cover object-center"
-                      loading={index < 3 ? "eager" : "lazy"}
+                      className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.015]"
+                      loading={index < 4 ? "eager" : "lazy"}
                       priority={index < 2}
                     />
                   </div>
@@ -127,34 +234,51 @@ export default function StoryGallery({ images, coupleNames }: StoryGalleryProps)
             );
           }
 
-          // Pair of 2 images side-by-side (50/50 split on tablet/desktop, collapses to 1 column on mobile)
+          // Pair of 2 images side-by-side:
+          // Consistent 2-column grid across ALL devices (mobile, tablet, laptop, desktop)
           const [img1, img2] = block.images;
           const [idx1, idx2] = block.indices;
+
+          const isLand1 = img1.width > img1.height;
+          const isLand2 = img2.width > img2.height;
+
+          // Proportional aspect ratio computed to keep the row flush:
+          // Both portrait: aspect-[3/4]
+          // Both landscape: aspect-[4/3]
+          // Mixed: aspect-[4/5]
+          const pairAspect =
+            !isLand1 && !isLand2
+              ? "aspect-[3/4]"
+              : isLand1 && isLand2
+              ? "aspect-[4/3]"
+              : "aspect-[4/5]";
 
           return (
             <Reveal
               key={`pair-${img1.src}-${idx1}`}
               variants={fadeUp}
-              delay={0.05}
+              delay={0.04}
               className="w-full"
             >
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-[2px] sm:gap-[3px] w-full">
+              <div className="grid grid-cols-2 gap-[2px] sm:gap-[3px] w-full">
                 {/* Left image of pair */}
                 <button
                   type="button"
                   suppressHydrationWarning
                   onClick={() => setSelectedIndex(idx1)}
                   aria-label={`View photo ${idx1 + 1} of ${images.length} from ${coupleNames}'s wedding`}
-                  className="relative block w-full h-[340px] sm:h-[420px] md:h-[500px] lg:h-[560px] overflow-hidden text-left cursor-pointer focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] bg-[var(--color-line)]/15"
+                  className="group relative block w-full overflow-hidden text-left cursor-pointer focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
                 >
-                  <Image
-                    src={img1.src}
-                    alt={img1.alt || `${coupleNames} Wedding Story Photo ${idx1 + 1}`}
-                    fill
-                    sizes="(min-width: 1024px) 448px, (min-width: 640px) 50vw, 100vw"
-                    className="object-cover object-center"
-                    loading="lazy"
-                  />
+                  <div className={`relative w-full ${pairAspect} overflow-hidden bg-[var(--color-line)]/15`}>
+                    <Image
+                      src={img1.src}
+                      alt={img1.alt || `${coupleNames} Wedding Story Photo ${idx1 + 1}`}
+                      fill
+                      sizes="(min-width: 1024px) 448px, 50vw"
+                      className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                      loading="lazy"
+                    />
+                  </div>
                 </button>
 
                 {/* Right image of pair */}
@@ -163,16 +287,18 @@ export default function StoryGallery({ images, coupleNames }: StoryGalleryProps)
                   suppressHydrationWarning
                   onClick={() => setSelectedIndex(idx2)}
                   aria-label={`View photo ${idx2 + 1} of ${images.length} from ${coupleNames}'s wedding`}
-                  className="relative block w-full h-[340px] sm:h-[420px] md:h-[500px] lg:h-[560px] overflow-hidden text-left cursor-pointer focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] bg-[var(--color-line)]/15"
+                  className="group relative block w-full overflow-hidden text-left cursor-pointer focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
                 >
-                  <Image
-                    src={img2.src}
-                    alt={img2.alt || `${coupleNames} Wedding Story Photo ${idx2 + 1}`}
-                    fill
-                    sizes="(min-width: 1024px) 448px, (min-width: 640px) 50vw, 100vw"
-                    className="object-cover object-center"
-                    loading="lazy"
-                  />
+                  <div className={`relative w-full ${pairAspect} overflow-hidden bg-[var(--color-line)]/15`}>
+                    <Image
+                      src={img2.src}
+                      alt={img2.alt || `${coupleNames} Wedding Story Photo ${idx2 + 1}`}
+                      fill
+                      sizes="(min-width: 1024px) 448px, 50vw"
+                      className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                      loading="lazy"
+                    />
+                  </div>
                 </button>
               </div>
             </Reveal>

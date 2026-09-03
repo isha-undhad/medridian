@@ -82,10 +82,10 @@ export default function MobileMenu({ open, onClose, pathname }: MobileMenuProps)
             </motion.div>
           </nav>
 
-          {/* Follow Along footer directly after Inquire — no extra border line or boxed gap */}
+          {/* Follow Along footer anchored to the bottom of the menu container */}
           <motion.div
             variants={itemVariants}
-            className="mt-4 sm:mt-5 flex items-center justify-between"
+            className="mt-auto pt-8 sm:pt-10 flex items-center justify-between shrink-0"
           >
             <span className="text-[10px] uppercase tracking-[0.25em] text-[var(--color-muted)]">
               Follow Along

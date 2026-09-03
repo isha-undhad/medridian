@@ -21,12 +21,12 @@ export interface AboutHeroProps {
 }
 
 const defaultHeading =
-  "RELAXED, FASHION-LED IMAGERY FOR COUPLES WHO CARE ABOUT ATMOSPHERE, DESIGN AND GENUINE MOMENTS";
+  "HEARTFELT, STORY-DRIVEN WEDDING PHOTOGRAPHY FOR COUPLES WHO VALUE EMOTION, DESTINATION AND TIMELESS DETAIL";
 
 const defaultLabel = "MY APPROACH";
 
 const defaultBodyText =
-  "I take a relaxed, thoughtful approach to photographing weddings — quietly observing, gently guiding when needed, and always tuned in to the feeling of the day. As an editorial wedding photographer in the UK, I document modern celebrations through a natural blend of honest documentary moments and refined, fashion-led portraits. From unposed interactions to more considered imagery, every part of the day is captured in a way that feels effortless, elevated and true to you. I'm drawn to stylish weddings full of warmth, personality and genuine connection — where laughter flows freely, the atmosphere feels electric, and the celebration reflects who you are. I'm especially inspired by thoughtful design, beautiful architecture, fashion-forward details and couples who care deeply about creating something memorable.";
+  "I take a heartfelt, story-driven approach to photographing weddings — staying close to the moment, gently guiding when it helps, and always tuned in to the emotion of the day. As a wedding and travel photographer based in Surat, India, I document celebrations through a natural blend of candid, unscripted moments and carefully composed portraits. From quiet in-between moments to the big, emotional ones, every part of the day is captured in a way that feels genuine, elevated and true to you. I'm drawn to weddings full of warmth, culture and real connection — where every detail, from architecture to attire, tells part of the story. I'm especially inspired by beautiful locations, thoughtful design, and couples who care about creating memories that last a lifetime.";
 
 export default function AboutHero({
   heading = defaultHeading,

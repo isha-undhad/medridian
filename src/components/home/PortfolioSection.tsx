@@ -68,7 +68,7 @@ export default function PortfolioSection({
   items = defaultItems,
 }: PortfolioSectionProps) {
   return (
-    <Section className={`${inter.variable} ${playfair.variable} bg-white`}>
+    <Section className={`${inter.variable} ${playfair.variable} bg-[var(--color-bg)]`}>
       <div className="mx-auto max-w-7xl px-6 sm:px-10">
         {eyebrowText ? (
           <span

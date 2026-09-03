@@ -9,7 +9,7 @@ import InstagramFollow from "@/components/home/InstagramFollow";
 
 export const metadata: Metadata = {
   title: "About — Dream Stories",
-  description: "Meet Ava Bennett, the photographer and founder behind Dream Stories.",
+  description: "Meet Ravi Barvaliya, the photographer and founder behind Dream Stories.",
 };
 
 export default function AboutPage() {

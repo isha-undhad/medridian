@@ -122,21 +122,21 @@ export default function Footer() {
 
       <div className="border-t border-[var(--color-line)]">
         <div className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-6 text-xs text-[var(--color-muted)] md:flex-row md:items-center md:justify-between sm:px-10">
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-2">
+          <div className="flex flex-col items-start gap-2">
             <span className="flex items-center gap-2">
               <MapPin className="h-3.5 w-3.5" strokeWidth={1.5} />
               {brand.location}
             </span>
             <a
               href={`mailto:${brand.email}`}
-              className="flex items-center gap-2 transition-colors duration-300 hover:text-[var(--color-accent-ink)] hover:underline underline-offset-2"
+              className="flex w-fit items-center gap-2 transition-colors duration-300 hover:text-[var(--color-accent-ink)] hover:underline underline-offset-2"
             >
               <Mail className="h-3.5 w-3.5" strokeWidth={1.5} />
               {brand.email}
             </a>
             <a
               href={`tel:${brand.phone.replace(/[^0-9+]/g, "")}`}
-              className="flex items-center gap-2 transition-colors duration-300 hover:text-[var(--color-accent-ink)] hover:underline underline-offset-2"
+              className="flex w-fit items-center gap-2 transition-colors duration-300 hover:text-[var(--color-accent-ink)] hover:underline underline-offset-2"
             >
               <Phone className="h-3.5 w-3.5" strokeWidth={1.5} />
               {brand.phone}

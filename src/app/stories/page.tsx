@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Section from "@/components/ui/Section";
 import Reveal from "@/components/ui/Reveal";
 import { fadeUp } from "@/lib/motion";
 import StoryCard from "@/components/stories/StoryCard";

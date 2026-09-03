@@ -19,7 +19,7 @@ export default function PhotographerBio() {
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-md">
             <Image
               src="/about/photographer.jpg"
-              alt="Portrait of Ava Bennett seated on a stone bench, smiling at the camera"
+              alt="Portrait of Ravi Barvaliya seated on a stone bench, smiling at the camera"
               fill
               sizes="(min-width: 768px) 50vw, 100vw"
               className="object-cover"

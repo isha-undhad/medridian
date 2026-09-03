@@ -28,7 +28,7 @@ type InstagramFollowProps = {
 
 export default function InstagramFollow({ className }: InstagramFollowProps = {}) {
   return (
-    <Section className={cn("bg-white text-center", className)}>
+    <Section className={cn("bg-[var(--color-bg)] text-center", className)}>
       <div className="mx-auto max-w-5xl px-6">
         <SocialIconGlyph
           icon="instagram"

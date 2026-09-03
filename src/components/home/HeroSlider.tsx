@@ -2,36 +2,63 @@
 
 import { useCallback, useEffect, useState, type KeyboardEvent } from "react";
 import Image from "next/image";
+import { AnimatePresence, motion, type Variants } from "framer-motion";
 import PlaceholderMedia from "@/components/ui/PlaceholderMedia";
 import { heroSlides } from "@/data/hero";
 import SliderControls from "./SliderControls";
 
-const AUTOPLAY_MS = 3000;
+const AUTOPLAY_MS = 2000;
+
+// Smooth crossfade (cross-dissolve) transition variants
+const slideVariants: Variants = {
+  enter: {
+    opacity: 0,
+    zIndex: 1,
+  },
+  center: {
+    opacity: 1,
+    zIndex: 1,
+    transition: {
+      opacity: { duration: 0.9, ease: "easeInOut" },
+    },
+  },
+  exit: {
+    opacity: 0,
+    zIndex: 0,
+    transition: {
+      opacity: { duration: 0.9, ease: "easeInOut" },
+    },
+  },
+};
 
 export default function HeroSlider() {
   const [current, setCurrent] = useState(0);
   const total = heroSlides.length;
 
-  const goTo = useCallback(
-    (index: number) => setCurrent(((index % total) + total) % total),
+  const paginate = useCallback(
+    (newDirection: number) => {
+      setCurrent((prevIndex) => ((prevIndex + newDirection) % total + total) % total);
+    },
     [total],
   );
-  const next = useCallback(() => goTo(current + 1), [current, goTo]);
-  const prev = useCallback(() => goTo(current - 1), [current, goTo]);
 
-  // Autoplay in continuous 3-second infinite loop (1 -> 2 -> 3 -> 4 -> 1...)
-  // No pause on mouse hover
+  const next = useCallback(() => paginate(1), [paginate]);
+  const prev = useCallback(() => paginate(-1), [paginate]);
+
+  // Autoplay in continuous 2-second loop with smooth crossfade transition
   useEffect(() => {
     const id = setInterval(() => {
-      setCurrent((value) => (value + 1) % total);
+      paginate(1);
     }, AUTOPLAY_MS);
     return () => clearInterval(id);
-  }, [total, current]);
+  }, [paginate]);
 
   const handleKeyDown = (event: KeyboardEvent<HTMLElement>) => {
     if (event.key === "ArrowLeft") prev();
     if (event.key === "ArrowRight") next();
   };
+
+  const activeSlide = heroSlides[current];
 
   return (
     <section
@@ -42,39 +69,38 @@ export default function HeroSlider() {
       onKeyDown={handleKeyDown}
       className="relative h-dvh min-h-[560px] overflow-hidden outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white/70"
     >
-      <div className="absolute inset-0">
-        {heroSlides.map((slide, index) => (
-          <div
-            key={slide.id}
-            aria-hidden={index !== current}
-            className={`absolute inset-0 overflow-hidden transition-opacity duration-1000 ease-in-out ${
-              index === current ? "opacity-100" : "opacity-0"
-            }`}
+      <div className="absolute inset-0 overflow-hidden bg-black">
+        <AnimatePresence initial={false}>
+          <motion.div
+            key={activeSlide.id}
+            variants={slideVariants}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            className="absolute inset-0 h-full w-full will-change-[opacity]"
           >
-            {slide.src ? (
+            {activeSlide.src ? (
               <div className="relative h-full w-full">
                 <Image
-                  src={slide.src}
-                  alt={slide.alt}
+                  src={activeSlide.src}
+                  alt={activeSlide.alt}
                   fill
-                  priority={index === 0}
+                  priority={current === 0}
                   sizes="100vw"
                   quality={90}
-                  className={`object-cover transition-transform duration-1000 ease-out ${
-                    slide.objectPositionClass ?? "object-center"
-                  } ${index === current ? "scale-100" : "scale-105"}`}
+                  className={`object-cover ${
+                    activeSlide.objectPositionClass ?? "object-center"
+                  }`}
                 />
               </div>
             ) : (
               <PlaceholderMedia
-                tone={slide.tone}
-                className={`h-full w-full transition-transform duration-1000 ease-out ${
-                  index === current ? "scale-100" : "scale-105"
-                }`}
+                tone={activeSlide.tone}
+                className="h-full w-full"
               />
             )}
-          </div>
-        ))}
+          </motion.div>
+        </AnimatePresence>
       </div>
 
       {/* Visually hidden h1 for accessibility */}

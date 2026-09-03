@@ -13,22 +13,21 @@ export type Award = {
   organization: string;
 };
 
-/** Placeholder profile for Dream Stories's founder/lead photographer — swap for
- * her real bio, portrait, and accolades when ready. */
+/** Profile for Dream Stories's founder/lead photographer. */
 export const photographer = {
-  name: "Ava Bennett",
+  name: "Ravi Barvaliya",
   role: "Lead Photographer & Founder",
   portraitTone: "sand" as Tone,
   bio: [
-    "Ava started Dream Stories in 2014 with a single camera bag and a background in documentary photojournalism — a discipline that still shapes every frame she shoots today.",
-    "She works almost entirely in natural and available light, favoring quiet, unscripted moments over posed formality. Her work has taken her from vineyard weddings in Napa to elopements on the Amalfi Coast.",
-    "When she isn't shooting, she's usually in the darkroom, hand-processing film for the studio's fine-art print archive.",
+    "Ravi started The Dream Stories in 2014 during his college years, driven by a deep passion for photography and a desire to capture moments with an artistic touch. What began as a personal pursuit has grown into a dedicated wedding and travel photography studio based in Surat, India.",
+    "He specializes in wedding and travel photography, with a keen eye for composition, light and emotion. Through the lens of his camera, Ravi aims to capture the innate beauty of the people and places he encounters — crafting visual stories that feel honest and lasting.",
+    "When he isn't shooting weddings, he's usually exploring new destinations or refining the studio's editing and storytelling process.",
   ],
   quote:
-    "I'm not trying to make a beautiful photograph. I'm trying to make an honest one — the beauty tends to follow.",
+    "Every wedding is a story. My job isn't to pose it — it's to notice it, and make sure it's never forgotten.",
 };
 
-/** What she shoots — the personal specialties behind the studio's services. */
+/** What he shoots — the personal specialties behind the studio's services. */
 export const specialties: Specialty[] = [
   {
     id: "sp1",
@@ -37,18 +36,21 @@ export const specialties: Specialty[] = [
   },
   {
     id: "sp2",
-    title: "Fine-Art Film Portraits",
-    description: "Medium-format film work, shot for tone and grain, printed by hand in the studio darkroom.",
+    title: "Cinematic Wedding Films",
+    description:
+      "Story-driven wedding video coverage, edited to feel as emotional and timeless as the photographs.",
   },
   {
     id: "sp3",
-    title: "Editorial Bridal Fashion",
-    description: "Considered, stylized imagery made for publications and bridal designers.",
+    title: "Editorial Bridal Portraits",
+    description:
+      "Considered, stylized bridal and couple portraits with attention to composition and light.",
   },
   {
     id: "sp4",
     title: "Destination Elopements",
-    description: "Intimate ceremonies in remote, dramatic locations — from coastlines to mountain passes.",
+    description:
+      "Intimate ceremonies in remote, dramatic locations — from coastlines to mountain passes.",
   },
 ];
 

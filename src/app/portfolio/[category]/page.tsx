@@ -10,15 +10,18 @@ type CategoryPageProps = {
   params: Promise<{ category: string }>;
 };
 
-// Pre-render every known category (weddings, engagements, family-maternity)
-// at build time — add a key to categoryContent in data/categories.ts and its
-// route is picked up here automatically, no page-per-category duplication.
+// Pre-render known categories at build time — Engagements and Family & Maternity
+// sub-pages are commented out per single-page Weddings portfolio design.
 export function generateStaticParams() {
+  /*
   return Object.keys(categoryContent).map((category) => ({ category }));
+  */
+  return [{ category: "weddings" }];
 }
 
 export async function generateMetadata({ params }: CategoryPageProps): Promise<Metadata> {
   const { category } = await params;
+  if (category !== "weddings") return {};
   const content = getCategoryContent(category);
   if (!content) return {};
 
@@ -30,6 +33,12 @@ export async function generateMetadata({ params }: CategoryPageProps): Promise<M
 
 export default async function PortfolioCategoryPage({ params }: CategoryPageProps) {
   const { category } = await params;
+
+  // Engagements and Family & Maternity sub-pages commented out:
+  if (category !== "weddings") {
+    notFound();
+  }
+
   const content = getCategoryContent(category);
 
   if (!content) {
@@ -44,12 +53,8 @@ export default async function PortfolioCategoryPage({ params }: CategoryPageProp
       <Section className="mx-auto max-w-7xl px-6 sm:px-10">
         <PhotoGrid photos={photos} />
       </Section>
-      {/* Vimeo showcase reel — Engagements only, per the current brief. Keyed
-          off content.slug rather than a new categoryContent field since
-          nothing else about this section varies per category yet; move it
-          into categoryContent (like `video` above) if other categories need
-          their own showcase later. */}
-      {content.slug === "engagements" ? <EngagementVideoShowcase /> : null}
+      {/* Vimeo showcase reel — Engagements only (commented out) */}
+      {/* {content.slug === "engagements" ? <EngagementVideoShowcase /> : null} */}
     </>
   );
 }

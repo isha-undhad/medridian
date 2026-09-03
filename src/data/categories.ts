@@ -33,7 +33,7 @@ export type CategoryContent = {
  * `generateStaticParams` in the page picks it up) rather than duplicating a
  * page per category.
  */
-export const categoryContent: Record<CategorySlug, CategoryContent> = {
+export const categoryContent: Partial<Record<CategorySlug, CategoryContent>> = {
   weddings: {
     slug: "weddings",
     category: "Weddings",
@@ -46,6 +46,7 @@ export const categoryContent: Record<CategorySlug, CategoryContent> = {
       location: "Cliveden House, UK",
     },
   },
+  /*
   engagements: {
     slug: "engagements",
     category: "Engagements",
@@ -70,6 +71,7 @@ export const categoryContent: Record<CategorySlug, CategoryContent> = {
       location: "Cliveden House, UK",
     },
   },
+  */
 };
 
 /** Looks up a category by its URL slug — returns undefined for anything

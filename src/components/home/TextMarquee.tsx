@@ -31,7 +31,7 @@ export default function TextMarquee({
     <aside
       aria-label="Announcements and navigation ticker"
       className={cn(
-        "relative w-full overflow-hidden border-b border-[var(--color-line)] bg-white py-3 sm:py-3.5 select-none",
+        "relative w-full overflow-hidden border-b border-[var(--color-line)] bg-[var(--color-bg)] py-3 sm:py-3.5 select-none",
         className
       )}
     >

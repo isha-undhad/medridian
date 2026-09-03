@@ -31,8 +31,8 @@ export default function PortfolioHeader({
   onCategoryChange,
 }: PortfolioHeaderProps) {
   return (
-    <div className="flex flex-col items-center gap-5 text-center">
-      <Reveal variants={fadeUp} className="flex flex-col items-center gap-5">
+    <div className="flex flex-col items-center gap-3 sm:gap-4 text-center">
+      <Reveal variants={fadeUp} className="flex flex-col items-center gap-2.5 sm:gap-3">
         <span className="text-xs font-medium tracking-[0.25em] text-[var(--color-muted)] uppercase">
           {label}
         </span>
@@ -41,10 +41,8 @@ export default function PortfolioHeader({
         </h1>
       </Reveal>
 
-      {/* Horizontal scroll (not wrap) on narrow screens — with only a
-          handful of tabs, a scrollable single row keeps the centered look
-          intact instead of the tabs re-centering awkwardly across two
-          wrapped lines. */}
+      {/* Sub-tab navigation UI commented out — Portfolio is now a single static Weddings page */}
+      {/*
       <Reveal
         variants={fadeUp}
         delay={0.1}
@@ -70,6 +68,7 @@ export default function PortfolioHeader({
           );
         })}
       </Reveal>
+      */}
     </div>
   );
 }
