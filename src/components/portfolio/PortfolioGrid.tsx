@@ -119,7 +119,7 @@ export default function PortfolioGrid({
                     delay={idx * 0.04}
                     className={`${cellClass} h-full w-full`}
                   >
-                    <div className="group relative block w-full h-full overflow-hidden rounded-none bg-[var(--color-line)]/20">
+                    <div className="relative block w-full h-full overflow-hidden rounded-none bg-[var(--color-line)]/20">
                       <Link
                         href={`/portfolio#${item.id}`}
                         className="block w-full h-full relative cursor-pointer"
@@ -130,7 +130,7 @@ export default function PortfolioGrid({
                           fill
                           priority={isPriority}
                           sizes="(max-width: 768px) 50vw, 33vw"
-                          className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                          className="object-cover object-center"
                         />
                       </Link>
                     </div>
@@ -162,7 +162,7 @@ export default function PortfolioGrid({
                   delay={slotIdx * 0.05}
                   className={`${slot.gridClass} h-full w-full`}
                 >
-                  <div className="group relative block w-full h-full overflow-hidden rounded-none bg-[var(--color-line)]/20">
+                  <div className="relative block w-full h-full overflow-hidden rounded-none bg-[var(--color-line)]/20">
                     <Link
                       href={`/portfolio#${item.id}`}
                       className="block w-full h-full relative cursor-pointer"
@@ -173,7 +173,7 @@ export default function PortfolioGrid({
                         fill
                         priority={isPriority}
                         sizes={slot.sizes}
-                        className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                        className="object-cover object-center"
                       />
                     </Link>
                   </div>

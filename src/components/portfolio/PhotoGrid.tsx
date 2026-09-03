@@ -28,7 +28,7 @@ export default function PhotoGrid({ photos }: PhotoGridProps) {
               alt={photo.title ?? ""}
               fill
               sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-              className="object-cover transition-transform duration-700 ease-out hover:scale-105"
+              className="object-cover"
             />
           </div>
         </Reveal>

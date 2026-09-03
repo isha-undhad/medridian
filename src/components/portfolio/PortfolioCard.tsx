@@ -21,14 +21,14 @@ type PortfolioCardProps = {
 export default function PortfolioCard({ item, delay = 0 }: PortfolioCardProps) {
   return (
     <Reveal variants={fadeUp} delay={delay} className="mb-[4px] break-inside-avoid">
-      <Link href={`/portfolio#${item.id}`} className="group block overflow-hidden">
+      <Link href={`/portfolio#${item.id}`} className="block overflow-hidden">
         <Image
           src={item.image}
           alt={item.title ?? ""}
           width={item.width}
           height={item.height}
           sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-          className="block h-auto w-full transition-transform duration-700 ease-out group-hover:scale-105"
+          className="block h-auto w-full"
         />
       </Link>
     </Reveal>
