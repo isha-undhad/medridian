@@ -45,13 +45,13 @@ export interface AboutPhotographerSectionProps {
 
 export default function AboutPhotographerSection({
   photographerImage = "/home/photographer.jpg",
-  photographerImageAlt = "Ava Bennett, lead photographer at Dream Stories",
+  photographerImageAlt = "Ravi Barvaliya, lead photographer at Dream Stories",
   secondaryImage = "/home/insta2.jpg",
   imagePosition = "center",
   eyebrowText = "Behind the Lens",
   eyebrowLink = "/about",
-  name = "Ava Bennett",
-  tagline = "Timeless wedding photography for the romantic, the reflective, and the free-spirited.",
+  name = "RAVI BARVALIYA",
+  tagline = "Storyteller and Creative Director capturing weddings and journeys across Gujarat and beyond — turning fleeting moments into lasting memories.",
 }: AboutPhotographerSectionProps) {
   return (
     <section className={`${inter.variable} ${playfair.variable} relative w-full`}>

@@ -153,10 +153,10 @@ export default function ExploreWeddingsGrid({
   return (
     <section
       ref={sectionRef}
-      className={`${inter.variable} ${cormorant.variable} relative w-full h-[100dvh] min-h-[500px] max-h-[1080px] overflow-hidden bg-black flex flex-col justify-between py-1 sm:py-1.5`}
+      className={`${inter.variable} ${cormorant.variable} relative w-full max-md:h-auto max-md:min-h-0 max-md:py-2 md:h-[100dvh] md:min-h-[500px] md:max-h-[1080px] overflow-hidden bg-black flex flex-col justify-between gap-1 sm:gap-1.5 md:gap-0`}
     >
-      {/* TOP PART: Exactly 49% of 100dvh */}
-      <div className="relative w-full h-[49%] flex items-center overflow-hidden">
+      {/* TOP PART: Mobile compact height (~195px), Desktop 49% of 100dvh */}
+      <div className="relative w-full h-[180px] min-[360px]:h-[195px] min-[400px]:h-[215px] md:h-[49%] flex items-center overflow-hidden">
         <motion.div
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -182,8 +182,8 @@ export default function ExploreWeddingsGrid({
         </motion.div>
       </div>
 
-      {/* BOTTOM PART: Exactly 49% of 100dvh */}
-      <div className="relative w-full h-[49%] flex items-center overflow-hidden">
+      {/* BOTTOM PART: Mobile compact height (~195px), Desktop 49% of 100dvh */}
+      <div className="relative w-full h-[180px] min-[360px]:h-[195px] min-[400px]:h-[215px] md:h-[49%] flex items-center overflow-hidden">
         <motion.div
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
@@ -219,18 +219,18 @@ export default function ExploreWeddingsGrid({
       <div className="pointer-events-none absolute inset-0 z-20 flex flex-col items-center justify-center px-4 sm:px-6 text-center">
         {/* "Explore" — High-contrast luxury italic serif font */}
         <span
-          className="font-times-now-italic text-3xl sm:text-4xl md:text-5xl lg:text-[4rem] italic font-light text-white [text-shadow:0_3px_16px_rgba(0,0,0,0.95)] leading-none select-none"
+          className="font-times-now-italic text-2xl min-[360px]:text-[28px] sm:text-4xl md:text-5xl lg:text-[4rem] italic font-light text-white [text-shadow:0_3px_16px_rgba(0,0,0,0.95)] leading-none select-none"
         >
           {scriptText}
         </span>
 
         {/* Rotating category word — Tight luxury editorial letter spacing */}
-        <div className="relative mt-2 sm:mt-3 md:mt-4 h-[2.5rem] w-full sm:h-[3.5rem] md:h-[4.5rem] lg:h-[5.5rem] xl:h-[6.5rem]">
+        <div className="relative mt-1 sm:mt-3 md:mt-4 h-[1.9rem] min-[360px]:h-[2.2rem] w-full sm:h-[3.5rem] md:h-[4.5rem] lg:h-[5.5rem] xl:h-[6.5rem]">
           {categories.map((category, index) => (
             <h2
               key={category}
               aria-hidden={index !== categoryIndex}
-              className={`font-times-now absolute inset-0 flex items-center justify-center text-4xl sm:text-5xl md:text-6xl lg:text-[5.5rem] xl:text-[6.6rem] font-light uppercase tracking-[0.03em] leading-[0.88] text-white [text-shadow:0_4px_30px_rgba(0,0,0,0.95)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] select-none ${index === categoryIndex ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0"
+              className={`font-times-now absolute inset-0 flex items-center justify-center text-3xl min-[360px]:text-[34px] sm:text-5xl md:text-6xl lg:text-[5.5rem] xl:text-[6.6rem] font-light uppercase tracking-[0.03em] leading-[0.88] text-white [text-shadow:0_4px_30px_rgba(0,0,0,0.95)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] select-none ${index === categoryIndex ? "translate-y-0 opacity-100" : "-translate-y-2 opacity-0"
                 }`}
             >
               {category}
@@ -240,7 +240,7 @@ export default function ExploreWeddingsGrid({
 
         {/* Subtitle — Clean Times Now Light */}
         <p
-          className="font-times-now mt-1 sm:mt-2 max-w-sm sm:max-w-md text-sm sm:text-base leading-snug font-light text-white [text-shadow:0_2px_10px_rgba(0,0,0,0.95)]"
+          className="font-times-now mt-1 sm:mt-2 max-w-[260px] min-[360px]:max-w-xs sm:max-w-md text-[11.5px] min-[360px]:text-xs sm:text-base leading-snug font-light text-white [text-shadow:0_2px_10px_rgba(0,0,0,0.95)]"
         >
           {subtext}
         </p>
@@ -248,7 +248,7 @@ export default function ExploreWeddingsGrid({
         {/* Pill Button — Elegant Times Now Light */}
         <Link
           href={ctaLink}
-          className="font-times-now pointer-events-auto mt-2.5 sm:mt-3.5 inline-flex items-center justify-center rounded-full border border-white/80 bg-black/25 px-6 sm:px-8 py-1.5 sm:py-2 text-xs sm:text-sm font-light tracking-wide text-white backdrop-blur-sm transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white hover:text-black hover:shadow-xl hover:scale-105"
+          className="font-times-now pointer-events-auto mt-2 sm:mt-3.5 inline-flex items-center justify-center rounded-full border border-white/80 bg-black/35 px-4 min-[360px]:px-5 sm:px-8 py-1 sm:py-2 text-[11px] min-[360px]:text-xs sm:text-sm font-light tracking-wide text-white backdrop-blur-sm transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:bg-white hover:text-black hover:shadow-xl hover:scale-105"
         >
           {ctaText}
         </Link>

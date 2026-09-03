@@ -3,7 +3,6 @@ import Link from "next/link";
 import Reveal from "@/components/ui/Reveal";
 import { fadeUp } from "@/lib/motion";
 import { portfolioItems, type PortfolioItem } from "@/data/portfolio";
-import PortfolioCard from "./PortfolioCard";
 
 type PortfolioGridProps = {
   /** Defaults to the full portfolio data set; pass a custom array to reuse
@@ -11,163 +10,179 @@ type PortfolioGridProps = {
   items?: PortfolioItem[];
   /** Show only the first N items (used on the home page preview). */
   limit?: number;
-  /** Choose layout style: multi-column masonry or flexbox wrapper */
-  layout?: "columns" | "flex";
+  layout?: string;
 };
 
-// Fallback images matching the reference image layout in case items array is short
-const referencePhotos = [
-  { id: "ref1", image: "/home/couple.webp", title: "Ceremony Kiss in Desert", width: 1000, height: 1500 },
-  { id: "ref2", image: "/home/portfolio1.jpg", title: "Veil Portrait", width: 1000, height: 1200 },
-  { id: "ref3", image: "/portfolio/7.jpeg", title: "Toast & Celebration", width: 1000, height: 1200 },
-  { id: "ref4", image: "/home/catagory1.jpg", title: "Lake Walk Portrait", width: 1600, height: 900 },
-  { id: "ref5", image: "/portfolio/3.jpeg", title: "Architecture & Ceremony", width: 1600, height: 1000 },
-  { id: "ref6", image: "/home/catagory3.jpg", title: "Garden Kiss", width: 1000, height: 1200 },
-  { id: "ref7", image: "/home/catagory5.jpg", title: "Ivy Doorway Entrance", width: 1000, height: 1200 },
+type MosaicSlot = {
+  gridClass: string;
+  sizes: string;
+};
+
+// ============================================================================
+// DESKTOP: 3-column x 3-row mosaic matching desktop specification (UNTOUCHED)
+// ============================================================================
+const DESKTOP_SLOTS: MosaicSlot[] = [
+  // 0: Column 1, Row 1 — square-ish cell
+  {
+    gridClass: "md:col-start-1 md:row-start-1 md:row-span-1 md:col-span-1",
+    sizes: "(min-width: 1280px) 420px, 33vw",
+  },
+  // 1: Column 1, Row 2 — square-ish cell directly below it
+  {
+    gridClass: "md:col-start-1 md:row-start-2 md:row-span-1 md:col-span-1",
+    sizes: "(min-width: 1280px) 420px, 33vw",
+  },
+  // 2: Column 2, Rows 1–2 — one tall cell spanning rows 1–2
+  {
+    gridClass: "md:col-start-2 md:row-start-1 md:row-span-2 md:col-span-1",
+    sizes: "(min-width: 1280px) 420px, 33vw",
+  },
+  // 3: Column 3, Row 1 — short cell
+  {
+    gridClass: "md:col-start-3 md:row-start-1 md:row-span-1 md:col-span-1",
+    sizes: "(min-width: 1280px) 420px, 33vw",
+  },
+  // 4: Columns 1–2, Row 3 — one wide cell spanning columns 1–2
+  {
+    gridClass: "md:col-start-1 md:row-start-3 md:row-span-1 md:col-span-2",
+    sizes: "(min-width: 1280px) 840px, 66vw",
+  },
+  // 5: Column 3, Rows 2–3 — tall cell spanning rows 2–3 continuing alongside the wide cell
+  {
+    gridClass: "md:col-start-3 md:row-start-2 md:row-span-2 md:col-span-1",
+    sizes: "(min-width: 1280px) 420px, 33vw",
+  },
+];
+
+// ============================================================================
+// MOBILE: Alternating 4-cell blocks matching user's mobile diagram:
+// - Pattern A: 2 stacked left (rows 1-2) + 1 tall right (rows 1-2) + 1 wide bottom (row 3)
+// - Pattern B: 1 tall left (rows 1-2) + 2 stacked right (rows 1-2) + 1 wide bottom (row 3)
+// ============================================================================
+const MOBILE_PATTERN_A: string[] = [
+  "col-start-1 row-start-1",
+  "col-start-1 row-start-2",
+  "col-start-2 row-start-1 row-span-2",
+  "col-start-1 col-span-2 row-start-3",
+];
+
+const MOBILE_PATTERN_B: string[] = [
+  "col-start-1 row-start-1 row-span-2",
+  "col-start-2 row-start-1",
+  "col-start-2 row-start-2",
+  "col-start-1 col-span-2 row-start-3",
 ];
 
 export default function PortfolioGrid({
   items = portfolioItems,
   limit,
-  layout = "columns",
 }: PortfolioGridProps) {
   const visible = typeof limit === "number" ? items.slice(0, limit) : items;
 
-  if (layout === "flex") {
-    // Map visible items or fill with reference photos to match reference layout exactly
-    const photos = referencePhotos.map((ref, idx) => ({
-      ...ref,
-      image: visible[idx]?.image || ref.image,
-      title: visible[idx]?.title || ref.title,
-    }));
+  // Split visible items into groups of 6 for desktop
+  const desktopChunks: PortfolioItem[][] = [];
+  for (let i = 0; i < visible.length; i += 6) {
+    desktopChunks.push(visible.slice(i, i + 6));
+  }
 
-    return (
-      <div className="flex flex-col gap-[4px]">
-        {/* Block 1: Left tall featured photo (1 col) + Right 3-photo grid (2 rows) */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-[4px]">
-          {/* Left tall photo — full height of the 2 right rows */}
-          <Reveal variants={fadeUp} className="md:col-span-6 flex">
-            <Link
-              href={`/portfolio#${photos[0].id}`}
-              className="group relative block w-full h-full min-h-[380px] sm:min-h-[460px] md:min-h-[520px] overflow-hidden rounded-sm"
-            >
-              <Image
-                src={photos[0].image}
-                alt={photos[0].title}
-                fill
-                sizes="(min-width: 768px) 50vw, 100vw"
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-              />
-            </Link>
-          </Reveal>
-
-          {/* Right side block */}
-          <div className="md:col-span-6 flex flex-col gap-[4px]">
-            {/* Top row: 1 photo on mobile, 2 photos on tablet/desktop */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-[4px]">
-              <Reveal variants={fadeUp} delay={0.05}>
-                <Link
-                  href={`/portfolio#${photos[1].id}`}
-                  className="group relative block w-full aspect-square overflow-hidden rounded-sm"
-                >
-                  <Image
-                    src={photos[1].image}
-                    alt={photos[1].title}
-                    fill
-                    sizes="(min-width: 768px) 25vw, 50vw"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  />
-                </Link>
-              </Reveal>
-              <Reveal variants={fadeUp} delay={0.1}>
-                <Link
-                  href={`/portfolio#${photos[2].id}`}
-                  className="group relative block w-full aspect-square overflow-hidden rounded-sm"
-                >
-                  <Image
-                    src={photos[2].image}
-                    alt={photos[2].title}
-                    fill
-                    sizes="(min-width: 768px) 25vw, 50vw"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  />
-                </Link>
-              </Reveal>
-            </div>
-            {/* Bottom row: 1 wide photo */}
-            <Reveal variants={fadeUp} delay={0.15} className="flex-1">
-              <Link
-                href={`/portfolio#${photos[3].id}`}
-                className="group relative block w-full h-full min-h-[180px] sm:min-h-[220px] aspect-[16/9] overflow-hidden rounded-sm"
-              >
-                <Image
-                  src={photos[3].image}
-                  alt={photos[3].title}
-                  fill
-                  sizes="(min-width: 768px) 50vw, 100vw"
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                />
-              </Link>
-            </Reveal>
-          </div>
-        </div>
-
-        {/* Block 2: Wide landscape left + 2 vertical photos right — aligned heights */}
-        <div className="grid grid-cols-1 md:grid-cols-12 md:items-stretch gap-[4px]">
-          <Reveal variants={fadeUp} delay={0.2} className="md:col-span-7 flex">
-            <Link
-              href={`/portfolio#${photos[4].id}`}
-              className="group relative block w-full aspect-[16/10] overflow-hidden rounded-sm"
-            >
-              <Image
-                src={photos[4].image}
-                alt={photos[4].title}
-                fill
-                sizes="(min-width: 768px) 60vw, 100vw"
-                className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-              />
-            </Link>
-          </Reveal>
-          <div className="md:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-[4px]">
-            <Reveal variants={fadeUp} delay={0.25} className="flex h-full">
-              <Link
-                href={`/portfolio#${photos[5].id}`}
-                className="group relative block w-full h-full min-h-[220px] overflow-hidden rounded-sm"
-              >
-                <Image
-                  src={photos[5].image}
-                  alt={photos[5].title}
-                  fill
-                  sizes="(min-width: 768px) 20vw, 50vw"
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                />
-              </Link>
-            </Reveal>
-            <Reveal variants={fadeUp} delay={0.3} className="flex h-full">
-              <Link
-                href={`/portfolio#${photos[6].id}`}
-                className="group relative block w-full h-full min-h-[220px] overflow-hidden rounded-sm"
-              >
-                <Image
-                  src={photos[6].image}
-                  alt={photos[6].title}
-                  fill
-                  sizes="(min-width: 768px) 20vw, 50vw"
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                />
-              </Link>
-            </Reveal>
-          </div>
-        </div>
-      </div>
-    );
+  // Split visible items into groups of 4 for mobile alternating blocks
+  const mobileChunks: PortfolioItem[][] = [];
+  for (let i = 0; i < visible.length; i += 4) {
+    mobileChunks.push(visible.slice(i, i + 4));
   }
 
   return (
-    <div className="columns-1 gap-[4px] sm:columns-2 lg:columns-3">
-      {visible.map((item, index) => (
-        <PortfolioCard key={item.id} item={item} delay={(index % 3) * 0.08} />
-      ))}
-    </div>
+    <>
+      {/* ===================================================================
+          MOBILE VIEW (< md): 2-Column Alternating Mosaic Matching Diagram
+          - Images never stretch or cut (object-cover with top-center focal point)
+          - Ultra-minimal 2px hairline spacing between cells and blocks
+          =================================================================== */}
+      <div className="block md:hidden space-y-[2px]">
+        {mobileChunks.map((chunk, chunkIdx) => {
+          const isPatternB = chunkIdx % 2 === 1;
+          const pattern = isPatternB ? MOBILE_PATTERN_B : MOBILE_PATTERN_A;
+
+          return (
+            <div
+              key={`mob-${chunkIdx}`}
+              className="grid grid-cols-2 grid-rows-[140px_140px_160px] min-[360px]:grid-rows-[150px_150px_175px] min-[400px]:grid-rows-[165px_165px_195px] gap-[2px]"
+            >
+              {chunk.map((item, idx) => {
+                const cellClass = pattern[idx] || "col-span-1";
+                const isPriority = chunkIdx === 0 && idx < 3;
+
+                return (
+                  <Reveal
+                    key={item.id}
+                    variants={fadeUp}
+                    delay={idx * 0.04}
+                    className={`${cellClass} h-full w-full`}
+                  >
+                    <div className="group relative block w-full h-full overflow-hidden rounded-none bg-[var(--color-line)]/20">
+                      <Link
+                        href={`/portfolio#${item.id}`}
+                        className="block w-full h-full relative cursor-pointer"
+                      >
+                        <Image
+                          src={item.image}
+                          alt={item.title || "Wedding photograph"}
+                          fill
+                          priority={isPriority}
+                          sizes="(max-width: 768px) 50vw, 33vw"
+                          className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                        />
+                      </Link>
+                    </div>
+                  </Reveal>
+                );
+              })}
+            </div>
+          );
+        })}
+      </div>
+
+      {/* ===================================================================
+          DESKTOP VIEW (>= md): 3-Column Mosaic Matching Previous Desktop Grid
+          =================================================================== */}
+      <div className="hidden md:block space-y-[2px]">
+        {desktopChunks.map((chunk, chunkIdx) => (
+          <div
+            key={`desk-${chunkIdx}`}
+            className="grid md:grid-cols-3 md:[grid-template-columns:repeat(3,minmax(0,1fr))] md:grid-rows-[minmax(250px,1fr)_minmax(290px,1.15fr)_minmax(250px,1fr)] lg:grid-rows-[minmax(290px,1fr)_minmax(340px,1.15fr)_minmax(290px,1fr)] xl:grid-rows-[minmax(320px,1fr)_minmax(380px,1.15fr)_minmax(320px,1fr)] gap-[2px]"
+          >
+            {chunk.map((item, slotIdx) => {
+              const slot = DESKTOP_SLOTS[slotIdx % DESKTOP_SLOTS.length];
+              const isPriority = chunkIdx === 0 && slotIdx < 3;
+
+              return (
+                <Reveal
+                  key={item.id}
+                  variants={fadeUp}
+                  delay={slotIdx * 0.05}
+                  className={`${slot.gridClass} h-full w-full`}
+                >
+                  <div className="group relative block w-full h-full overflow-hidden rounded-none bg-[var(--color-line)]/20">
+                    <Link
+                      href={`/portfolio#${item.id}`}
+                      className="block w-full h-full relative cursor-pointer"
+                    >
+                      <Image
+                        src={item.image}
+                        alt={item.title || "Wedding photograph"}
+                        fill
+                        priority={isPriority}
+                        sizes={slot.sizes}
+                        className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                      />
+                    </Link>
+                  </div>
+                </Reveal>
+              );
+            })}
+          </div>
+        ))}
+      </div>
+    </>
   );
 }

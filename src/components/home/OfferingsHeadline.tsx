@@ -43,18 +43,18 @@ const offerings: OfferingItem[] = [
 // 3. Top-right: overlapping "WEDDINGS" / "PORTRAITS"
 // 4. Top-left: upper area overlapping "WEDDINGS" / "PORTRAITS"
 const positionClasses: Record<OfferingItem["position"], string> = {
-  // Photo 1 (WEDDINGS) -> Bottom-Right corner
+  // Photo 1 (WEDDINGS) -> Bottom-Right corner (aligned with standard 24px mobile container margin)
   "top-left":
-    "max-sm:w-[70px] max-sm:h-[96px] max-sm:bottom-[40px] max-sm:right-[14px] max-sm:top-auto max-sm:left-auto sm:top-[12%] sm:left-[10%] md:left-[14%] lg:left-[16%] xl:left-[18%]",
-  // Photo 2 (PORTRAITS) -> Bottom-Left corner
+    "max-sm:w-[70px] max-sm:h-[96px] max-sm:bottom-[40px] max-sm:right-6 max-sm:top-auto max-sm:left-auto sm:top-[12%] sm:left-[10%] md:left-[14%] lg:left-[16%] xl:left-[18%]",
+  // Photo 2 (PORTRAITS) -> Bottom-Left corner (aligned with standard 24px mobile container margin)
   "bottom-left":
-    "max-sm:w-[70px] max-sm:h-[96px] max-sm:bottom-[42px] max-sm:left-[14px] max-sm:top-auto max-sm:right-auto sm:bottom-[12%] sm:left-[10%] md:left-[14%] lg:left-[16%] xl:left-[18%]",
-  // Photo 3 (EDITORIAL) -> Top-Right corner
+    "max-sm:w-[70px] max-sm:h-[96px] max-sm:bottom-[42px] max-sm:left-6 max-sm:top-auto max-sm:right-auto sm:bottom-[12%] sm:left-[10%] md:left-[14%] lg:left-[16%] xl:left-[18%]",
+  // Photo 3 (EDITORIAL) -> Top-Right corner (aligned with standard 24px mobile container margin)
   "top-right":
-    "max-sm:w-[70px] max-sm:h-[96px] max-sm:top-[68px] max-sm:right-[14px] max-sm:bottom-auto max-sm:left-auto sm:top-[12%] sm:right-[10%] md:right-[14%] lg:right-[16%] xl:right-[18%]",
-  // Photo 4 (BRANDS) -> Top-Left corner
+    "max-sm:w-[70px] max-sm:h-[96px] max-sm:top-[68px] max-sm:right-6 max-sm:bottom-auto max-sm:left-auto sm:top-[12%] sm:right-[10%] md:right-[14%] lg:right-[16%] xl:right-[18%]",
+  // Photo 4 (BRANDS) -> Top-Left corner (aligned with standard 24px mobile container margin)
   "bottom-right":
-    "max-sm:w-[70px] max-sm:h-[96px] max-sm:top-[68px] max-sm:left-[14px] max-sm:bottom-auto max-sm:right-auto sm:bottom-[12%] sm:right-[10%] md:right-[14%] lg:right-[16%] xl:right-[18%]",
+    "max-sm:w-[70px] max-sm:h-[96px] max-sm:top-[68px] max-sm:left-6 max-sm:bottom-auto max-sm:right-auto sm:bottom-[12%] sm:right-[10%] md:right-[14%] lg:right-[16%] xl:right-[18%]",
 };
 
 export default function OfferingsHeadline() {
@@ -70,7 +70,7 @@ export default function OfferingsHeadline() {
   }, [activeIndex]);
 
   const headingClass =
-    "font-times-now text-[36px] min-[360px]:text-[39px] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light font-[300] uppercase leading-[1.12] sm:leading-[0.92] md:leading-[1.02] tracking-[0.03em] sm:tracking-tight text-[var(--color-ink)] opacity-100 select-none cursor-default [font-synthesis:none]";
+    "font-times-now text-[28px] min-[350px]:text-[32px] min-[380px]:text-[36px] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light font-[300] uppercase leading-[1.12] sm:leading-[0.92] md:leading-[1.02] tracking-[0.03em] sm:tracking-tight text-[var(--color-ink)] opacity-100 select-none cursor-default [font-synthesis:none]";
 
   return (
     <section className="relative flex w-full flex-col items-center justify-between overflow-hidden bg-[var(--color-bg)] max-sm:px-6 sm:px-4 max-sm:h-auto max-sm:min-h-0 max-sm:my-8 sm:my-0 max-sm:pt-8 max-sm:pb-5 max-sm:border-none border-l-0 sm:h-dvh sm:max-h-dvh sm:py-8 md:py-10">
