@@ -153,15 +153,15 @@ export default function ExploreWeddingsGrid({
   return (
     <section
       ref={sectionRef}
-      className={`${inter.variable} ${cormorant.variable} relative w-full max-md:h-auto max-md:min-h-0 max-md:py-2 md:h-[100dvh] md:min-h-[500px] md:max-h-[1080px] overflow-hidden bg-black flex flex-col justify-between gap-1 sm:gap-1.5 md:gap-0`}
+      className={`${inter.variable} ${cormorant.variable} relative w-full max-md:h-auto max-md:min-h-0 max-md:py-[2px] md:h-[100dvh] md:min-h-[500px] md:max-h-[1080px] overflow-hidden bg-black flex flex-col justify-center gap-[2px] md:gap-[3px]`}
     >
-      {/* TOP PART: Mobile compact height (~195px), Desktop 49% of 100dvh */}
-      <div className="relative w-full h-[180px] min-[360px]:h-[195px] min-[400px]:h-[215px] md:h-[49%] flex items-center overflow-hidden">
+      {/* TOP PART: Mobile compact height (~195px), Desktop 50% minus half-gap */}
+      <div className="relative w-full h-[180px] min-[360px]:h-[195px] min-[400px]:h-[215px] md:h-[calc(50%-1.5px)] flex items-center overflow-hidden">
         <motion.div
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={topSliderVariants}
-          className="flex w-max h-full items-center gap-1.5 sm:gap-2 md:gap-3 will-change-transform"
+          className="flex w-max h-full items-center gap-[2px] md:gap-[3px] will-change-transform"
         >
           {topRow.map((tile, index) => (
             <div
@@ -182,13 +182,13 @@ export default function ExploreWeddingsGrid({
         </motion.div>
       </div>
 
-      {/* BOTTOM PART: Mobile compact height (~195px), Desktop 49% of 100dvh */}
-      <div className="relative w-full h-[180px] min-[360px]:h-[195px] min-[400px]:h-[215px] md:h-[49%] flex items-center overflow-hidden">
+      {/* BOTTOM PART: Mobile compact height (~195px), Desktop 50% minus half-gap */}
+      <div className="relative w-full h-[180px] min-[360px]:h-[195px] min-[400px]:h-[215px] md:h-[calc(50%-1.5px)] flex items-center overflow-hidden">
         <motion.div
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
           variants={bottomSliderVariants}
-          className="flex w-max h-full items-center gap-1.5 sm:gap-2 md:gap-3 will-change-transform"
+          className="flex w-max h-full items-center gap-[2px] md:gap-[3px] will-change-transform"
         >
           {bottomRow.map((tile, index) => (
             <div

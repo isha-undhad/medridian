@@ -25,7 +25,7 @@ export default function StoryCard({ story, priority = false }: StoryCardProps) {
           fill
           priority={priority}
           sizes="(min-width: 1280px) 1200px, 100vw"
-          className="object-cover object-top transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+          className="object-cover object-top"
         />
 
         {/* Artistic Gradient Overlay */}

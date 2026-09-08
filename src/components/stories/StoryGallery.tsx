@@ -210,7 +210,7 @@ export default function StoryGallery({ images, coupleNames }: StoryGalleryProps)
                   suppressHydrationWarning
                   onClick={() => setSelectedIndex(index)}
                   aria-label={`View photo ${index + 1} of ${images.length} from ${coupleNames}'s wedding`}
-                  className="group relative block w-full overflow-hidden text-left cursor-pointer focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
+                  className="relative block w-full overflow-hidden text-left cursor-pointer focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
                 >
                   <div
                     className={`relative w-full overflow-hidden bg-[var(--color-line)]/15 ${
@@ -224,7 +224,7 @@ export default function StoryGallery({ images, coupleNames }: StoryGalleryProps)
                       alt={image.alt || `${coupleNames} Wedding Story Photo ${index + 1}`}
                       fill
                       sizes="(min-width: 1024px) 896px, 100vw"
-                      className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.015]"
+                      className="object-cover object-center"
                       loading={index < 4 ? "eager" : "lazy"}
                       priority={index < 2}
                     />
@@ -267,7 +267,7 @@ export default function StoryGallery({ images, coupleNames }: StoryGalleryProps)
                   suppressHydrationWarning
                   onClick={() => setSelectedIndex(idx1)}
                   aria-label={`View photo ${idx1 + 1} of ${images.length} from ${coupleNames}'s wedding`}
-                  className="group relative block w-full overflow-hidden text-left cursor-pointer focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
+                  className="relative block w-full overflow-hidden text-left cursor-pointer focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
                 >
                   <div className={`relative w-full ${pairAspect} overflow-hidden bg-[var(--color-line)]/15`}>
                     <Image
@@ -275,7 +275,7 @@ export default function StoryGallery({ images, coupleNames }: StoryGalleryProps)
                       alt={img1.alt || `${coupleNames} Wedding Story Photo ${idx1 + 1}`}
                       fill
                       sizes="(min-width: 1024px) 448px, 50vw"
-                      className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                      className="object-cover object-center"
                       loading="lazy"
                     />
                   </div>
@@ -287,7 +287,7 @@ export default function StoryGallery({ images, coupleNames }: StoryGalleryProps)
                   suppressHydrationWarning
                   onClick={() => setSelectedIndex(idx2)}
                   aria-label={`View photo ${idx2 + 1} of ${images.length} from ${coupleNames}'s wedding`}
-                  className="group relative block w-full overflow-hidden text-left cursor-pointer focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
+                  className="relative block w-full overflow-hidden text-left cursor-pointer focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)]"
                 >
                   <div className={`relative w-full ${pairAspect} overflow-hidden bg-[var(--color-line)]/15`}>
                     <Image
@@ -295,7 +295,7 @@ export default function StoryGallery({ images, coupleNames }: StoryGalleryProps)
                       alt={img2.alt || `${coupleNames} Wedding Story Photo ${idx2 + 1}`}
                       fill
                       sizes="(min-width: 1024px) 448px, 50vw"
-                      className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                      className="object-cover object-center"
                       loading="lazy"
                     />
                   </div>

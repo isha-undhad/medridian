@@ -24,7 +24,7 @@ export default function Home() {
       <OfferingsHeadline />
 
       {/* 4. Signature Portfolio — LOCKED */}
-      <Section className="bg-[var(--color-bg)] pb-0 md:pb-0 lg:pb-0">
+      <Section className="bg-[var(--color-bg)] pt-10 sm:pt-0 md:pt-0 lg:pt-0 pb-0 sm:pb-0 md:pb-0 lg:pb-0">
         <div className="mx-auto max-w-7xl px-6 sm:px-10">
           <SectionHeading eyebrow="SIGNATURE WORK" title="PORTFOLIO" size="hero" />
         </div>
