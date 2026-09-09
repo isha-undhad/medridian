@@ -62,6 +62,12 @@ export default function OfferingsHeadline() {
 
   // Automated 3-second interval loop sequence: 1. Bottom-Right -> 2. Bottom-Left -> 3. Top-Right -> 4. Top-Left
   useEffect(() => {
+    // Preload all showcase images so they are fully decoded with zero load-in delay
+    offerings.forEach((item) => {
+      const img = new window.Image();
+      img.src = item.src;
+    });
+
     const interval = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % offerings.length);
     }, 3000);
@@ -83,12 +89,10 @@ export default function OfferingsHeadline() {
         {offerings.map((item, index) => (
           <div
             key={item.label}
-            className={`absolute sm:w-[135px] sm:h-[185px] md:w-[165px] md:h-[230px] lg:w-[195px] lg:h-[270px] xl:w-[215px] xl:h-[295px] transition-all duration-700 ease-in-out rounded-sm overflow-hidden shadow-md shadow-black/10 ${
+            className={`absolute sm:w-[135px] sm:h-[185px] md:w-[165px] md:h-[230px] lg:w-[195px] lg:h-[270px] xl:w-[215px] xl:h-[295px] transition-opacity duration-1000 ease-in-out [will-change:opacity] [backface-visibility:hidden] rounded-sm overflow-hidden shadow-md shadow-black/10 ${
               positionClasses[item.position]
             } ${
-              index === activeIndex
-                ? "opacity-100 scale-100 pointer-events-none"
-                : "opacity-0 scale-95 pointer-events-none"
+              index === activeIndex ? "opacity-100" : "opacity-0"
             }`}
           >
             <Image
