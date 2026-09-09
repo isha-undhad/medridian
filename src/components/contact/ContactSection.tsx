@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import Image from "next/image";
+import emailjs from "@emailjs/browser";
 import Reveal from "@/components/ui/Reveal";
 import Section from "@/components/ui/Section";
 import { slideInLeft, slideInRight } from "@/lib/motion";
@@ -17,14 +18,54 @@ const INTEREST_OPTIONS = [
 ];
 
 export default function ContactSection() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [selectedInterest, setSelectedInterest] = useState("");
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    event.currentTarget.reset();
-    setSelectedInterest("");
-    setSubmitted(true);
+    setSubmitted(false);
+    setErrorMessage(null);
+    setIsSubmitting(true);
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      setErrorMessage(
+        "Unable to send your inquiry. Please check your internet connection and try again."
+      );
+      setIsSubmitting(false);
+      return;
+    }
+
+    const templateParams = {
+      first_name: (formData.get("firstName") as string) || "",
+      last_name: (formData.get("lastName") as string) || "",
+      email: (formData.get("email") as string) || "",
+      phone: (formData.get("phone") as string) || "",
+      interested_in: selectedInterest || (formData.get("interest") as string) || "",
+      session_date: (formData.get("sessionDate") as string) || "",
+      budget: (formData.get("budget") as string) || "",
+    };
+
+    try {
+      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      setSubmitted(true);
+      setSelectedInterest("");
+      form.reset();
+    } catch {
+      setErrorMessage(
+        "Unable to send your inquiry. Please check your internet connection and try again."
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -150,23 +191,28 @@ export default function ContactSection() {
                 I&apos;m interested in <span className="text-rose-500">*</span>
               </label>
               <div className="flex flex-col gap-2 pl-1">
-                {INTEREST_OPTIONS.map((option) => (
-                  <label
-                    key={option}
-                    className="group inline-flex items-center gap-3 cursor-pointer text-xs sm:text-sm text-[var(--color-body)] transition-colors hover:text-[var(--color-ink)]"
-                  >
-                    <input
-                      type="radio"
-                      name="interest"
-                      value={option}
-                      required
-                      checked={selectedInterest === option}
-                      onChange={(e) => setSelectedInterest(e.target.value)}
-                      className="h-4 w-4 accent-[var(--color-ink)] cursor-pointer text-[var(--color-accent)] focus:ring-[var(--color-accent)]"
-                    />
-                    <span>{option}</span>
-                  </label>
-                ))}
+                {INTEREST_OPTIONS.map((option) => {
+                  const optionId = `interest-${option.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "")}`;
+                  return (
+                    <label
+                      key={option}
+                      htmlFor={optionId}
+                      className="group inline-flex w-fit items-center gap-3 cursor-pointer text-xs sm:text-sm text-[var(--color-body)] transition-colors hover:text-[var(--color-ink)]"
+                    >
+                      <input
+                        id={optionId}
+                        type="radio"
+                        name="interest"
+                        value={option}
+                        required
+                        checked={selectedInterest === option}
+                        onChange={(e) => setSelectedInterest(e.target.value)}
+                        className="h-4 w-4 accent-[var(--color-ink)] cursor-pointer text-[var(--color-accent)] focus:ring-[var(--color-accent)]"
+                      />
+                      <span>{option}</span>
+                    </label>
+                  );
+                })}
               </div>
             </div>
 
@@ -192,65 +238,70 @@ export default function ContactSection() {
               <label htmlFor="budget" className="text-xs font-medium tracking-wide text-[var(--color-ink)]">
                 Photography Budget (₹ INR) <span className="text-rose-500">*</span>
               </label>
-              <input
-                id="budget"
-                name="budget"
-                type="text"
-                inputMode="numeric"
-                pattern="[0-9]+"
-                placeholder="e.g. 50000"
-                title="Please enter numbers only"
-                required
-                onKeyDown={(e) => {
-                  const allowedKeys = [
-                    "Backspace",
-                    "Delete",
-                    "Tab",
-                    "Escape",
-                    "Enter",
-                    "ArrowLeft",
-                    "ArrowRight",
-                    "Home",
-                    "End",
-                  ];
-                  if (allowedKeys.includes(e.key) || e.ctrlKey || e.metaKey) {
-                    return;
-                  }
-                  if (!/^[0-9]$/.test(e.key)) {
+              <div className="relative w-full sm:w-2/3">
+                <span className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3 text-sm text-[var(--color-muted)] select-none">
+                  ₹
+                </span>
+                <input
+                  id="budget"
+                  name="budget"
+                  type="number"
+                  min="0"
+                  placeholder="50000"
+                  title="Please enter numbers only"
+                  required
+                  onKeyDown={(e) => {
+                    const allowedKeys = [
+                      "Backspace",
+                      "Delete",
+                      "Tab",
+                      "Escape",
+                      "Enter",
+                      "ArrowLeft",
+                      "ArrowRight",
+                      "Home",
+                      "End",
+                    ];
+                    if (allowedKeys.includes(e.key) || e.ctrlKey || e.metaKey) {
+                      return;
+                    }
+                    if (!/^[0-9]$/.test(e.key)) {
+                      e.preventDefault();
+                    }
+                  }}
+                  onPaste={(e) => {
                     e.preventDefault();
-                  }
-                }}
-                onInput={(e) => {
-                  e.currentTarget.value = e.currentTarget.value.replace(/[^0-9]/g, "");
-                }}
-                onPaste={(e) => {
-                  e.preventDefault();
-                  const pastedData = e.clipboardData.getData("text");
-                  const cleanNumbers = pastedData.replace(/[^0-9]/g, "");
-                  if (cleanNumbers) {
-                    const target = e.currentTarget;
-                    const start = target.selectionStart ?? target.value.length;
-                    const end = target.selectionEnd ?? target.value.length;
-                    target.value = target.value.slice(0, start) + cleanNumbers + target.value.slice(end);
-                  }
-                }}
-                className="rounded-lg border border-[var(--color-line)] bg-white/80 px-4 py-2.5 text-sm text-[var(--color-ink)] placeholder:text-[var(--color-muted)]/60 outline-none transition-all duration-300 focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)] sm:w-2/3"
-              />
+                    const pastedData = e.clipboardData.getData("text");
+                    const cleanNumbers = pastedData.replace(/[^0-9]/g, "");
+                    if (cleanNumbers) {
+                      e.currentTarget.value = cleanNumbers;
+                    }
+                  }}
+                  className="w-full rounded-lg border border-[var(--color-line)] bg-white/80 pl-8 pr-4 py-2.5 text-sm text-[var(--color-ink)] placeholder:text-[var(--color-muted)]/60 outline-none transition-all duration-300 focus:border-[var(--color-accent)] focus:ring-1 focus:ring-[var(--color-accent)] [appearance:textfield] [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:appearance-none"
+                />
+              </div>
             </div>
 
             {/* Submit Button */}
             <div className="pt-2">
               <button
                 type="submit"
-                className="inline-flex items-center justify-center rounded-full bg-[var(--color-ink)] px-8 py-2.5 sm:py-3 text-xs sm:text-sm font-medium tracking-wide text-white transition-all duration-300 hover:bg-[var(--color-accent-ink)] hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] focus:ring-offset-2"
+                disabled={isSubmitting}
+                className="inline-flex items-center justify-center rounded-full bg-[var(--color-ink)] px-8 py-2.5 sm:py-3 text-xs sm:text-sm font-medium tracking-wide text-white transition-all duration-300 hover:bg-[var(--color-accent-ink)] hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-[var(--color-accent)] focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60"
               >
-                {submitted ? "Submitted" : "Submit"}
+                {isSubmitting ? "Submitting..." : submitted ? "Submitted" : "Submit"}
               </button>
             </div>
 
             {submitted ? (
               <p className="text-body text-[var(--color-accent-ink)]" role="status">
                 Thank you — we&apos;ll be in touch shortly regarding your session!
+              </p>
+            ) : null}
+
+            {errorMessage ? (
+              <p className="text-xs sm:text-sm text-rose-500 font-medium" role="alert">
+                {errorMessage}
               </p>
             ) : null}
           </form>

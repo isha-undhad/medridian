@@ -50,12 +50,12 @@ export default function TextMarquee({
                   href={item.href}
                   target={item.external ? "_blank" : undefined}
                   rel={item.external ? "noreferrer" : undefined}
-                  className="font-copperplate text-[10px] sm:text-[11px] md:text-xs text-[var(--color-ink)] uppercase transition-colors duration-300 hover:text-[var(--color-accent-ink)] whitespace-nowrap"
+                  className="font-sans text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-ink)] transition-colors duration-300 hover:text-[var(--color-accent-ink)] whitespace-nowrap"
                 >
                   {item.text}
                 </Link>
               ) : (
-                <span className="font-copperplate text-[10px] sm:text-[11px] md:text-xs text-[var(--color-ink)] uppercase whitespace-nowrap">
+                <span className="font-sans text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-ink)] whitespace-nowrap">
                   {item.text}
                 </span>
               )}

@@ -29,7 +29,12 @@ const defaultHeadline: HeadlineSegment[] = [
 const defaultSubtext =
   "The little things really are the big things — and they deserve to be captured with care. Every glance, every quiet moment between vows, becomes part of a story worth preserving forever.";
 
-const defaultImages = ["/home/about1.jpg", "/home/about2.jpeg", "/home/about3.jpg", "/home/about4.jpg"];
+const defaultImages = [
+  "/image/about_home/1.jpg",
+  "/image/about_home/2.JPG",
+  "/image/about_home/3.JPG",
+  "/image/about_home/4.jpg",
+];
 
 function ImageSlider({ images }: { images: string[] }) {
   const [currentIndex, setCurrentIndex] = useState(0);

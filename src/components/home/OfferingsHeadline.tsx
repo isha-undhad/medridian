@@ -13,25 +13,25 @@ type OfferingItem = {
 const offerings: OfferingItem[] = [
   {
     label: "WEDDINGS",
-    src: "/home/catagory1.jpg",
+    src: "/image/OFFERINGS/1.jpg",
     alt: "Wedding photography showcase",
     position: "top-left",
   },
   {
     label: "PORTRAITS",
-    src: "/home/catagory2.jpg",
+    src: "/image/OFFERINGS/2.jpg",
     alt: "Portrait photography showcase",
     position: "bottom-left",
   },
   {
     label: "EDITORIAL",
-    src: "/home/catagory3.jpg",
+    src: "/image/OFFERINGS/3.JPG",
     alt: "Editorial photography showcase",
     position: "top-right",
   },
   {
     label: "BRANDS",
-    src: "/home/catagory4.jpg",
+    src: "/image/OFFERINGS/4.jpg",
     alt: "Brand photography showcase",
     position: "bottom-right",
   },
@@ -45,16 +45,16 @@ const offerings: OfferingItem[] = [
 const positionClasses: Record<OfferingItem["position"], string> = {
   // Photo 1 (WEDDINGS) -> Left side (top-left)
   "top-left":
-    "max-sm:w-[70px] max-sm:h-[96px] max-sm:bottom-[40px] max-sm:right-8 max-sm:top-auto max-sm:left-auto sm:top-[12%] sm:left-[13%] md:left-[17%] lg:left-[19%] xl:left-[21%]",
+    "max-sm:w-[100px] max-sm:h-[137px] max-sm:bottom-[36px] max-sm:right-6 max-sm:top-auto max-sm:left-auto sm:top-[12%] sm:left-[13%] md:left-[17%] lg:left-[19%] xl:left-[21%]",
   // Photo 2 (PORTRAITS) -> Left side (bottom-left)
   "bottom-left":
-    "max-sm:w-[70px] max-sm:h-[96px] max-sm:bottom-[42px] max-sm:left-8 max-sm:top-auto max-sm:right-auto sm:bottom-[12%] sm:left-[13%] md:left-[17%] lg:left-[19%] xl:left-[21%]",
+    "max-sm:w-[100px] max-sm:h-[137px] max-sm:bottom-[38px] max-sm:left-6 max-sm:top-auto max-sm:right-auto sm:bottom-[12%] sm:left-[13%] md:left-[17%] lg:left-[19%] xl:left-[21%]",
   // Photo 3 (EDITORIAL) -> Right side (top-right)
   "top-right":
-    "max-sm:w-[70px] max-sm:h-[96px] max-sm:top-[45px] max-sm:right-8 max-sm:bottom-auto max-sm:left-auto sm:top-[12%] sm:right-[13%] md:right-[17%] lg:right-[19%] xl:right-[21%]",
+    "max-sm:w-[100px] max-sm:h-[137px] max-sm:top-[42px] max-sm:right-6 max-sm:bottom-auto max-sm:left-auto sm:top-[12%] sm:right-[13%] md:right-[17%] lg:right-[19%] xl:right-[21%]",
   // Photo 4 (BRANDS) -> Right side (bottom-right)
   "bottom-right":
-    "max-sm:w-[70px] max-sm:h-[96px] max-sm:top-[45px] max-sm:left-8 max-sm:bottom-auto max-sm:right-auto sm:bottom-[12%] sm:right-[13%] md:right-[17%] lg:right-[19%] xl:right-[21%]",
+    "max-sm:w-[100px] max-sm:h-[137px] max-sm:top-[42px] max-sm:left-6 max-sm:bottom-auto max-sm:right-auto sm:bottom-[12%] sm:right-[13%] md:right-[17%] lg:right-[19%] xl:right-[21%]",
 };
 
 export default function OfferingsHeadline() {
@@ -95,7 +95,7 @@ export default function OfferingsHeadline() {
               src={item.src}
               alt={item.alt}
               fill
-              sizes="(max-width: 640px) 70px, (max-width: 768px) 140px, (max-width: 1024px) 170px, 215px"
+              sizes="(max-width: 640px) 100px, (max-width: 768px) 140px, (max-width: 1024px) 170px, 215px"
               className="object-cover"
               priority
             />

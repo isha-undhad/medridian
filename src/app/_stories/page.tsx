@@ -1,3 +1,4 @@
+// Temporarily disabled — keep for reference
 import type { Metadata } from "next";
 import Reveal from "@/components/ui/Reveal";
 import { fadeUp } from "@/lib/motion";

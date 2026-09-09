@@ -43,19 +43,19 @@ export interface PortfolioSectionProps {
 
 const defaultItems: PortfolioSectionItem[] = [
   {
-    image: "/home/portfolio1.jpg",
+    image: "/image/portfolio_home/1.jpg",
     alt: "Bride in motion, tulle dress caught mid-turn",
     link: "/portfolio",
     hoverText: ["Timeless", "Romance"],
   },
   {
-    image: "/home/portfolio2.jpg",
+    image: "/image/portfolio_home/2.jpg",
     alt: "Bride and groom standing together among tropical foliage",
     link: "/portfolio",
     hoverText: ["Golden", "Hour"],
   },
   {
-    image: "/home/portfolio3.jpg",
+    image: "/image/portfolio_home/3.JPG",
     alt: "Bride and groom embracing at the reception table",
     link: "/portfolio",
     hoverText: ["Quiet", "Moments"],
@@ -102,7 +102,8 @@ export default function PortfolioSection({
                     src={item.image}
                     alt={item.alt}
                     fill
-                    sizes="(min-width: 1024px) 33vw, 33vw"
+                    quality={90}
+                    sizes="(max-width: 639px) 100vw, (max-width: 767px) 50vw, (max-width: 1280px) 33vw, 400px"
                     className="object-cover grayscale-0 transition-[filter,transform] duration-700 ease-out group-hover:scale-105 group-hover:grayscale"
                   />
 
