@@ -31,7 +31,7 @@ const offerings: OfferingItem[] = [
   },
   {
     label: "BRANDS",
-    src: "/image/OFFERINGS/4.jpg",
+    src: "/image/OFFERINGS/4.JPG",
     alt: "Brand photography showcase",
     position: "bottom-right",
   },

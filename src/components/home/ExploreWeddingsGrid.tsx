@@ -79,7 +79,7 @@ const defaultBottomRow: ExploreTile[] = [
     className: "h-full aspect-[3/4]",
   },
   {
-    src: "/image/explore_home/7.jpg",
+    src: "/image/explore_home/7.JPG",
     alt: "Wedding celebration showcase 8",
     className: "h-full aspect-[4/5]",
   },

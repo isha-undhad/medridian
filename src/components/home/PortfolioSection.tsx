@@ -49,7 +49,7 @@ const defaultItems: PortfolioSectionItem[] = [
     hoverText: ["Timeless", "Romance"],
   },
   {
-    image: "/image/portfolio_home/2.JPG",
+    image: "/image/portfolio_home/2.jpg",
     alt: "Bride and groom standing together among tropical foliage",
     link: "/portfolio",
     hoverText: ["Golden", "Hour"],

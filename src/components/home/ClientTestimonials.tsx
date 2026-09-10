@@ -21,7 +21,7 @@ const testimonials: Testimonial[] = [
     quote: "“Every frame felt effortlessly true to our story — as if she read our minds.”",
     author: "Jordan & Alex",
     role: "Past Clients",
-    image: "/home/about1.jpg",
+    image: "/image/portfolio/slider/7.jpg",
     imageAlt: "Jordan & Alex wedding portrait",
   },
   {
@@ -29,7 +29,7 @@ const testimonials: Testimonial[] = [
     quote: "“She captured the soul of our day in a way words never could.”",
     author: "Elena & David",
     role: "Florence Celebration",
-    image: "/portfolio/1.jpeg",
+    image: "/image/portfolio/slider/8.jpg",
     imageAlt: "Elena & David wedding portrait",
   },
   {
@@ -37,7 +37,7 @@ const testimonials: Testimonial[] = [
     quote: "“Timeless, romantic, and beyond anything we could have ever imagined.”",
     author: "Sophia & Liam",
     role: "English Countryside",
-    image: "/portfolio/2.jpeg",
+    image: "/image/portfolio/slider/9.jpg",
     imageAlt: "Sophia & Liam wedding portrait",
   },
   {
@@ -45,7 +45,7 @@ const testimonials: Testimonial[] = [
     quote: "“Every single photograph feels intentional, artful, and deeply personal.”",
     author: "Chloe & Marcus",
     role: "Napa Valley Vows",
-    image: "/home/about4.jpg",
+    image: "/image/portfolio/slider/10.jpg",
     imageAlt: "Chloe & Marcus wedding portrait",
   },
 ];
