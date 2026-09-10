@@ -100,6 +100,41 @@ export default function PortfolioGrid({
           =================================================================== */}
       <div className="block md:hidden space-y-[2px]">
         {mobileChunks.map((chunk, chunkIdx) => {
+          // If the final chunk has only 2 items, render them side-by-side in a 2-column row
+          if (chunk.length === 2) {
+            return (
+              <div
+                key={`mob-${chunkIdx}`}
+                className="grid grid-cols-2 grid-rows-[160px] min-[360px]:grid-rows-[175px] min-[400px]:grid-rows-[195px] gap-[2px]"
+              >
+                {chunk.map((item, idx) => (
+                  <Reveal
+                    key={item.id}
+                    variants={fadeUp}
+                    delay={idx * 0.04}
+                    className="col-span-1 h-full w-full"
+                  >
+                    <div className="relative block w-full h-full overflow-hidden rounded-none bg-[var(--color-line)]/20">
+                      <Link
+                        href={`/portfolio#${item.id}`}
+                        className="block w-full h-full relative cursor-pointer outline-none focus:outline-none focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-white/60"
+                      >
+                        <Image
+                          src={item.image}
+                          alt={item.title || "Wedding photograph"}
+                          fill
+                          sizes="(max-width: 768px) 50vw, 33vw"
+                          className="object-cover"
+                          style={{ objectPosition: item.mobileObjectPosition || item.objectPosition || "center" }}
+                        />
+                      </Link>
+                    </div>
+                  </Reveal>
+                ))}
+              </div>
+            );
+          }
+
           const isPatternB = chunkIdx % 2 === 1;
           const pattern = isPatternB ? MOBILE_PATTERN_B : MOBILE_PATTERN_A;
 
@@ -122,7 +157,7 @@ export default function PortfolioGrid({
                     <div className="relative block w-full h-full overflow-hidden rounded-none bg-[var(--color-line)]/20">
                       <Link
                         href={`/portfolio#${item.id}`}
-                        className="block w-full h-full relative cursor-pointer"
+                        className="block w-full h-full relative cursor-pointer outline-none focus:outline-none focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-white/60"
                       >
                         <Image
                           src={item.image}
@@ -131,7 +166,7 @@ export default function PortfolioGrid({
                           priority={isPriority}
                           sizes="(max-width: 768px) 50vw, 33vw"
                           className="object-cover"
-                          style={{ objectPosition: item.objectPosition || "center" }}
+                          style={{ objectPosition: item.mobileObjectPosition || item.objectPosition || "center" }}
                         />
                       </Link>
                     </div>
@@ -166,7 +201,7 @@ export default function PortfolioGrid({
                   <div className="relative block w-full h-full overflow-hidden rounded-none bg-[var(--color-line)]/20">
                     <Link
                       href={`/portfolio#${item.id}`}
-                      className="block w-full h-full relative cursor-pointer"
+                      className="block w-full h-full relative cursor-pointer outline-none focus:outline-none focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-white/60"
                     >
                       <Image
                         src={item.image}

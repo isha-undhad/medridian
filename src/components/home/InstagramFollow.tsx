@@ -10,8 +10,8 @@ const INSTAGRAM_URL = "https://www.instagram.com/the_dream_stories_";
 /** Real wedding photos from /public/home */
 const instagramImages = [
   "/image/instagram/1.jpeg",
-  "/image/instagram/2.jpeg",
-  "/image/instagram/3.jpg",
+  "/image/instagram/6.jpg",
+  "/image/instagram/5.jpg",
   "/image/instagram/4.jpg",
 ];
 
@@ -24,8 +24,8 @@ const instagramImageAlts = [
 
 const instagramLinks = [
   "https://www.instagram.com/p/DE9eF8Bp6ZT/",
-  "https://www.instagram.com/p/DPrEt85DyU-/",
-  "https://www.instagram.com/p/DRAPd6Oj919/",
+  "https://www.instagram.com/p/DI1iXAnyNQu/",
+  "https://www.instagram.com/p/C057TXooc6-/",
   "https://www.instagram.com/p/DJrcQ8TMTIf/",
 ];
 
@@ -62,9 +62,9 @@ export default function InstagramFollow({ className }: InstagramFollowProps = {}
               sizes="(min-width: 768px) 25vw, 50vw"
               className={cn(
                 "object-cover transition-transform duration-500 ease-out group-hover:scale-105",
-                index === 2 && "object-bottom"
+                index === 2 && "object-top"
               )}
-              style={index === 2 ? { objectPosition: "bottom" } : undefined}
+              style={index === 2 ? { objectPosition: "center 15%" } : undefined}
             />
           </a>
         ))}

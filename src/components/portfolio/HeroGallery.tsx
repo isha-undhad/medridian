@@ -6,6 +6,7 @@ type HeroGalleryProps = {
   leftAlt?: string;
   rightAlt?: string;
   leftObjectPosition?: string;
+  rightObjectPosition?: string;
 };
 
 /**
@@ -26,6 +27,7 @@ export default function HeroGallery({
   leftAlt = "",
   rightAlt = "",
   leftObjectPosition = "center",
+  rightObjectPosition = "center center",
 }: HeroGalleryProps) {
   return (
     <section className="relative w-full overflow-hidden grid grid-cols-1 h-dvh md:grid-cols-2">
@@ -50,6 +52,7 @@ export default function HeroGallery({
           priority
           sizes="50vw"
           className="object-cover"
+          style={{ objectPosition: rightObjectPosition }}
         />
       </div>
     </section>

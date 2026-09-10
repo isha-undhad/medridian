@@ -93,15 +93,18 @@ function MarqueeTile({
       onClick={onOpen}
       suppressHydrationWarning
       aria-label={`View larger: ${image.alt}`}
-      className={`relative block ${heightClassName} ${TILE_WIDTH_CLASS} cursor-pointer overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white/70`}
+      className={cn(
+        "relative block shrink-0 cursor-pointer overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white/70",
+        heightClassName,
+        TILE_WIDTH_CLASS
+      )}
     >
-      <div className="relative h-full w-full overflow-hidden">
+      <div className={cn("relative w-full overflow-hidden", heightClassName)}>
         {/* Shimmer placeholder, visible until the real image finishes loading. */}
         <div
           aria-hidden
-          className={`absolute inset-0 animate-pulse bg-[var(--color-line)] transition-opacity duration-300 ${
-            loaded ? "opacity-0" : "opacity-100"
-          }`}
+          className={`absolute inset-0 animate-pulse bg-[var(--color-line)] transition-opacity duration-300 ${loaded ? "opacity-0" : "opacity-100"
+            }`}
         />
         <Image
           src={image.src}
@@ -110,9 +113,8 @@ function MarqueeTile({
           priority={priority}
           sizes="(min-width: 1280px) 25vw, (min-width: 1024px) 34vw, (min-width: 640px) 50vw, 92vw"
           onLoad={() => setLoaded(true)}
-          className={`object-cover transition-opacity duration-500 ${loaded ? "opacity-100" : "opacity-0"} ${
-            image.grayscale ? "grayscale" : ""
-          }`}
+          className={`object-cover transition-opacity duration-500 ${loaded ? "opacity-100" : "opacity-0"} ${image.grayscale ? "grayscale" : ""
+            }`}
         />
       </div>
     </button>
@@ -240,7 +242,7 @@ function Lightbox({
 export default function PhotoMarquee({
   images = defaultImages,
   speed = 80,
-  heightClassName = "h-[70dvh] md:h-[80dvh]",
+  heightClassName = "h-[calc(70dvh-30px)] md:h-[80dvh]",
   className,
 }: PhotoMarqueeProps) {
   const [hovered, setHovered] = useState(false);
@@ -274,16 +276,16 @@ export default function PhotoMarquee({
 
   return (
     <section
-      className={cn("relative w-full overflow-x-hidden", className)}
+      className={cn("relative w-full overflow-x-hidden", heightClassName, className)}
       onKeyDown={handleKeyDown}
     >
       <div
-        className="flex"
+        className={cn("flex w-full", heightClassName)}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}
       >
         <div
-          className="animate-marquee flex"
+          className={cn("animate-marquee flex items-stretch", heightClassName)}
           style={{
             // @ts-expect-error -- custom property, not a known CSS key
             "--marquee-duration": `${speed}s`,

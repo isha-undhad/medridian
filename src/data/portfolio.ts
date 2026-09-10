@@ -16,6 +16,7 @@ export type PortfolioItem = {
   title?: string;
   category?: (typeof portfolioCategories)[number];
   objectPosition?: string;
+  mobileObjectPosition?: string;
 };
 
 // Exported (not just used internally) so PortfolioHeader's filter tabs and
@@ -61,6 +62,7 @@ const WEDDINGS_PORTFOLIO_FILES: {
   width: number;
   height: number;
   objectPosition?: string;
+  mobileObjectPosition?: string;
 }[] = [
   // Chunk 0
   { file: "TDS_7793.jpg", width: 4480, height: 6720, objectPosition: "center 40%" },
@@ -73,8 +75,8 @@ const WEDDINGS_PORTFOLIO_FILES: {
 
   // Chunk 1
   { file: "TDS_2948 copy.JPG", width: 4480, height: 6720, objectPosition: "center 30%" },
-  // Swapped from index 10: white mosque / palace dome architecture in 1x1 cell
-  { file: "3B4A2932.jpg", width: 3648, height: 5472, objectPosition: "center 45%" },
+  // Swapped from index 10: white mosque / palace dome architecture in 1x1 cell on desktop; on mobile shifted down to prevent cutting feet/legs
+  { file: "3B4A2932.jpg", width: 3648, height: 5472, objectPosition: "center 45%", mobileObjectPosition: "center 85%" },
   { file: "TDS_8297.jpg", width: 4480, height: 6720, objectPosition: "center 30%" },
   { file: "3B4A3745.jpg", width: 3648, height: 5472, objectPosition: "center" },
   // Swapped from index 7: stage dance under string lights & sparklers in wide 2x1 horizontal cell
@@ -82,7 +84,8 @@ const WEDDINGS_PORTFOLIO_FILES: {
   { file: "TDS_0621.jpg", width: 4625, height: 6938, objectPosition: "center 30%" },
 
   // Chunk 2
-  { file: "3B4A1499.jpg", width: 5472, height: 3648, objectPosition: "center" },
+  // Bride dancing photo: on mobile tall spanning cell, positioned horizontally to show full dancing pose with raised arms
+  { file: "3B4A1499.jpg", width: 5472, height: 3648, objectPosition: "center", mobileObjectPosition: "18% center" },
   { file: "3B4A2187.jpg", width: 3408, height: 2272, objectPosition: "center" },
   { file: "3B4A1025.jpg", width: 3648, height: 5472, objectPosition: "center 40%" },
   // Swapped from index 4: wooden door groom photo in 1x1 cell, positioned on groom
@@ -118,6 +121,7 @@ export const portfolioItems: PortfolioItem[] = portfolioCategories.flatMap(
         title: titles[idx % titles.length],
         category,
         objectPosition: item.objectPosition,
+        mobileObjectPosition: item.mobileObjectPosition,
       }));
     }
 

@@ -21,7 +21,10 @@ type PortfolioCardProps = {
 export default function PortfolioCard({ item, delay = 0 }: PortfolioCardProps) {
   return (
     <Reveal variants={fadeUp} delay={delay} className="mb-[4px] break-inside-avoid">
-      <Link href={`/portfolio#${item.id}`} className="block overflow-hidden">
+      <Link
+        href={`/portfolio#${item.id}`}
+        className="block overflow-hidden outline-none focus:outline-none focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-white/60"
+      >
         <Image
           src={item.image}
           alt={item.title ?? ""}
