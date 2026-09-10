@@ -5,6 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import TextMarquee from "@/components/home/TextMarquee";
 import CookieConsent from "@/components/ui/CookieConsent";
+import BackToTop from "@/components/ui/BackToTop";
 import { brand } from "@/data/nav";
 import "./globals.css";
 
@@ -22,7 +23,7 @@ const playfair = Playfair_Display({
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
   subsets: ["latin"],
-  weight: ["300", "400"],
+  weight: ["300", "400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -56,6 +57,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <TextMarquee />
           <Footer />
           <CookieConsent />
+          <BackToTop />
         </MotionConfig>
       </body>
     </html>

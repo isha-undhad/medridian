@@ -21,21 +21,21 @@ export interface AboutHeroProps {
 }
 
 const defaultHeading =
-  "HEARTFELT, STORY-DRIVEN WEDDING PHOTOGRAPHY FOR COUPLES WHO VALUE EMOTION, DESTINATION AND TIMELESS DETAIL";
+  "INTIMATE, UNSCRIPTED WEDDING PHOTOGRAPHY FOR COUPLES WHO WANT THEIR STORY TOLD, NOT STAGED — EVEN ACROSS THE WORLD";
 
 const defaultLabel = "MY APPROACH";
 
 const defaultBodyText =
-  "I take a heartfelt, story-driven approach to photographing weddings — staying close to the moment, gently guiding when it helps, and always tuned in to the emotion of the day. As a wedding and travel photographer based in Surat, India, I document celebrations through a natural blend of candid, unscripted moments and carefully composed portraits. From quiet in-between moments to the big, emotional ones, every part of the day is captured in a way that feels genuine, elevated and true to you. I'm drawn to weddings full of warmth, culture and real connection — where every detail, from architecture to attire, tells part of the story. I'm especially inspired by beautiful locations, thoughtful design, and couples who care about creating memories that last a lifetime.";
+  "I believe the best wedding photos are the ones no one had to ask for — a laugh caught mid-sentence, a hand reaching for another, the quiet minute before everything begins. Based in Surat, India, I travel for weddings that carry real emotion and culture, capturing each one through a mix of candid, unscripted moments and thoughtful, composed portraits. I care about the details — the light, the location, the little traditions passed down without anyone noticing — because they're what make your day yours and no one else's. I'm not there to direct the story; I'm there to notice it, to stay close enough to catch what's real and quiet enough to let it happen naturally. Every wedding I photograph is different, but the intention stays the same: to hand you back a day that feels exactly as honest, as joyful, and as alive as it truly was — one you can return to again and again, and still feel everything you felt the first time.";
 
 export default function AboutHero({
   heading = defaultHeading,
   label = defaultLabel,
   bodyText = defaultBodyText,
-  colorImageSrc = "/about/2.jpeg",
-  colorImageAlt = "Bride and groom standing outside grand estate in full color",
-  bwImageSrc = "/about/1.jpg",
-  bwImageAlt = "Bride veiled in intimate black-and-white portrait",
+  colorImageSrc = "/image/approach_about/1.jpg",
+  colorImageAlt = "Bride and groom in front of the brick house",
+  bwImageSrc = "/image/approach_about/2.jpg",
+  bwImageAlt = "Black and white veil close-up",
   className,
 }: AboutHeroProps) {
   return (
@@ -50,7 +50,7 @@ export default function AboutHero({
         <div className="relative flex flex-col items-start w-full lg:w-[540px] xl:w-[560px] shrink-0">
           {/* 1. Heading on the upper-left (z-30 so it renders on top of the overlapping photo) */}
           <Reveal variants={slideInLeft} className="relative z-30 w-full">
-            <h2 className="font-cormorant text-[22px] sm:text-[26px] md:text-[28px] lg:text-[31px] font-light tracking-[0.01em] leading-[1.25] text-neutral-900 uppercase text-left max-w-full sm:max-w-[460px] lg:max-w-[380px]">
+            <h2 className="font-cormorant text-[20px] sm:text-[23px] md:text-[25px] lg:text-[27px] font-light tracking-[0.01em] leading-[1.25] text-neutral-900 uppercase text-left max-w-full sm:max-w-[460px] lg:max-w-[380px]">
               {heading}
             </h2>
           </Reveal>
@@ -86,7 +86,7 @@ export default function AboutHero({
                 alt={bwImageAlt}
                 fill
                 sizes="(min-width: 1024px) 305px, (min-width: 640px) 210px, 175px"
-                className="object-cover grayscale"
+                className="object-cover"
                 priority
               />
             </Reveal>

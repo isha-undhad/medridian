@@ -130,7 +130,8 @@ export default function PortfolioGrid({
                           fill
                           priority={isPriority}
                           sizes="(max-width: 768px) 50vw, 33vw"
-                          className="object-cover object-center"
+                          className="object-cover"
+                          style={{ objectPosition: item.objectPosition || "center" }}
                         />
                       </Link>
                     </div>
@@ -173,7 +174,8 @@ export default function PortfolioGrid({
                         fill
                         priority={isPriority}
                         sizes={slot.sizes}
-                        className="object-cover object-center"
+                        className="object-cover"
+                        style={{ objectPosition: item.objectPosition || "center" }}
                       />
                     </Link>
                   </div>

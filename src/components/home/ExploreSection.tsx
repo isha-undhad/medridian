@@ -93,7 +93,7 @@ function SliderTile({ image }: { image: ExploreImage }) {
 export default function ExploreSection({
   scriptText = "Explore",
   categories = defaultCategories,
-  subtext = "Your story deserves to be documented in an honest way.",
+  subtext = "Not staged. Not repeated. Just real, and worth remembering.",
   ctaText = "Browse the Work",
   ctaLink = "/portfolio",
   topRowImages = defaultTopRowImages,

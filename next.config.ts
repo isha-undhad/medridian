@@ -1,10 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  allowedDevOrigins: ["192.168.1.21"],
   images: {
-    // Next.js 16 requires an explicit allowlist; the hero slider requests
-    // quality={90} for crisper full-bleed photos than the default (75).
-    qualities: [75, 90],
+    // Next.js 16 requires an explicit allowlist; allow default 75, photography 85, and 90.
+    qualities: [75, 85, 90],
   },
 };
 

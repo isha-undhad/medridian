@@ -76,7 +76,7 @@ export default function OfferingsHeadline() {
   }, []);
 
   const headingClass =
-    "font-times-now text-[28px] min-[350px]:text-[32px] min-[380px]:text-[36px] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-light font-[300] uppercase leading-[1.12] sm:leading-[0.92] md:leading-[1.02] tracking-[0.03em] sm:tracking-tight text-[var(--color-ink)] opacity-100 select-none cursor-default [font-synthesis:none]";
+    "font-times-now text-[28px] min-[350px]:text-[32px] min-[380px]:text-[36px] sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-medium font-[500] uppercase leading-[1.12] sm:leading-[0.92] md:leading-[1.02] tracking-[0.03em] sm:tracking-tight text-[var(--color-ink)] opacity-100 select-none cursor-default [font-synthesis:none]";
 
   return (
     <section className="relative flex w-full flex-col items-center justify-between overflow-hidden bg-[var(--color-bg)] max-sm:px-6 sm:px-4 max-sm:h-auto max-sm:min-h-0 max-sm:mt-4 max-sm:mb-0 sm:my-0 max-sm:pt-4 max-sm:pb-4 max-sm:border-none border-l-0 sm:h-dvh sm:max-h-dvh sm:pt-8 sm:pb-0 md:pt-10 md:pb-0">
@@ -89,7 +89,7 @@ export default function OfferingsHeadline() {
         {offerings.map((item, index) => (
           <div
             key={item.label}
-            className={`absolute sm:w-[135px] sm:h-[185px] md:w-[165px] md:h-[230px] lg:w-[195px] lg:h-[270px] xl:w-[215px] xl:h-[295px] transition-opacity duration-1000 ease-in-out [will-change:opacity] [backface-visibility:hidden] rounded-sm overflow-hidden shadow-md shadow-black/10 ${
+            className={`absolute sm:w-[135px] sm:h-[185px] md:w-[220px] md:h-[305px] lg:w-[270px] lg:h-[375px] xl:w-[310px] xl:h-[430px] transition-opacity duration-1000 ease-in-out [will-change:opacity] [backface-visibility:hidden] rounded-sm overflow-hidden shadow-md shadow-black/10 ${
               positionClasses[item.position]
             } ${
               index === activeIndex ? "opacity-100" : "opacity-0"
@@ -99,7 +99,7 @@ export default function OfferingsHeadline() {
               src={item.src}
               alt={item.alt}
               fill
-              sizes="(max-width: 640px) 100px, (max-width: 768px) 140px, (max-width: 1024px) 170px, 215px"
+              sizes="(max-width: 640px) 100px, (max-width: 768px) 220px, (max-width: 1024px) 270px, 320px"
               className="object-cover"
               priority
             />
@@ -123,8 +123,8 @@ export default function OfferingsHeadline() {
               key={item.label}
               className={headingClass}
               style={{
-                fontFamily: "'Times Now Light', 'Times Now', serif",
-                fontWeight: 300,
+                fontFamily: "var(--font-cormorant), 'Cormorant Garamond', serif",
+                fontWeight: 500,
                 fontSynthesis: "none",
               }}
             >

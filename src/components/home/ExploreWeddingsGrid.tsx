@@ -41,32 +41,32 @@ const defaultCategories = ["WEDDINGS", "PORTRAITS", "EDITORIAL", "BRANDS"];
 
 const defaultTopRow: ExploreTile[] = [
   {
-    src: "/home/slider/1.jpg",
+    src: "/image/explore_home/1.jpg",
     alt: "Wedding celebration showcase 1",
     className: "h-full aspect-[16/10]",
   },
   {
-    src: "/home/slider/2.jpg",
+    src: "/image/explore_home/2.jpg",
     alt: "Wedding celebration showcase 2",
     className: "h-full aspect-[3/4]",
   },
   {
-    src: "/home/slider/3.jpg",
+    src: "/image/explore_home/3.jpg",
     alt: "Wedding celebration showcase 3",
     className: "h-full aspect-[4/3]",
   },
   {
-    src: "/home/slider/4.jpg",
+    src: "/image/explore_home/4.jpg",
     alt: "Wedding celebration showcase 4",
     className: "h-full aspect-[3/4]",
   },
   {
-    src: "/home/slider/5.jpg",
+    src: "/image/explore_home/5.jpg",
     alt: "Wedding celebration showcase 5",
     className: "h-full aspect-[16/10]",
   },
   {
-    src: "/home/slider/1.jpg",
+    src: "/image/explore_home/1.jpg",
     alt: "Wedding celebration showcase 6",
     className: "h-full aspect-[3/4]",
   },
@@ -74,32 +74,32 @@ const defaultTopRow: ExploreTile[] = [
 
 const defaultBottomRow: ExploreTile[] = [
   {
-    src: "/home/slider/6.jpg",
+    src: "/image/explore_home/6.jpg",
     alt: "Wedding celebration showcase 7",
     className: "h-full aspect-[3/4]",
   },
   {
-    src: "/home/slider/7.jpg",
+    src: "/image/explore_home/7.jpg",
     alt: "Wedding celebration showcase 8",
     className: "h-full aspect-[4/5]",
   },
   {
-    src: "/home/slider/8.jpg",
+    src: "/image/explore_home/8.jpg",
     alt: "Wedding celebration showcase 9",
     className: "h-full aspect-[16/10]",
   },
   {
-    src: "/home/slider/9.jpg",
+    src: "/image/explore_home/9.jpg",
     alt: "Wedding celebration showcase 10",
     className: "h-full aspect-[3/4]",
   },
   {
-    src: "/home/slider/10.jpg",
+    src: "/image/explore_home/10.jpg",
     alt: "Wedding celebration showcase 11",
     className: "h-full aspect-[4/3]",
   },
   {
-    src: "/home/slider/6.jpg",
+    src: "/image/explore_home/6.jpg",
     alt: "Wedding celebration showcase 12",
     className: "h-full aspect-[3/4]",
   },
@@ -132,7 +132,7 @@ const bottomSliderVariants: Variants = {
 export default function ExploreWeddingsGrid({
   scriptText = "Explore",
   categories = defaultCategories,
-  subtext = "Your story deserves to be documented in an honest way.",
+  subtext = "Not staged. Not repeated. Just real, and worth remembering.",
   ctaText = "Browse the Work",
   ctaLink = "/portfolio",
   topRow = defaultTopRow,

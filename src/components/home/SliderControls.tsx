@@ -11,10 +11,10 @@ type SliderControlsProps = {
 };
 
 // Circular frosted-glass button: a semi-transparent dark disc + blur so the
-// thin chevron reads clearly against any photo, bright or busy, without a
-// heavy drop-shadow — the disc itself is the contrast, not the shadow.
+// thin chevron reads clearly against any photo.
+// z-30 keeps the arrows permanently static on top of all sliding images (which use z-10 and z-20).
 const arrowButtonClasses =
-  "group absolute top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/35 text-white backdrop-blur-[6px] transition-colors duration-300 hover:bg-black/50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 md:h-12 md:w-12";
+  "group absolute top-1/2 z-30 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur-[6px] transition-colors duration-300 hover:bg-black/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/80 md:h-12 md:w-12 cursor-pointer select-none";
 
 export default function SliderControls({ onPrev, onNext }: SliderControlsProps) {
   return (

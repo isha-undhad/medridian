@@ -13,18 +13,18 @@ export default function ContactPage() {
   return (
     <>
       <PageHeader
-        eyebrow="Contact"
-        title="Let's Begin Your Story"
-        description="Whether it's a wedding day, a brand you're building, or a milestone worth remembering — we'd love to hear about it. Share a few details below, and let's see where the story takes us."
+        eyebrow="GET IN TOUCH"
+        title="Let's Create Something Timeless"
+        description="We'd love to be part of your celebration. Tell us a little about your day — the date, the details, the dream — and we'll take it from there."
         tone="clay"
-        image="/portfolio/11.jpg"
+        image="/image/hero_inquire.jpg"
         imageAlt="Bride and groom kissing inside a domed garden temple surrounded by trees"
       />
       <div id="inquiry-form">
         <ContactSection />
       </div>
       <InquireFaqSection />
-      <InstagramFollow />
+      <InstagramFollow className="pt-5 sm:pt-7 md:pt-8 lg:pt-10 pb-10 sm:pb-14 md:pb-16 lg:pb-20" />
     </>
   );
 }

@@ -5,6 +5,7 @@ type HeroGalleryProps = {
   rightImage: string;
   leftAlt?: string;
   rightAlt?: string;
+  leftObjectPosition?: string;
 };
 
 /**
@@ -24,6 +25,7 @@ export default function HeroGallery({
   rightImage,
   leftAlt = "",
   rightAlt = "",
+  leftObjectPosition = "center",
 }: HeroGalleryProps) {
   return (
     <section className="relative w-full overflow-hidden grid grid-cols-1 h-dvh md:grid-cols-2">
@@ -36,6 +38,7 @@ export default function HeroGallery({
           priority
           sizes="(min-width: 768px) 50vw, 100vw"
           className="object-cover"
+          style={{ objectPosition: leftObjectPosition }}
         />
       </div>
       {/* 2nd image: hidden on mobile, right column on desktop */}

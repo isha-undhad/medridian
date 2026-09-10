@@ -21,12 +21,12 @@ export default function InquireCta({
   subtitle = "Every chapter leads to another story worth remembering.",
   ctaText = "Inquire",
   ctaLink = "/contact",
-  image = "/home/catagory3.jpg",
+  image = "/image/inquire_about.jpg",
   imageAlt = "Couple standing on rooftop balcony at golden hour",
   grayscale = false,
 }: InquireCtaProps) {
   return (
-    <section className="relative flex h-dvh min-h-[500px] w-full items-center justify-center overflow-hidden my-0">
+    <section className="relative flex h-dvh min-h-[500px] w-full items-start justify-center pt-20 sm:pt-24 md:pt-28 lg:pt-32 overflow-hidden my-0">
       <Image
         src={image}
         alt={imageAlt}

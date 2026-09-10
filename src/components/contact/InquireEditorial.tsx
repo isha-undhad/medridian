@@ -46,8 +46,8 @@ export default function InquireEditorial({
       >
         <div className="relative h-full w-full">
           <Image
-            src="/1.jpeg"
-            alt="Wedding party cheering and celebrating around the bride and groom mid-kiss, in black and white"
+            src="/image/home_inquire.jpg"
+            alt="Wedding celebration moments"
             fill
             priority
             sizes="100vw"

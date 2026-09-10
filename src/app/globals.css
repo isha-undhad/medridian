@@ -57,37 +57,13 @@
   font-weight: 700;
 }
 
-@font-face {
-  font-family: 'Times Now Light';
-  src: url('https://static.showit.co/file/s_4mXJ66R7m9g2uV9h7zBg/shared/timesnow-light.woff') format('woff');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Times Now';
-  src: url('https://static.showit.co/file/s_4mXJ66R7m9g2uV9h7zBg/shared/timesnow-light.woff') format('woff');
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Times Now Light Italic';
-  src: url('https://static.showit.co/file/s_4mXJ66R7m9g2uV9h7zBg/shared/timesnow-lightitalic.woff') format('woff');
-  font-weight: 100 900;
-  font-style: italic;
-  font-display: swap;
-}
-
 .font-times-now {
-  font-family: 'Times Now Light', 'Times Now', serif;
+  font-family: var(--font-cormorant), 'Cormorant Garamond', 'Times New Roman', serif !important;
   font-weight: 300;
 }
 
 .font-times-now-italic {
-  font-family: 'Times Now Light Italic', 'Times Now Light', 'Times Now', 'Times New Roman', 'Times', serif;
+  font-family: var(--font-cormorant), 'Cormorant Garamond', 'Times New Roman', serif !important;
   font-style: italic;
   font-weight: 300;
 }

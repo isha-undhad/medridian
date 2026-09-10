@@ -9,17 +9,24 @@ const INSTAGRAM_URL = "https://www.instagram.com/the_dream_stories_";
 
 /** Real wedding photos from /public/home */
 const instagramImages = [
-  "/home/insta1.jpg",
-  "/home/insta2.jpg",
-  "/home/insta3.jpg",
-  "/home/insta4.jpg",
+  "/image/instagram/1.jpeg",
+  "/image/instagram/2.jpeg",
+  "/image/instagram/3.jpg",
+  "/image/instagram/4.jpg",
 ];
 
 const instagramImageAlts = [
-  "Bride in a strapless gown holding a bouquet amid tropical palm leaves",
-  "Couple laughing together in a vintage red convertible parked by the coast",
-  "Bridesmaids helping the bride adjust her veil before the ceremony, in black and white",
-  "Reception tent with cascading pink floral chandeliers over a long banquet table",
+  "Groom playfully carrying the laughing bride over his shoulder across a garden lawn",
+  "Couple sharing an intimate embrace surrounded by tropical foliage",
+  "Bride and groom in traditional wedding attire walking hand in hand across a courtyard lawn",
+  "Bride in an embroidered pastel lehenga and groom in ivory sherwani holding hands on garden steps",
+];
+
+const instagramLinks = [
+  "https://www.instagram.com/p/DE9eF8Bp6ZT/",
+  "https://www.instagram.com/p/DPrEt85DyU-/",
+  "https://www.instagram.com/p/DRAPd6Oj919/",
+  "https://www.instagram.com/p/DJrcQ8TMTIf/",
 ];
 
 type InstagramFollowProps = {
@@ -43,7 +50,7 @@ export default function InstagramFollow({ className }: InstagramFollowProps = {}
         {instagramImages.map((src, index) => (
           <a
             key={src}
-            href={INSTAGRAM_URL}
+            href={instagramLinks[index]}
             target="_blank"
             rel="noopener noreferrer"
             className="group relative block w-full aspect-square overflow-hidden bg-[var(--color-line)]/20"
@@ -53,7 +60,11 @@ export default function InstagramFollow({ className }: InstagramFollowProps = {}
               alt={instagramImageAlts[index]}
               fill
               sizes="(min-width: 768px) 25vw, 50vw"
-              className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+              className={cn(
+                "object-cover transition-transform duration-500 ease-out group-hover:scale-105",
+                index === 2 && "object-bottom"
+              )}
+              style={index === 2 ? { objectPosition: "bottom" } : undefined}
             />
           </a>
         ))}

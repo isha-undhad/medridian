@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Section from "@/components/ui/Section";
 
-const AUTOPLAY_MS = 2500;
+const AUTOPLAY_MS = 3000;
 
 export type HeadlineSegment = {
   text: string;
@@ -21,58 +21,76 @@ export interface IntroSectionProps {
 }
 
 const defaultHeadline: HeadlineSegment[] = [
-  { text: "Capturing love stories with " },
-  { text: "editorial elegance", italic: true },
-  { text: "." },
+  { text: "Love, told the way it " },
+  { text: "actually", italic: true },
+  { text: " felt." },
 ];
 
 const defaultSubtext =
-  "The little things really are the big things — and they deserve to be captured with care. Every glance, every quiet moment between vows, becomes part of a story worth preserving forever.";
+  "Not posed. Not perfect. Just yours — the laughter between takes, the nervous exhale before the first look, the quiet after everyone else has gone home.";
 
 const defaultImages = [
-  "/image/about_home/1.jpg",
-  "/image/about_home/2.JPG",
-  "/image/about_home/3.JPG",
-  "/image/about_home/4.jpg",
+  "/image/intro_home/1.jpg",
+  "/image/intro_home/2.jpg",
+  "/image/intro_home/3.jpg",
+  "/image/intro_home/4.jpg",
 ];
 
 function ImageSlider({ images }: { images: string[] }) {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
+  const [prevIndex, setPrevIndex] = useState(0);
   const total = images.length;
 
+  // Preload all slider images on mount so transitions are completely seamless
   useEffect(() => {
-    if (isHovered || total <= 1) return;
+    images.forEach((src) => {
+      const img = new window.Image();
+      img.src = src;
+    });
+  }, [images]);
+
+  // Automated 3-second interval loop sequence matching Offerings section crossfade
+  useEffect(() => {
+    if (total <= 1) return;
     const id = setInterval(() => {
-      setCurrentIndex((value) => (value + 1) % total);
+      setCurrentIndex((prev) => {
+        setPrevIndex(prev);
+        return (prev + 1) % total;
+      });
     }, AUTOPLAY_MS);
     return () => clearInterval(id);
-  }, [isHovered, total, currentIndex]);
+  }, [total]);
 
   return (
-    <div
-      className="relative aspect-[4/3] w-full overflow-hidden rounded-md lg:aspect-auto lg:h-[440px] lg:rounded-lg"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      {images.map((src, index) => (
-        <div
-          key={src}
-          aria-hidden={index !== currentIndex}
-          className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${
-            index === currentIndex ? "opacity-100" : "opacity-0"
-          }`}
-        >
-          <Image
-            src={src}
-            alt={`Wedding photography, image ${index + 1} of ${total}`}
-            fill
-            priority={index === 0}
-            sizes="(min-width: 1024px) 55vw, 100vw"
-            className={`object-cover ${src === "/home/about4.jpg" ? "scale-110" : ""}`}
-          />
-        </div>
-      ))}
+    <div className="relative aspect-[4/3] w-full overflow-hidden rounded-md lg:aspect-auto lg:h-[440px] lg:rounded-lg">
+      {images.map((src, index) => {
+        const isActive = index === currentIndex;
+        const isPrevious = index === prevIndex;
+
+        return (
+          <div
+            key={src}
+            aria-hidden={!isActive}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out [will-change:opacity] [backface-visibility:hidden] ${
+              isActive
+                ? "z-20 opacity-100"
+                : isPrevious
+                  ? "z-10 opacity-100"
+                  : "z-0 opacity-0 pointer-events-none"
+            }`}
+          >
+            <Image
+              src={src}
+              alt={`Wedding photography, image ${index + 1} of ${total}`}
+              fill
+              priority={index === 0}
+              loading={index <= 1 ? "eager" : "lazy"}
+              sizes="(min-width: 1024px) 55vw, 100vw"
+              className="object-cover"
+            />
+          </div>
+        );
+      })}
     </div>
   );
 }
@@ -80,7 +98,7 @@ function ImageSlider({ images }: { images: string[] }) {
 export default function IntroSection({
   headline = defaultHeadline,
   subtext = defaultSubtext,
-  ctaText = "Wedding Experience",
+  ctaText = "Begin Your Story",
   ctaLink = "/portfolio",
   images = defaultImages,
 }: IntroSectionProps) {

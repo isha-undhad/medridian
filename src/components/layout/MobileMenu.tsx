@@ -50,7 +50,7 @@ export default function MobileMenu({ open, onClose, pathname }: MobileMenuProps)
           variants={panelVariants}
           className="fixed inset-0 top-[56px] sm:top-[62px] z-50 flex flex-col justify-start overflow-y-auto overscroll-contain bg-[var(--color-bg)] px-6 pt-2 pb-8 sm:px-10 sm:pt-4 sm:pb-10 md:hidden"
         >
-          <nav className="flex flex-col divide-y divide-[var(--color-line)]">
+          <nav className="flex flex-col divide-y divide-[var(--color-line)] font-sans">
             {mobileNavLinks.map((link) => {
               const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
               return (
@@ -58,7 +58,7 @@ export default function MobileMenu({ open, onClose, pathname }: MobileMenuProps)
                   <Link
                     href={link.href}
                     onClick={onClose}
-                    className={`block w-full py-2.5 sm:py-3 font-serif text-xl sm:text-2xl transition-colors duration-300 ${isActive
+                    className={`block w-full py-2.5 sm:py-3 font-sans text-xl sm:text-2xl transition-colors duration-300 ${isActive
                         ? "text-black font-semibold underline underline-offset-8 decoration-1 decoration-black"
                         : "text-[var(--color-ink)]/60 hover:text-black font-normal"
                       }`}
@@ -72,7 +72,7 @@ export default function MobileMenu({ open, onClose, pathname }: MobileMenuProps)
               <Link
                 href={inquireLink.href}
                 onClick={onClose}
-                className={`block w-full py-2.5 sm:py-3 font-serif text-xl sm:text-2xl italic transition-colors duration-300 ${pathname === inquireLink.href
+                className={`block w-full py-2.5 sm:py-3 font-sans text-xl sm:text-2xl italic transition-colors duration-300 ${pathname === inquireLink.href
                     ? "text-black font-semibold underline underline-offset-8 decoration-1 decoration-black"
                     : "text-[var(--color-ink)]/60 hover:text-black font-normal"
                   }`}

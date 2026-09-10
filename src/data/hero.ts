@@ -26,7 +26,7 @@ export const heroSlides: HeroSlide[] = [
     id: "h1",
     tone: "dusk",
     alt: "Bride and groom wedding photograph 1",
-    src: "/image/home_slider/home 01_.png",
+    src: "/image/home_slider/home 01_.jpg",
     objectPositionClass: "object-center",
   },
   {

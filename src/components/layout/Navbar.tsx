@@ -105,13 +105,13 @@ export default function Navbar() {
             />
           </Link>
 
-          <nav className="hidden items-center gap-4 md:flex lg:gap-6" aria-label="Primary">
+          <nav className="hidden items-center gap-4 md:flex lg:gap-6 font-sans" aria-label="Primary">
             {[...headerPrimaryNav, ...headerUtilityNav].map((link) => (
               <NavLink
                 key={link.href}
                 href={link.href}
                 active={pathname === link.href}
-                className={`text-sm font-medium tracking-wide transition-colors duration-300 ${navTextClass}`}
+                className={`font-sans text-sm font-medium tracking-wide transition-colors duration-300 ${navTextClass}`}
               >
                 {link.label}
               </NavLink>
@@ -119,7 +119,7 @@ export default function Navbar() {
             <NavLink
               href={inquireLink.href}
               active={pathname === inquireLink.href}
-              className={`text-sm font-medium italic tracking-wide transition-colors duration-300 ${navTextClass}`}
+              className={`font-sans text-sm font-medium italic tracking-wide transition-colors duration-300 ${navTextClass}`}
             >
               {inquireLink.label}
             </NavLink>

@@ -2,42 +2,23 @@
 
 import { useCallback, useEffect, useState, type KeyboardEvent } from "react";
 import Image from "next/image";
-import { AnimatePresence, motion, type Variants } from "framer-motion";
 import PlaceholderMedia from "@/components/ui/PlaceholderMedia";
 import { heroSlides } from "@/data/hero";
 import SliderControls from "./SliderControls";
 
 const AUTOPLAY_MS = 2000;
 
-// Smooth crossfade (cross-dissolve) transition variants
-const slideVariants: Variants = {
-  enter: {
-    opacity: 0,
-    zIndex: 1,
-  },
-  center: {
-    opacity: 1,
-    zIndex: 1,
-    transition: {
-      opacity: { duration: 0.9, ease: "easeInOut" },
-    },
-  },
-  exit: {
-    opacity: 0,
-    zIndex: 0,
-    transition: {
-      opacity: { duration: 0.9, ease: "easeInOut" },
-    },
-  },
-};
-
 export default function HeroSlider() {
   const [current, setCurrent] = useState(0);
+  const [prevIndex, setPrevIndex] = useState(0);
   const total = heroSlides.length;
 
   const paginate = useCallback(
     (newDirection: number) => {
-      setCurrent((prevIndex) => ((prevIndex + newDirection) % total + total) % total);
+      setCurrent((prev) => {
+        setPrevIndex(prev);
+        return ((prev + newDirection) % total + total) % total;
+      });
     },
     [total],
   );
@@ -53,12 +34,20 @@ export default function HeroSlider() {
     return () => clearInterval(id);
   }, [paginate]);
 
+  // Preload all hero slide images immediately on mount so transitions are instant
+  useEffect(() => {
+    heroSlides.forEach((slide) => {
+      if (slide.src) {
+        const img = new window.Image();
+        img.src = slide.src;
+      }
+    });
+  }, []);
+
   const handleKeyDown = (event: KeyboardEvent<HTMLElement>) => {
     if (event.key === "ArrowLeft") prev();
     if (event.key === "ArrowRight") next();
   };
-
-  const activeSlide = heroSlides[current];
 
   return (
     <section
@@ -67,40 +56,55 @@ export default function HeroSlider() {
       aria-roledescription="carousel"
       aria-label="Featured work slideshow"
       onKeyDown={handleKeyDown}
-      className="relative h-dvh min-h-[560px] overflow-hidden outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white/70"
+      className="relative h-dvh min-h-[560px] overflow-hidden outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white/70 bg-neutral-950"
     >
-      <div className="absolute inset-0 overflow-hidden bg-black">
-        <AnimatePresence initial={false}>
-          <motion.div
-            key={activeSlide.id}
-            variants={slideVariants}
-            initial="enter"
-            animate="center"
-            exit="exit"
-            className="absolute inset-0 h-full w-full will-change-[opacity]"
-          >
-            {activeSlide.src ? (
-              <div className="relative h-full w-full">
-                <Image
-                  src={activeSlide.src}
-                  alt={activeSlide.alt}
-                  fill
-                  priority={current === 0}
-                  sizes="100vw"
-                  quality={90}
-                  className={`object-cover ${
-                    activeSlide.objectPositionClass ?? "object-center"
-                  }`}
+      {/* 
+        All slides are kept mounted in the DOM to prevent unmounting/re-loading cycles.
+        The active slide fades in at z-20 on top of the previous slide (z-10, opacity-100),
+        ensuring an image is ALWAYS fully visible with ZERO black-screen flashes.
+      */}
+      <div className="absolute inset-0 overflow-hidden">
+        {heroSlides.map((slide, index) => {
+          const isActive = index === current;
+          const isPrevious = index === prevIndex;
+
+          return (
+            <div
+              key={slide.id}
+              aria-hidden={!isActive}
+              className={`absolute inset-0 h-full w-full transition-opacity duration-1000 ease-in-out ${
+                isActive
+                  ? "z-20 opacity-100"
+                  : isPrevious
+                    ? "z-10 opacity-100"
+                    : "z-0 opacity-0 pointer-events-none"
+              }`}
+              style={{ willChange: "opacity" }}
+            >
+              {slide.src ? (
+                <div className="relative h-full w-full">
+                  <Image
+                    src={slide.src}
+                    alt={slide.alt}
+                    fill
+                    priority={index === 0}
+                    loading={index === 0 ? "eager" : "eager"}
+                    sizes="100vw"
+                    quality={85}
+                    className={`object-cover ${
+                      slide.objectPositionClass ?? "object-center"
+                    }`}
+                  />
+                </div>
+              ) : (
+                <PlaceholderMedia
+                  tone={slide.tone}
+                  className="h-full w-full"
                 />
-              </div>
-            ) : (
-              <PlaceholderMedia
-                tone={activeSlide.tone}
-                className="h-full w-full"
-              />
-            )}
-          </motion.div>
-        </AnimatePresence>
+              )}
+            </div>
+          );
+        })}
       </div>
 
       {/* Visually hidden h1 for accessibility */}
@@ -110,3 +114,4 @@ export default function HeroSlider() {
     </section>
   );
 }
+

@@ -13,10 +13,11 @@ export default function PortfolioPage() {
   return (
     <>
       <HeroGallery
-        leftImage="/portfolio/1.jpeg"
-        rightImage="/portfolio/3.jpeg"
+        leftImage="/image/portfolio/1.jpg"
+        rightImage="/image/portfolio/hero_2.jpg"
         leftAlt="Bride and groom embracing beneath a carved stone archway"
         rightAlt="Bride and groom kissing beneath a colonnade"
+        leftObjectPosition="center"
       />
       <Suspense fallback={null}>
         <PortfolioBrowser />

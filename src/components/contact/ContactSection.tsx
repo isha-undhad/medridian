@@ -314,9 +314,10 @@ export default function ContactSection() {
         >
           <div className="relative min-h-[360px] sm:min-h-[460px] md:min-h-[700px] lg:min-h-[760px] w-full overflow-hidden rounded-sm">
             <Image
-              src="/home/catagory2.jpg"
-              alt="Bride in a veil and lace gloves, standing before a wall of framed portraits"
+              src="/image/about_home/1.png"
+              alt="Portrait of Ravi Barvaliya, lead photographer and founder of Dream Stories"
               fill
+              priority
               sizes="(min-width: 768px) 50vw, 100vw"
               className="object-cover"
             />

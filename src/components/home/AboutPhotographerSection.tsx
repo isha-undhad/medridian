@@ -31,9 +31,11 @@ export interface AboutPhotographerSectionProps {
   /** Right (desaturated) half of the split — a distinct image, decorative
    * (no meaningful alt text of its own, same as before). */
   secondaryImage?: string;
-  /** CSS object-position for the portrait, e.g. "70% center" — keeps the
-   * subject in frame instead of a plain center crop. Applied to both halves. */
+  /** CSS object-position for the portraits, e.g. "top center" — keeps the
+   * subject in frame instead of a plain center crop. */
   imagePosition?: string;
+  photographerImagePosition?: string;
+  secondaryImagePosition?: string;
   eyebrowText?: string;
   name?: string;
   /** Short line under the headline — the "Luxury International wedding
@@ -44,10 +46,12 @@ export interface AboutPhotographerSectionProps {
 }
 
 export default function AboutPhotographerSection({
-  photographerImage = "/home/photographer.jpg",
+  photographerImage = "/image/about_home/1.png",
   photographerImageAlt = "Ravi Barvaliya, lead photographer at Dream Stories",
-  secondaryImage = "/home/insta2.jpg",
+  secondaryImage = "/image/about_home/2.jpg",
   imagePosition = "center",
+  photographerImagePosition = "center 25%",
+  secondaryImagePosition = "center",
   eyebrowText = "Behind the Lens",
   eyebrowLink = "/about",
   name = "RAVI BARVALIYA",
@@ -69,7 +73,10 @@ export default function AboutPhotographerSection({
               priority
               sizes="50vw"
               className="object-cover"
-              style={{ objectPosition: imagePosition }}
+              style={{
+                objectFit: "cover",
+                objectPosition: photographerImagePosition ?? imagePosition,
+              }}
             />
           </div>
           <div className="relative h-full w-full">
@@ -78,9 +85,10 @@ export default function AboutPhotographerSection({
               alt=""
               aria-hidden
               fill
+              priority
               sizes="50vw"
               className="object-cover grayscale"
-              style={{ objectPosition: imagePosition }}
+              style={{ objectPosition: secondaryImagePosition ?? "center" }}
             />
           </div>
         </div>
