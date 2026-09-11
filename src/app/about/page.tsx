@@ -18,7 +18,7 @@ export default function AboutPage() {
       <PageHeader
         eyebrow="About"
         title="The Eye Behind Dream Stories"
-        description="Photographer, founder, and the person behind every frame."
+        description="Photographer, founder, and storyteller — creating timeless imagery from the moments that matter."
         tone="clay"
         image="/image/hero_about.jpg"
         imageAlt="Bride leaning on groom's shoulder in wedding attire"

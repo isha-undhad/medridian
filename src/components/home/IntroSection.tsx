@@ -27,13 +27,13 @@ const defaultHeadline: HeadlineSegment[] = [
 ];
 
 const defaultSubtext =
-  "Not posed. Not perfect. Just yours — the laughter between takes, the nervous exhale before the first look, the quiet after everyone else has gone home.";
+  'The quiet glances, the effortless laughter, the anticipation before "I do," and the emotions that linger long after the celebrations fade. Every frame is crafted to preserve the beauty of your story, exactly as it was meant to be remembered.';
 
 const defaultImages = [
-  "/image/intro_home/1.jpg",
-  "/image/intro_home/2.jpg",
-  "/image/intro_home/3.jpg",
-  "/image/intro_home/4.jpg",
+  "/image/intro_home/5.jpg",
+  "/image/intro_home/6.JPG",
+  "/image/intro_home/7.jpg",
+  "/image/intro_home/8.JPG",
 ];
 
 function ImageSlider({ images }: { images: string[] }) {

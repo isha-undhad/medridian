@@ -21,12 +21,12 @@ export interface AboutHeroProps {
 }
 
 const defaultHeading =
-  "INTIMATE, UNSCRIPTED WEDDING PHOTOGRAPHY FOR COUPLES WHO WANT THEIR STORY TOLD, NOT STAGED — EVEN ACROSS THE WORLD";
+  "AN EDITORIAL APPROACH TO WEDDING PHOTOGRAPHY, CREATED FOR THE EXTRAORDINARY";
 
-const defaultLabel = "MY APPROACH";
+const defaultLabel = "TDS APPROACH";
 
 const defaultBodyText =
-  "I believe the best wedding photos are the ones no one had to ask for — a laugh caught mid-sentence, a hand reaching for another, the quiet minute before everything begins. Based in Surat, India, I travel for weddings that carry real emotion and culture, capturing each one through a mix of candid, unscripted moments and thoughtful, composed portraits. I care about the details — the light, the location, the little traditions passed down without anyone noticing — because they're what make your day yours and no one else's. I'm not there to direct the story; I'm there to notice it, to stay close enough to catch what's real and quiet enough to let it happen naturally. Every wedding I photograph is different, but the intention stays the same: to hand you back a day that feels exactly as honest, as joyful, and as alive as it truly was — one you can return to again and again, and still feel everything you felt the first time.";
+  "At The Dream Stories, photography is more than documentation. It is an art of observation — of seeing the beauty in the fleeting, the intimate, and the unexpected. From grand celebrations to the quiet moments in between, we approach every wedding with intention, allowing genuine emotion and natural connection to lead the frame. With a refined visual language and an appreciation for detail, we create photographs that feel timeless, personal, and effortlessly elegant. Your day, as beautifully as it felt.";
 
 export default function AboutHero({
   heading = defaultHeading,

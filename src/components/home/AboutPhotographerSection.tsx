@@ -67,6 +67,18 @@ export default function AboutPhotographerSection({
         <div className="absolute inset-0 grid grid-cols-2">
           <div className="relative h-full w-full">
             <Image
+              src={secondaryImage}
+              alt=""
+              aria-hidden
+              fill
+              priority
+              sizes="50vw"
+              className="object-cover grayscale"
+              style={{ objectPosition: secondaryImagePosition ?? "center" }}
+            />
+          </div>
+          <div className="relative h-full w-full">
+            <Image
               src={photographerImage}
               alt={photographerImageAlt}
               fill
@@ -77,18 +89,6 @@ export default function AboutPhotographerSection({
                 objectFit: "cover",
                 objectPosition: photographerImagePosition ?? imagePosition,
               }}
-            />
-          </div>
-          <div className="relative h-full w-full">
-            <Image
-              src={secondaryImage}
-              alt=""
-              aria-hidden
-              fill
-              priority
-              sizes="50vw"
-              className="object-cover grayscale"
-              style={{ objectPosition: secondaryImagePosition ?? "center" }}
             />
           </div>
         </div>

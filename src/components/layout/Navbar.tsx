@@ -60,8 +60,10 @@ export default function Navbar() {
   // (where transparent navbar + white text is legible before scrolling).
   // Pages with a light cream background (e.g. /about, /stories, /stories/*)
   // always render in solid dark mode so text and logo are 100% legible.
+  // Home ("/") is deliberately excluded here too — its hero often has bright
+  // areas near the top that washed out the nav text, so the header is now
+  // always solid there instead of transparent-over-hero like Portfolio/Contact.
   const hasDarkHero =
-    pathname === "/" ||
     pathname === "/portfolio" ||
     pathname.startsWith("/portfolio/") ||
     pathname === "/contact";

@@ -84,10 +84,10 @@ export default function Footer() {
 
           {/* Stay in the loop */}
           <div className="md:col-span-4 lg:col-span-4 w-full">
-            <span className={columnHeadingClasses}>Stay in the Loop</span>
+            <span className={columnHeadingClasses}>Join the Journal</span>
             <span aria-hidden className={ruleClasses} />
             <p className="text-body leading-relaxed text-[var(--color-muted)]">
-              Get updates on new stories, exclusive offers and more.
+              New stories, beautiful celebrations, and occasional invitations — thoughtfully shared.
             </p>
             <form onSubmit={handleSubscribe} className="mt-4 sm:mt-5 flex flex-col gap-2">
               <div className="relative flex items-center border border-[var(--color-ink)]/50 bg-transparent focus-within:border-[var(--color-ink)] transition-colors">

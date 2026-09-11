@@ -113,7 +113,7 @@ export default function OfferingsHeadline() {
       <div className="sm:relative z-10 flex h-full w-full flex-col items-center justify-between pointer-events-none">
         {/* TOP: Small uppercase tracking label */}
         <span className="text-center text-[11px] font-copperplate uppercase text-[var(--color-ink)] shrink-0 max-sm:pt-2 sm:pt-4">
-          THE OFFERINGS
+          MOMENTS, MADE TIMELESS
         </span>
 
         {/* MIDDLE: Vertical list of large uppercase serif text items — matching reference spacing */}

@@ -27,7 +27,7 @@ export const brand = {
   name: "Dream Stories",
   short: "Dream Stories",
   tagline:
-    "Dream Stories is a Surat, India-based destination wedding photography studio documenting celebrations filled with romance and grandeur, at home and around the world.",
+    "The Dream Stories creates refined, timeless imagery for modern celebrations of love. Based in Surat, India, we document destination weddings across India and the world with an editorial eye and an unwavering attention to emotion, detail, and beauty.",
   email: "Hi.tdswedding@gmail.com",
   phone: "+91 98989 26919",
   location: "Surat, India — available worldwide",

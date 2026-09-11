@@ -56,7 +56,12 @@ export default function HeroSlider() {
       aria-roledescription="carousel"
       aria-label="Featured work slideshow"
       onKeyDown={handleKeyDown}
-      className="relative h-dvh min-h-[560px] overflow-hidden outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white/70 bg-neutral-950"
+      // Home's header is now permanently solid (see Navbar.tsx), so the hero
+      // must start below it instead of underneath it: mt-* matches the
+      // header's own rendered height (logo height + its py-*) at each
+      // breakpoint, and h-[calc(100dvh-...)] subtracts the same amount so
+      // the slide still fits exactly one viewport instead of overshooting it.
+      className="relative mt-14 h-[calc(100dvh-56px)] sm:mt-16 sm:h-[calc(100dvh-64px)] md:mt-[68px] md:h-[calc(100dvh-68px)] min-h-[560px] overflow-hidden outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white/70 bg-neutral-950"
     >
       {/* 
         All slides are kept mounted in the DOM to prevent unmounting/re-loading cycles.
@@ -94,6 +99,7 @@ export default function HeroSlider() {
                     className={`object-cover ${
                       slide.objectPositionClass ?? "object-center"
                     }`}
+                    style={slide.objectPosition ? { objectPosition: slide.objectPosition } : undefined}
                   />
                 </div>
               ) : (

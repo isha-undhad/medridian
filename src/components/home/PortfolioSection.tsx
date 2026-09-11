@@ -31,6 +31,9 @@ export type PortfolioSectionItem = {
   /** One or two lines shown centered over the image on hover, e.g.
    * ["Explore", "Gallery"]. A single string renders as one line. */
   hoverText?: string | string[];
+  /** CSS object-position for the image, e.g. "bottom" — lets a tile crop
+   * from a specific edge instead of the default center crop. */
+  objectPosition?: string;
 };
 
 export interface PortfolioSectionProps {
@@ -47,18 +50,22 @@ const defaultItems: PortfolioSectionItem[] = [
     alt: "Bride in motion, tulle dress caught mid-turn",
     link: "/portfolio",
     hoverText: ["Timeless", "Romance"],
-  },
-  {
-    image: "/image/portfolio_home/2.jpg",
-    alt: "Bride and groom standing together among tropical foliage",
-    link: "/portfolio",
-    hoverText: ["Golden", "Hour"],
+    // Full-length shot against a tall stone building — center-cropping was
+    // cutting the couple's feet off the bottom, so anchor to the bottom
+    // instead and let the sky/roofline take any crop.
+    objectPosition: "bottom",
   },
   {
     image: "/image/portfolio_home/3.JPG",
     alt: "Bride and groom embracing at the reception table",
     link: "/portfolio",
     hoverText: ["Quiet", "Moments"],
+  },
+  {
+    image: "/image/portfolio_home/2.jpg",
+    alt: "Bride and groom standing together among tropical foliage",
+    link: "/portfolio",
+    hoverText: ["Golden", "Hour"],
   },
 ];
 
@@ -105,6 +112,7 @@ export default function PortfolioSection({
                     quality={90}
                     sizes="(max-width: 639px) 100vw, (max-width: 767px) 50vw, (max-width: 1280px) 33vw, 400px"
                     className="object-cover grayscale-0 transition-[filter,transform] duration-700 ease-out group-hover:scale-105 group-hover:grayscale"
+                    style={item.objectPosition ? { objectPosition: item.objectPosition } : undefined}
                   />
 
                   {lines.length > 0 ? (

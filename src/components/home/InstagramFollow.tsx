@@ -12,7 +12,7 @@ const instagramImages = [
   "/image/instagram/1.jpeg",
   "/image/instagram/6.jpg",
   "/image/instagram/5.jpg",
-  "/image/instagram/4.jpg",
+  "/image/instagram/7.jpg",
 ];
 
 const instagramImageAlts = [
@@ -26,7 +26,7 @@ const instagramLinks = [
   "https://www.instagram.com/p/DE9eF8Bp6ZT/",
   "https://www.instagram.com/p/DI1iXAnyNQu/",
   "https://www.instagram.com/p/C057TXooc6-/",
-  "https://www.instagram.com/p/DJrcQ8TMTIf/",
+  "https://www.instagram.com/p/Db8as3-DN1B/?utm_source=ig_web_copy_link&stkn=NTc4MTIwNjQ2YQ==",
 ];
 
 type InstagramFollowProps = {
@@ -42,7 +42,7 @@ export default function InstagramFollow({ className }: InstagramFollowProps = {}
           className="mx-auto h-7 w-7 text-[var(--color-ink)]"
         />
         <h2 className="mt-3 sm:mt-4 font-serif text-lg sm:text-xl tracking-[0.25em] text-[var(--color-ink)] uppercase md:text-2xl">
-          Follow Me on Instagram
+          The Stories Continue on Instagram
         </h2>
       </div>
 
@@ -62,7 +62,7 @@ export default function InstagramFollow({ className }: InstagramFollowProps = {}
               sizes="(min-width: 768px) 25vw, 50vw"
               className={cn(
                 "object-cover transition-transform duration-500 ease-out group-hover:scale-105",
-                index === 2 && "object-top"
+                (index === 2 || index === 3) && "object-top"
               )}
               style={index === 2 ? { objectPosition: "center 15%" } : undefined}
             />

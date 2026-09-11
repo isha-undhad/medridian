@@ -31,26 +31,27 @@ export const photographer = {
 export const specialties: Specialty[] = [
   {
     id: "sp1",
-    title: "Documentary Weddings",
-    description: "Candid, unscripted coverage of the day as it actually unfolds — no forced posing.",
+    title: "Wedding Stories",
+    description:
+      "Honest, beautifully observed documentation of your celebration and everything that unfolds between the moments.",
   },
   {
     id: "sp2",
-    title: "Cinematic Wedding Films",
+    title: "Cinematic Films",
     description:
-      "Story-driven wedding video coverage, edited to feel as emotional and timeless as the photographs.",
+      "Emotion-led films crafted with a sense of atmosphere, movement, and timeless storytelling.",
   },
   {
     id: "sp3",
-    title: "Editorial Bridal Portraits",
+    title: "Editorial Portraits",
     description:
-      "Considered, stylized bridal and couple portraits with attention to composition and light.",
+      "Refined portraits created with thoughtful composition, natural direction, and an appreciation for light.",
   },
   {
     id: "sp4",
-    title: "Destination Elopements",
+    title: "Destination Celebrations",
     description:
-      "Intimate ceremonies in remote, dramatic locations — from coastlines to mountain passes.",
+      "From intimate escapes to extraordinary destinations, stories created wherever your celebration takes you.",
   },
 ];
 

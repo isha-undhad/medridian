@@ -9,9 +9,9 @@ export default function Specialties() {
     <section className="border-t border-[var(--color-line)] bg-[var(--color-surface)]">
       <Section as="div" className="mx-auto max-w-7xl px-6 sm:px-10">
         <SectionHeading
-          eyebrow="What I Shoot"
-          title="Behind the Camera"
-          subtitle="The genres and formats I return to on every assignment, from the first look to the final frame."
+          eyebrow="The Art of Your Day"
+          title="What We Create"
+          subtitle="From intimate celebrations to grand destination weddings, every story is approached with intention, elegance, and an editorial eye."
         />
         <div className="mt-8 sm:mt-10 md:mt-12 lg:mt-14 grid grid-cols-1 gap-x-8 gap-y-6 sm:gap-x-10 sm:gap-y-8 sm:grid-cols-2">
           {specialties.map((item, index) => (

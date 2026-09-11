@@ -10,7 +10,7 @@ type Testimonial = {
   id: number;
   quote: string;
   author: string;
-  role: string;
+  role?: string;
   image: string;
   imageAlt: string;
 };
@@ -18,35 +18,25 @@ type Testimonial = {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    quote: "“Every frame felt effortlessly true to our story — as if she read our minds.”",
-    author: "Jordan & Alex",
-    role: "Past Clients",
-    image: "/image/portfolio/slider/7.jpg",
-    imageAlt: "Jordan & Alex wedding portrait",
+    quote: "“Creative and enthusiastic in covering the entire day.”",
+    author: "Jameson Kurian",
+    // Placeholder avatar until a real client photo is available.
+    image: "/image/portfolio/slider/1.jpg",
+    imageAlt: "Placeholder wedding portrait for Jameson Kurian's testimonial",
   },
   {
     id: 2,
-    quote: "“She captured the soul of our day in a way words never could.”",
-    author: "Elena & David",
-    role: "Florence Celebration",
-    image: "/image/portfolio/slider/8.jpg",
-    imageAlt: "Elena & David wedding portrait",
+    quote: "“Took whatever they got and made it look extraordinary.”",
+    author: "Zubin Trivedi",
+    image: "/image/portfolio/slider/2.jpg",
+    imageAlt: "Placeholder wedding portrait for Zubin Trivedi's testimonial",
   },
   {
     id: 3,
-    quote: "“Timeless, romantic, and beyond anything we could have ever imagined.”",
-    author: "Sophia & Liam",
-    role: "English Countryside",
-    image: "/image/portfolio/slider/9.jpg",
-    imageAlt: "Sophia & Liam wedding portrait",
-  },
-  {
-    id: 4,
-    quote: "“Every single photograph feels intentional, artful, and deeply personal.”",
-    author: "Chloe & Marcus",
-    role: "Napa Valley Vows",
-    image: "/image/portfolio/slider/10.jpg",
-    imageAlt: "Chloe & Marcus wedding portrait",
+    quote: "“Did a wonderful job at my friend's wedding.”",
+    author: "Remeth Lobo",
+    image: "/image/portfolio/slider/3.jpg",
+    imageAlt: "Placeholder wedding portrait for Remeth Lobo's testimonial",
   },
 ];
 
@@ -120,7 +110,7 @@ export default function ClientTestimonials() {
                 animate="center"
                 exit="exit"
                 transition={{
-                  duration: 0.45,
+                  duration: 0.3,
                   ease: [0.16, 1, 0.3, 1],
                 }}
                 className="flex flex-col items-center text-center"
@@ -130,7 +120,8 @@ export default function ClientTestimonials() {
                 </p>
 
                 <p className="mt-6 text-xs sm:text-sm font-medium tracking-wider text-[var(--color-muted)] uppercase">
-                  — {current.author}, {current.role}
+                  — {current.author}
+                  {current.role ? `, ${current.role}` : ""}
                 </p>
 
                 <div className="relative mt-8 h-20 w-20 sm:h-24 sm:w-24 overflow-hidden rounded-full border-2 border-[var(--color-line)] shadow-sm">

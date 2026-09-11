@@ -242,7 +242,7 @@ function Lightbox({
 export default function PhotoMarquee({
   images = defaultImages,
   speed = 80,
-  heightClassName = "h-[calc(70dvh-30px)] md:h-[80dvh]",
+  heightClassName = "h-[45dvh] md:h-[55dvh]",
   className,
 }: PhotoMarqueeProps) {
   const [hovered, setHovered] = useState(false);
