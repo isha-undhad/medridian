@@ -60,15 +60,19 @@ export default function Navbar() {
   // (where transparent navbar + white text is legible before scrolling).
   // Pages with a light cream background (e.g. /about, /stories, /stories/*)
   // always render in solid dark mode so text and logo are 100% legible.
-  // Home ("/") is deliberately excluded here too — its hero often has bright
-  // areas near the top that washed out the nav text, so the header is now
-  // always solid there instead of transparent-over-hero like Portfolio/Contact.
+  // Home ("/") is excluded here too — its hero now starts below the header
+  // rather than overlapping it, so there's nothing for a transparent/frosted
+  // header to sit on top of; it's just solid at all times, like About.
   const hasDarkHero =
     pathname === "/portfolio" ||
     pathname.startsWith("/portfolio/") ||
     pathname === "/contact";
 
   const solid = scrolled || menuOpen || !hasDarkHero;
+
+  const headerBgClass = solid
+    ? "border-b border-[var(--color-line)] bg-[var(--color-bg)]/90 backdrop-blur-md"
+    : "border-b border-transparent bg-transparent";
 
   // White over the transparent hero (any photo underneath could be dark or
   // light, so a drop-shadow keeps it legible either way), ink once the
@@ -89,10 +93,7 @@ export default function Navbar() {
     <>
       <header
         className={`fixed inset-x-0 top-0 z-[60] transition-all duration-500 ease-in-out ${navHidden ? "-translate-y-full opacity-0 pointer-events-none" : "translate-y-0 opacity-100"
-          } ${solid
-            ? "border-b border-[var(--color-line)] bg-[var(--color-bg)]/90 backdrop-blur-md"
-            : "border-b border-transparent bg-transparent"
-          }`}
+          } ${headerBgClass}`}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-6 py-3 sm:px-10 sm:py-3.5">
           <Link

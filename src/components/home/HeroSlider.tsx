@@ -56,7 +56,7 @@ export default function HeroSlider() {
       aria-roledescription="carousel"
       aria-label="Featured work slideshow"
       onKeyDown={handleKeyDown}
-      // Home's header is now permanently solid (see Navbar.tsx), so the hero
+      // Home's header is solid at all times (see Navbar.tsx), so the hero
       // must start below it instead of underneath it: mt-* matches the
       // header's own rendered height (logo height + its py-*) at each
       // breakpoint, and h-[calc(100dvh-...)] subtracts the same amount so
