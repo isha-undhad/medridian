@@ -39,71 +39,74 @@ export interface ExploreWeddingsGridProps {
 
 const defaultCategories = ["WEDDINGS", "PORTRAITS", "EDITORIAL", "BRANDS"];
 
-const defaultTopRow: ExploreTile[] = [
-  {
-    src: "/image/explore_home/1.jpg",
-    alt: "Wedding celebration showcase 1",
-    className: "h-full aspect-[16/10]",
-  },
-  {
-    src: "/image/explore_home/2.jpg",
-    alt: "Wedding celebration showcase 2",
-    className: "h-full aspect-[3/4]",
-  },
-  {
-    src: "/image/explore_home/3.jpg",
-    alt: "Wedding celebration showcase 3",
-    className: "h-full aspect-[4/3]",
-  },
-  {
-    src: "/image/explore_home/4.jpg",
-    alt: "Wedding celebration showcase 4",
-    className: "h-full aspect-[3/4]",
-  },
-  {
-    src: "/image/explore_home/5.jpg",
-    alt: "Wedding celebration showcase 5",
-    className: "h-full aspect-[16/10]",
-  },
-  {
-    src: "/image/explore_home/1.jpg",
-    alt: "Wedding celebration showcase 6",
-    className: "h-full aspect-[3/4]",
-  },
+// 19 images from /public/image/explore_slider (exact filenames, casing, and actual image orientation)
+const EXPLORE_SLIDER_IMAGES: Array<{ num: number; src: string; alt: string; className: string }> = [
+  { num: 1, src: "/image/explore_slider/1.jpg", alt: "Wedding celebration showcase 1", className: "h-full aspect-[3/2]" },
+  { num: 2, src: "/image/explore_slider/2.jpg", alt: "Wedding celebration showcase 2", className: "h-full aspect-[2/3]" },
+  { num: 3, src: "/image/explore_slider/3.jpg", alt: "Wedding celebration showcase 3", className: "h-full aspect-[3/2]" },
+  { num: 4, src: "/image/explore_slider/4.jpg", alt: "Wedding celebration showcase 4", className: "h-full aspect-[2/3]" },
+  { num: 5, src: "/image/explore_slider/5.jpg", alt: "Wedding celebration showcase 5", className: "h-full aspect-[3/2]" },
+  { num: 6, src: "/image/explore_slider/6.jpg", alt: "Wedding celebration showcase 6", className: "h-full aspect-[2/3]" },
+  { num: 7, src: "/image/explore_slider/7.jpg", alt: "Wedding celebration showcase 7", className: "h-full aspect-[2/3]" },
+  { num: 8, src: "/image/explore_slider/8.jpg", alt: "Wedding celebration showcase 8", className: "h-full aspect-[2/3]" },
+  { num: 9, src: "/image/explore_slider/9.JPG", alt: "Wedding celebration showcase 9", className: "h-full aspect-[3/2]" },
+  { num: 10, src: "/image/explore_slider/10.JPG", alt: "Wedding celebration showcase 10", className: "h-full aspect-[2/3]" },
+  { num: 11, src: "/image/explore_slider/11.jpg", alt: "Wedding celebration showcase 11", className: "h-full aspect-[4/5]" },
+  { num: 12, src: "/image/explore_slider/12.jpg", alt: "Wedding celebration showcase 12", className: "h-full aspect-[2/3]" },
+  { num: 13, src: "/image/explore_slider/13.jpg", alt: "Wedding celebration showcase 13", className: "h-full aspect-[2/3]" },
+  { num: 14, src: "/image/explore_slider/14.jpg", alt: "Wedding celebration showcase 14", className: "h-full aspect-[2/3]" },
+  { num: 15, src: "/image/explore_slider/15.jpg", alt: "Wedding celebration showcase 15", className: "h-full aspect-[2/3]" },
+  { num: 16, src: "/image/explore_slider/16.jpg", alt: "Wedding celebration showcase 16", className: "h-full aspect-[2/3]" },
+  { num: 17, src: "/image/explore_slider/17.jpg", alt: "Wedding celebration showcase 17", className: "h-full aspect-[2/3]" },
+  { num: 18, src: "/image/explore_slider/18.jpg", alt: "Wedding celebration showcase 18", className: "h-full aspect-[3/2]" },
+  { num: 19, src: "/image/explore_slider/19.jpg", alt: "Wedding celebration showcase 19", className: "h-full aspect-[2/3]" },
 ];
 
-const defaultBottomRow: ExploreTile[] = [
-  {
-    src: "/image/explore_home/6.jpg",
-    alt: "Wedding celebration showcase 7",
-    className: "h-full aspect-[3/4]",
-  },
-  {
-    src: "/image/explore_home/7.JPG",
-    alt: "Wedding celebration showcase 8",
-    className: "h-full aspect-[4/5]",
-  },
-  {
-    src: "/image/explore_home/8.jpg",
-    alt: "Wedding celebration showcase 9",
-    className: "h-full aspect-[16/10]",
-  },
-  {
-    src: "/image/explore_home/9.jpg",
-    alt: "Wedding celebration showcase 10",
-    className: "h-full aspect-[3/4]",
-  },
-  {
-    src: "/image/explore_home/10.jpg",
-    alt: "Wedding celebration showcase 11",
-    className: "h-full aspect-[4/3]",
-  },
-  {
-    src: "/image/explore_home/6.jpg",
-    alt: "Wedding celebration showcase 12",
-    className: "h-full aspect-[3/4]",
-  },
-];
+/** Checks that no two adjacent elements have consecutive numbers (|a - b| === 1). */
+function isValidNonAdjacentSequence(items: Array<{ num: number }>): boolean {
+  for (let i = 0; i < items.length - 1; i++) {
+    if (Math.abs(items[i].num - items[i + 1].num) === 1) {
+      return false;
+    }
+  }
+  return true;
+}
+
+/** Shuffles the 19 images, re-rolling until no two consecutive numbers are adjacent. */
+function shuffleNonAdjacent(items: typeof EXPLORE_SLIDER_IMAGES): typeof EXPLORE_SLIDER_IMAGES {
+  const result = [...items];
+  let attempts = 0;
+  do {
+    for (let i = result.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [result[i], result[j]] = [result[j], result[i]];
+    }
+    attempts++;
+    if (attempts > 1000) break;
+  } while (!isValidNonAdjacentSequence(result));
+  return result;
+}
+
+/** Splits 19 images into top (10) and bottom (9) tracks matching their real orientation aspect ratios. */
+function buildSliderRows(images: typeof EXPLORE_SLIDER_IMAGES): { top: ExploreTile[]; bottom: ExploreTile[] } {
+  const top = images.slice(0, 10).map((img) => ({
+    src: img.src,
+    alt: img.alt,
+    className: img.className,
+  }));
+  const bottom = images.slice(10).map((img) => ({
+    src: img.src,
+    alt: img.alt,
+    className: img.className,
+  }));
+  return { top, bottom };
+}
+
+// Pre-validated non-adjacent order used as SSR baseline to avoid hydration mismatch
+const INITIAL_NON_ADJACENT_ORDER = [13, 16, 3, 12, 8, 6, 17, 14, 19, 4, 10, 18, 5, 2, 9, 7, 1, 15, 11]
+  .map((num) => EXPLORE_SLIDER_IMAGES.find((img) => img.num === num)!);
+
+const defaultSliderRows = buildSliderRows(INITIAL_NON_ADJACENT_ORDER);
 
 // Top slider: starts completely off-screen from the right (100vw) and glides left to full edge-to-edge resting coverage
 const topSliderVariants: Variants = {
@@ -135,9 +138,10 @@ export default function ExploreWeddingsGrid({
   subtext = "Not staged. Not repeated. Just real, and worth remembering.",
   ctaText = "Browse the Work",
   ctaLink = "/portfolio",
-  topRow = defaultTopRow,
-  bottomRow = defaultBottomRow,
+  topRow,
+  bottomRow,
 }: ExploreWeddingsGridProps) {
+  const [sliderRows, setSliderRows] = useState(defaultSliderRows);
   const [categoryIndex, setCategoryIndex] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.05 });
@@ -149,6 +153,14 @@ export default function ExploreWeddingsGrid({
     }, CATEGORY_ROTATE_MS);
     return () => clearInterval(id);
   }, [categories.length]);
+
+  // Randomize order on client mount with the non-adjacent constraint
+  useEffect(() => {
+    setSliderRows(buildSliderRows(shuffleNonAdjacent(EXPLORE_SLIDER_IMAGES)));
+  }, []);
+
+  const activeTopRow = topRow ?? sliderRows.top;
+  const activeBottomRow = bottomRow ?? sliderRows.bottom;
 
   return (
     <section
@@ -163,20 +175,20 @@ export default function ExploreWeddingsGrid({
           variants={topSliderVariants}
           className="flex w-max h-full items-center gap-[2px] md:gap-[3px] will-change-transform"
         >
-          {topRow.map((tile, index) => (
+          {activeTopRow.map((tile, index) => (
             <div
               key={`${tile.src}-${index}`}
-              className={`group relative h-full shrink-0 overflow-hidden rounded-sm bg-neutral-900 ${tile.className ?? "aspect-[4/3]"
+              className={`relative h-full shrink-0 overflow-hidden rounded-sm bg-neutral-900 ${tile.className ?? "aspect-[2/3]"
                 } shadow-2xl shadow-black/80`}
             >
               <Image
                 src={tile.src}
                 alt={tile.alt}
                 fill
+                loading="eager"
                 sizes="(min-width: 1024px) 35vw, 60vw"
-                className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+                className="object-cover"
               />
-              <div className="absolute inset-0 bg-black/0 transition-colors duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:bg-black/20" />
             </div>
           ))}
         </motion.div>
@@ -190,20 +202,20 @@ export default function ExploreWeddingsGrid({
           variants={bottomSliderVariants}
           className="flex w-max h-full items-center gap-[2px] md:gap-[3px] will-change-transform"
         >
-          {bottomRow.map((tile, index) => (
+          {activeBottomRow.map((tile, index) => (
             <div
               key={`${tile.src}-${index}`}
-              className={`group relative h-full shrink-0 overflow-hidden rounded-sm bg-neutral-900 ${tile.className ?? "aspect-[4/3]"
+              className={`relative h-full shrink-0 overflow-hidden rounded-sm bg-neutral-900 ${tile.className ?? "aspect-[2/3]"
                 } shadow-2xl shadow-black/80`}
             >
               <Image
                 src={tile.src}
                 alt={tile.alt}
                 fill
+                loading="eager"
                 sizes="(min-width: 1024px) 35vw, 60vw"
-                className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-105"
+                className="object-cover"
               />
-              <div className="absolute inset-0 bg-black/0 transition-colors duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:bg-black/20" />
             </div>
           ))}
         </motion.div>

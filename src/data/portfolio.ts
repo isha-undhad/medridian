@@ -128,7 +128,7 @@ export const portfolioItems: PortfolioItem[] = portfolioCategories.flatMap(
     const files = ALL_PORTFOLIO_FILES.slice(0, 7);
     return files.map((item, idx) => ({
       id: `${category.toLowerCase().replace(/\s+/g, "-")}-${idx + 1}`,
-      image: `/portfolio/${item.file}`,
+      image: `/image/portfolio/slider/${(idx % 10) + 1}.jpg`,
       width: item.width,
       height: item.height,
       title: titles[idx % titles.length],

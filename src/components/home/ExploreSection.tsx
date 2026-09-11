@@ -63,19 +63,19 @@ const defaultCategories = ["WEDDINGS", "PORTRAITS", "EDITORIAL", "BRANDS"];
 // distinct portraits not already used by the neighboring sections on this
 // page, so nothing repeats back-to-back down the page.
 const defaultTopRowImages: ExploreImage[] = [
-  { src: "/home/catagory1.jpg", alt: "Wedding photography showcase" },
-  { src: "/home/catagory2.jpg", alt: "Portrait photography showcase" },
-  { src: "/home/catagory3.jpg", alt: "Editorial photography showcase" },
-  { src: "/home/catagory4.jpg", alt: "Brand photography showcase" },
-  { src: "/home/catagory5.jpg", alt: "Wedding photography showcase" },
+  { src: "/image/portfolio/slider/1.jpg", alt: "Wedding photography showcase" },
+  { src: "/image/portfolio/slider/2.jpg", alt: "Portrait photography showcase" },
+  { src: "/image/portfolio/slider/3.jpg", alt: "Editorial photography showcase" },
+  { src: "/image/portfolio/slider/4.jpg", alt: "Brand photography showcase" },
+  { src: "/image/portfolio/slider/5.jpg", alt: "Wedding photography showcase" },
 ];
 
 const defaultBottomRowImages: ExploreImage[] = [
-  { src: "/home/about2.jpeg", alt: "Ava Bennett on location" },
-  { src: "/home/about3.jpg", alt: "Ava Bennett on location" },
-  { src: "/home/about4.jpg", alt: "Ava Bennett on location" },
+  { src: "/image/explore_slider/1.jpg", alt: "Ava Bennett on location" },
+  { src: "/image/explore_slider/2.jpg", alt: "Ava Bennett on location" },
+  { src: "/image/explore_slider/3.jpg", alt: "Ava Bennett on location" },
   {
-    src: "/home/slider4.jpg",
+    src: "/image/explore_slider/4.jpg",
     alt: "Bride and groom running across a lawn in front of an ornate stone building",
   },
 ];

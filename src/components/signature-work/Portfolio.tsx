@@ -43,24 +43,24 @@ const CATEGORY_IMAGES: Record<Exclude<Category, "Family & Maternity">, CategoryI
   ],
   Engagements: [
     {
-      src: "/portfolio/2.jpeg",
+      src: "/image/portfolio/slider/2.jpg",
       alt: "Bride and groom laughing together as they exit through a shaded, ivy-covered doorway",
     },
     {
-      src: "/portfolio/4.jpeg",
+      src: "/image/portfolio/slider/4.jpg",
       alt: "Bride helping her groom adjust his boutonnière while walking together through a park",
     },
     {
-      src: "/portfolio/10.jpg",
+      src: "/image/portfolio/slider/10.jpg",
       alt: "Close-up of a bride's hands clasped over her lace gown, showing her engagement ring",
     },
     {
-      src: "/portfolio/3.jpeg",
+      src: "/image/portfolio/slider/3.jpg",
       alt: "Bride and groom kissing beneath a stone archway, her heart-shaped bag and flower-trimmed heels in view",
     },
-    { src: "/home/about2.jpeg", alt: "Bride glancing back at her groom in front of a grand brick manor house" },
+    { src: "/image/portfolio/slider/9.jpg", alt: "Bride glancing back at her groom in front of a grand brick manor house" },
     {
-      src: "/home/catagory5.jpg",
+      src: "/image/portfolio/slider/5.jpg",
       alt: "Candid, unposed moment of a couple laughing together, softly lit and lightly toned",
     },
   ],

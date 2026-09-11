@@ -40,7 +40,7 @@ export const categoryContent: Partial<Record<CategorySlug, CategoryContent>> = {
     label: "Weddings",
     video: {
       src: "/videos/weddings.mp4",
-      poster: "/portfolio/1.jpeg",
+      poster: "/image/portfolio/1.jpg",
       credit: "Bordoni Films",
       names: "Sophie & Daniel",
       location: "Cliveden House, UK",
@@ -53,7 +53,7 @@ export const categoryContent: Partial<Record<CategorySlug, CategoryContent>> = {
     label: "Engagements",
     video: {
       src: "/videos/engagements.mp4",
-      poster: "/portfolio/2.jpeg",
+      poster: "/image/portfolio/2.jpg",
       credit: "Bordoni Films",
       names: "Natalie & Daniel",
       location: "Cliveden House, UK",
@@ -65,7 +65,7 @@ export const categoryContent: Partial<Record<CategorySlug, CategoryContent>> = {
     label: "Family & Maternity",
     video: {
       src: "/videos/family-maternity.mp4",
-      poster: "/portfolio/3.jpeg",
+      poster: "/image/portfolio/hero_2.jpg",
       credit: "Bordoni Films",
       names: "The Ellery Family",
       location: "Cliveden House, UK",

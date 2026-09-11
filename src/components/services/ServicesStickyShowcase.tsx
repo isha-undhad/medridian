@@ -26,7 +26,7 @@ const showcaseServices: ShowcaseService[] = [
     title: "Portrait Photography",
     description:
       "Thoughtful portrait sessions focused on natural expression, personality, and elegant visual storytelling.",
-    image: "/about/photographer.jpg",
+    image: "/image/about_home/1.png",
     imageAlt: "Portrait of Ava Bennett seated on a stone bench, smiling at the camera",
   },
   {
@@ -34,7 +34,7 @@ const showcaseServices: ShowcaseService[] = [
     title: "Event & Lifestyle Photography",
     description:
       "Document meaningful events, celebrations, and lifestyle moments with a refined and candid photographic approach.",
-    image: "/portfolio/2.jpeg",
+    image: "/image/portfolio/slider/9.jpg",
     imageAlt: "Wedding guests cheering and throwing petals as a couple exits through an ivy-covered doorway",
   },
 ];

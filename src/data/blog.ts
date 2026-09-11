@@ -26,7 +26,7 @@ export const blogPosts: BlogPost[] = [
     category: "Technique",
     date: "Jul 2026",
     readTime: "5 min",
-    image: "/portfolio/2.jpeg",
+    image: "/image/portfolio/slider/2.jpg",
     imageAlt:
       "Bride and groom laughing together as they exit through a shaded, ivy-covered doorway",
     content: [
@@ -45,7 +45,7 @@ export const blogPosts: BlogPost[] = [
     category: "Behind the Scenes",
     date: "Jun 2026",
     readTime: "7 min",
-    image: "/home/catagory5.jpg",
+    image: "/image/portfolio/slider/5.jpg",
     imageAlt: "Candid, unposed moment of a couple laughing together, softly lit and lightly toned",
     content: [
       "It's easy to make a photograph look impressive in an edit. It's much harder to make it look true. Every preset and one-click filter pushes toward the same place — punchier contrast, warmer skin, deeper blacks — and most of them get there at the cost of what the moment actually looked like.",
@@ -63,7 +63,7 @@ export const blogPosts: BlogPost[] = [
     category: "Travel",
     date: "May 2026",
     readTime: "6 min",
-    image: "/portfolio/4.jpeg",
+    image: "/image/portfolio/slider/4.jpg",
     imageAlt: "Bride helping her groom adjust his boutonnière while walking together through a park",
     content: [
       "A two-week destination run means every piece of gear earns its place in the bag twice over — once for what it does, and once for how much it weighs on the fourth flight connection of the trip.",
@@ -81,7 +81,7 @@ export const blogPosts: BlogPost[] = [
     category: "Craft",
     date: "Apr 2026",
     readTime: "4 min",
-    image: "/home/catagory4.jpg",
+    image: "/image/portfolio/slider/3.jpg",
     imageAlt: "Sunlit reception table setting with fine linens, candles, and garden florals",
     content: [
       "A desktop printer can produce something that looks good on a screen next to it. It very rarely produces something that still looks good five years from now, under real light, on a wall.",
@@ -99,7 +99,7 @@ export const blogPosts: BlogPost[] = [
     category: "Real Weddings",
     date: "Mar 2026",
     readTime: "8 min",
-    image: "/home/catagory3.jpg",
+    image: "/image/portfolio/slider/1.jpg",
     imageAlt: "Bride and groom walking away hand in hand through a formal garden at golden hour",
     content: [
       "Some weddings tell you everything about the day within the first ten minutes. The Harlow wedding did it the moment we walked the garden the morning of — every hedge trimmed with a level of care that told us this couple thought about the details other people skip.",
@@ -117,7 +117,7 @@ export const blogPosts: BlogPost[] = [
     category: "Craft",
     date: "Feb 2026",
     readTime: "6 min",
-    image: "/portfolio/6.jpeg",
+    image: "/image/portfolio/slider/6.jpg",
     imageAlt: "Black and white portrait of a couple standing before a grand estate house at dusk",
     content: [
       "The archive arrived in four shoeboxes — negatives, mostly 35mm, some water-damaged, none of them sleeved or labeled by year. Forty years of one family's life, in no particular order.",

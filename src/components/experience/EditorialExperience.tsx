@@ -106,7 +106,7 @@ export default function EditorialExperience() {
           <EditorialTile
             grow={5}
             mobileHeight="h-80 sm:h-96"
-            src="/home/couple.webp"
+            src="/image/portfolio/1.jpg"
             alt="Newlyweds kissing at the end of the aisle, red-rock desert ceremony in the background"
           />
           <div className="flex flex-col gap-3 sm:gap-4 md:h-full md:flex-[4] lg:gap-5">
@@ -115,14 +115,14 @@ export default function EditorialExperience() {
                 grow={2}
                 mobileHeight="h-56 sm:h-64"
                 delay={0.08}
-                src="/home/about1.jpg"
+                src="/image/portfolio/slider/7.jpg"
                 alt="Bride and groom sharing a quiet moment beneath a flowing veil, in black and white"
               />
               <EditorialTile
                 grow={2}
                 mobileHeight="h-56 sm:h-64"
                 delay={0.16}
-                src="/portfolio/7.jpeg"
+                src="/image/portfolio/slider/8.jpg"
                 alt="Wedding guests toasting and laughing together at an outdoor reception"
               />
             </div>
@@ -130,7 +130,7 @@ export default function EditorialExperience() {
               grow={2}
               mobileHeight="h-56 sm:h-64"
               delay={0.24}
-              src="/home/catagory1.jpg"
+              src="/image/portfolio/slider/1.jpg"
               alt="Bride and groom walking hand in hand across an open field under soft, overcast light"
             />
           </div>
@@ -141,7 +141,7 @@ export default function EditorialExperience() {
           <EditorialTile
             grow={5}
             mobileHeight="h-72 sm:h-80"
-            src="/home/about3.jpg"
+            src="/image/portfolio/slider/5.jpg"
             alt="Bride laughing as her groom lifts her mid-embrace at golden hour"
             imageClassName="scale-[1.14] group-hover:scale-[1.18]"
           />
@@ -149,14 +149,14 @@ export default function EditorialExperience() {
             grow={4}
             mobileHeight="h-72 sm:h-80"
             delay={0.08}
-            src="/home/portfolio3.jpg"
+            src="/image/portfolio/slider/3.jpg"
             alt="Bride twirling in her gown beside a horse in an open field"
           />
           <EditorialTile
             grow={2}
             mobileHeight="h-56 sm:h-64"
             delay={0.16}
-            src="/portfolio/2.jpeg"
+            src="/image/portfolio/slider/9.jpg"
             alt="Bride and groom laughing together as they exit through a shaded, ivy-covered doorway"
           />
         </div>
@@ -166,14 +166,14 @@ export default function EditorialExperience() {
           <EditorialTile
             grow={3}
             mobileHeight="h-64 sm:h-72"
-            src="/home/about4.jpg"
+            src="/image/portfolio/slider/10.jpg"
             alt="Bride and groom dancing together beneath a candlelit wall sconce"
           />
           <EditorialTile
             grow={2}
             mobileHeight="h-64 sm:h-72"
             delay={0.08}
-            src="/home/portfolio2.jpg"
+            src="/image/portfolio/slider/2.jpg"
             alt="Groom dipping his bride mid-dance in a wood-paneled ballroom"
           />
         </div>
