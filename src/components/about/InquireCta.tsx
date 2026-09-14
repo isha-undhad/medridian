@@ -26,17 +26,18 @@ export default function InquireCta({
   grayscale = false,
 }: InquireCtaProps) {
   return (
-    <section className="relative flex h-dvh min-h-[500px] w-full items-start justify-center pt-20 sm:pt-24 md:pt-28 lg:pt-32 overflow-hidden my-0">
+    <section className="relative flex h-svh md:h-dvh min-h-[500px] w-full items-center justify-center overflow-hidden my-0 px-4 sm:px-6">
       <Image
         src={image}
         alt={imageAlt}
         fill
+        loading="eager"
         sizes="100vw"
         className={`object-cover ${grayscale ? "grayscale" : ""}`}
       />
       <div className="absolute inset-0 bg-black/45" />
 
-      <div className="relative z-10 flex flex-col items-center gap-3 sm:gap-4 px-4 sm:px-6 text-center">
+      <div className="relative z-10 flex flex-col items-center gap-3 sm:gap-4 text-center max-w-4xl mx-auto">
         {eyebrow ? (
           <Reveal variants={fadeUp}>
             <span className="text-[10px] sm:text-xs font-medium tracking-[0.3em] text-white uppercase drop-shadow-[0_1px_3px_rgba(0,0,0,0.6)]">

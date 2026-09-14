@@ -30,7 +30,7 @@ export default function HeroGallery({
   rightObjectPosition = "center center",
 }: HeroGalleryProps) {
   return (
-    <section className="relative w-full overflow-hidden grid grid-cols-1 h-dvh md:grid-cols-2">
+    <section className="relative w-full overflow-hidden grid grid-cols-1 h-svh md:h-dvh md:grid-cols-2">
       {/* 1st image: full hero banner on mobile, left column on desktop */}
       <div className="relative h-full w-full overflow-hidden">
         <Image

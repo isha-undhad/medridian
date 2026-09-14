@@ -31,7 +31,7 @@ export default function PageHeader({
 }: PageHeaderProps) {
   return (
     <section
-      className={`relative flex overflow-hidden ${image ? "h-dvh items-center" : "h-[56vh] min-h-[420px] items-end"
+      className={`relative flex overflow-hidden ${image ? "h-svh md:h-dvh items-center" : "h-[56vh] min-h-[420px] items-end"
         }`}
     >
       <motion.div
