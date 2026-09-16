@@ -16,9 +16,9 @@ export interface InquireCtaProps {
 }
 
 export default function InquireCta({
-  eyebrow = "DREAM STORIES",
-  heading = "The Story Continues",
-  subtitle = "Every chapter leads to another story worth remembering.",
+  eyebrow = "THE STORY CONTINUES",
+  heading = "And Yours Is Next",
+  subtitle = "Every wedding is different. Every couple has a story worth remembering.",
   ctaText = "Inquire",
   ctaLink = "/contact",
   image = "/image/inquire_about.jpg",
@@ -59,7 +59,7 @@ export default function InquireCta({
           <LinkButton
             href={ctaLink}
             variant="light"
-            className="mt-2 sm:mt-3 !px-4 !py-2 sm:!px-6 sm:!py-2.5 !text-[11px] sm:!text-xs md:!text-sm !min-h-[36px] sm:!min-h-[42px] tracking-[0.15em] uppercase font-medium"
+            className="mt-2 sm:mt-3 !px-4 !py-2 sm:!px-6 sm:!py-2.5 !text-[11px] sm:!text-xs md:!text-sm !min-h-[36px] sm:!min-h-[42px] tracking-[0.15em] uppercase font-medium !border !border-white/70 !bg-transparent !text-white transition-colors duration-300 hover:!bg-white hover:!text-neutral-900"
           >
             {ctaText}
           </LinkButton>

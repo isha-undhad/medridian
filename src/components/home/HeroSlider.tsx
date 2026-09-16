@@ -80,7 +80,7 @@ export default function HeroSlider() {
                 <button
                   type="button"
                   onClick={scrollToNext}
-                  className="pointer-events-auto inline-flex items-center justify-center border border-[#faf8f5]/70 px-3.5 py-1.5 sm:px-6 sm:py-2.5 font-sans text-[6.5px] min-[360px]:text-[7px] sm:text-[9px] md:text-[9.5px] font-medium tracking-[0.22em] sm:tracking-[0.3em] uppercase text-[#faf8f5] transition-colors duration-300 hover:bg-[#faf8f5] hover:text-neutral-900"
+                  className="pointer-events-auto inline-flex items-center justify-center cursor-pointer border border-[#faf8f5]/70 px-3.5 py-1.5 sm:px-6 sm:py-2.5 font-sans text-[6.5px] min-[360px]:text-[7px] sm:text-[9px] md:text-[9.5px] font-medium tracking-[0.22em] sm:tracking-[0.3em] uppercase text-[#faf8f5] transition-colors duration-300 hover:bg-[#faf8f5] hover:text-neutral-900"
                 >
                   Explore
                 </button>

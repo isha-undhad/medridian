@@ -30,6 +30,7 @@ export default function TimelineItem({ milestone, index }: TimelineItemProps) {
                   src={milestone.image}
                   alt={milestone.imageAlt ?? ""}
                   fill
+                  priority={index === 0}
                   sizes="(min-width: 768px) 35vw, 48vw"
                   className={`object-cover transition-transform duration-700 ease-out hover:scale-105 ${
                     milestone.tone === "mono" ? "grayscale" : ""
@@ -48,7 +49,7 @@ export default function TimelineItem({ milestone, index }: TimelineItemProps) {
               <h3 className="mt-0.5 sm:mt-1 font-serif text-xs sm:text-base md:text-2xl lg:text-3xl text-[var(--color-ink)] leading-snug text-balance">
                 {milestone.title}
               </h3>
-              <p className="mt-1 sm:mt-1.5 text-[9px] sm:text-xs md:text-sm lg:text-body text-[var(--color-muted)] leading-relaxed text-pretty">
+              <p className="mt-1 sm:mt-1.5 whitespace-pre-line text-[9px] sm:text-xs md:text-sm lg:text-body text-[var(--color-muted)] leading-relaxed text-pretty">
                 {milestone.description}
               </p>
             </Reveal>
@@ -66,7 +67,7 @@ export default function TimelineItem({ milestone, index }: TimelineItemProps) {
               <h3 className="mt-0.5 sm:mt-1 font-serif text-xs sm:text-base md:text-2xl lg:text-3xl text-[var(--color-ink)] leading-snug text-balance">
                 {milestone.title}
               </h3>
-              <p className="mt-1 sm:mt-1.5 text-[9px] sm:text-xs md:text-sm lg:text-body text-[var(--color-muted)] leading-relaxed text-pretty">
+              <p className="mt-1 sm:mt-1.5 whitespace-pre-line text-[9px] sm:text-xs md:text-sm lg:text-body text-[var(--color-muted)] leading-relaxed text-pretty">
                 {milestone.description}
               </p>
             </Reveal>
@@ -80,6 +81,7 @@ export default function TimelineItem({ milestone, index }: TimelineItemProps) {
                   src={milestone.image}
                   alt={milestone.imageAlt ?? ""}
                   fill
+                  priority={index === 0}
                   sizes="(min-width: 768px) 35vw, 48vw"
                   className={`object-cover transition-transform duration-700 ease-out hover:scale-105 ${
                     milestone.tone === "mono" ? "grayscale" : ""
