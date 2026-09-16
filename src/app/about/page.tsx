@@ -20,7 +20,7 @@ export default function AboutPage() {
         title="The Eye Behind Dream Stories"
         description="Photographer, founder, and storyteller — creating timeless imagery from the moments that matter."
         tone="clay"
-        image="/image/hero_about.jpg"
+        image="/image/about_hero.jpg"
         imageAlt="Bride leaning on groom's shoulder in wedding attire"
       />
       <AboutHero />

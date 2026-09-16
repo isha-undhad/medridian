@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import VideoHero from "@/components/portfolio/VideoHero";
-import PhotoGrid from "@/components/portfolio/PhotoGrid";
+import PortfolioGrid from "@/components/portfolio/PortfolioGrid";
 import EngagementVideoShowcase from "@/components/portfolio/EngagementVideoShowcase";
 import Section from "@/components/ui/Section";
-import { categoryContent, getCategoryContent, getCategoryPhotos } from "@/data/categories";
+import { categoryContent, getCategoryContent } from "@/data/categories";
+import { portfolio1Items } from "@/data/portfolio1";
 
 type CategoryPageProps = {
   params: Promise<{ category: string }>;
@@ -45,13 +46,14 @@ export default async function PortfolioCategoryPage({ params }: CategoryPageProp
     notFound();
   }
 
-  const photos = getCategoryPhotos(content);
-
   return (
     <>
       <VideoHero {...content.video} />
       <Section className="mx-auto max-w-7xl px-6 sm:px-10">
-        <PhotoGrid photos={photos} />
+        {/* Same source, orientation-matching, random-40, and no-click behavior
+            as the main /portfolio grid (see PortfolioGrid) — "weddings" is the
+            only reachable category, and portfolio_1 has no per-category split. */}
+        <PortfolioGrid items={portfolio1Items} limit={40} />
       </Section>
       {/* Vimeo showcase reel — Engagements only (commented out) */}
       {/* {content.slug === "engagements" ? <EngagementVideoShowcase /> : null} */}

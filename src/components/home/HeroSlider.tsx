@@ -55,9 +55,14 @@ export default function HeroSlider() {
                 className="font-cormorant text-[0.65rem] min-[360px]:text-[0.72rem] min-[400px]:text-[0.8rem] sm:text-[1.35rem] md:text-[1.6rem] lg:text-[1.85rem] xl:text-[2rem] font-normal tracking-[0.08em] min-[360px]:tracking-[0.1em] min-[400px]:tracking-[0.12em] sm:tracking-[0.16em] md:tracking-[0.18em] lg:tracking-[0.2em] uppercase text-white leading-[1.08] sm:leading-[1.06] md:leading-[1.04] [text-shadow:0_2px_14px_rgba(0,0,0,0.45)] w-full"
                 style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
               >
-                <span className="block whitespace-nowrap">WEDDING PHOTOGRAPHY &amp;</span>
-                <span className="block">FILMS</span>
+                <span className="block">THE ART OF YOUR STORY</span>
               </h2>
+              <p
+                className="mt-0.5 sm:mt-1 font-cormorant text-[8.5px] min-[360px]:text-[9.5px] min-[400px]:text-[10.5px] sm:text-[13px] md:text-[15px] lg:text-[17px] font-normal tracking-[0.1em] sm:tracking-[0.14em] text-white/90 leading-[1.2] [text-shadow:0_1px_10px_rgba(0,0,0,0.45)] w-full"
+                style={{ fontFamily: "var(--font-cormorant), 'Cormorant Garamond', Georgia, serif" }}
+              >
+                Wedding Photography &amp; Films
+              </p>
             </div>
 
             {/* Info row */}

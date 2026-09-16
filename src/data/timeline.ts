@@ -52,7 +52,7 @@ export const timeline: TimelineMilestone[] = [
     title: "The Decision to Tell Stories",
     description:
       "I stepped away from the studio and chose a different path — to focus entirely on weddings. From that point on, the couple's story became the priority: their people, their emotions, their little moments, and everything in between. The Dream Stories began to feel like more than a name. It became a vision.",
-    image: "/image/portfolio/slider/4.jpg",
+    image: "/image/timeline/04.jpg",
     imageAlt: "Bride and groom kissing under a green-domed garden pavilion ringed with classical columns",
   },
   {
@@ -61,7 +61,7 @@ export const timeline: TimelineMilestone[] = [
     title: "Built on Stories, Grown on Trust",
     description:
       "In 2022, we opened our own office under The Dream Stories. By then, countless couples had trusted us with some of the most important days of their lives. Their genuine happiness, kind words, and honest reviews became a reminder that what we were creating meant more than just photographs.\n\nWe were building something on stories, relationships, and trust.",
-    image: "/image/portfolio/slider/5.jpg",
+    image: "/image/timeline/05.jpg",
     imageAlt: "Bride and groom feeding a giraffe together on a wedding day, a candid documentary moment",
     tone: "color",
   },
@@ -71,7 +71,7 @@ export const timeline: TimelineMilestone[] = [
     title: "The Story Continues",
     description:
       "Today, The Dream Stories spans 550+ cities and countless couples across India and beyond. From intimate celebrations to destination weddings, what matters most isn't the numbers — it's the trust behind every story, every couple, and every frame.",
-    image: "/image/portfolio/slider/6.jpg",
+    image: "/image/timeline/06.jpg",
     imageAlt: "Bride and groom laughing together beneath a gilded domed alcove with classical columns",
   },
 ];

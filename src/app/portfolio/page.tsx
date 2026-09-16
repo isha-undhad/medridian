@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
-import HeroGallery from "@/components/portfolio/HeroGallery";
+import Image from "next/image";
 import PortfolioBrowser from "@/components/portfolio/PortfolioBrowser";
 import InstagramFollow from "@/components/home/InstagramFollow";
 
@@ -12,14 +12,16 @@ export const metadata: Metadata = {
 export default function PortfolioPage() {
   return (
     <>
-      <HeroGallery
-        leftImage="/image/portfolio/1.jpg"
-        rightImage="/image/portfolio/2.jpg"
-        leftAlt="Bride and groom embracing beneath a carved stone archway"
-        rightAlt="Celebration photograph of bride dancing with mehndi details"
-        leftObjectPosition="center"
-        rightObjectPosition="center center"
-      />
+      <section className="relative w-full h-svh md:h-dvh overflow-hidden">
+        <Image
+          src="/image/portfolio_hero.jpg"
+          alt="Dream Stories portfolio hero photograph"
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover"
+        />
+      </section>
       <Suspense fallback={null}>
         <PortfolioBrowser />
       </Suspense>

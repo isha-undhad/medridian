@@ -18,7 +18,7 @@ export default function PhotographerBio() {
         <Reveal variants={slideInLeft} className="w-full">
           <div className="relative aspect-[4/5] w-full overflow-hidden rounded-md">
             <Image
-              src="/image/about_home/1.png"
+              src="/image/Rvy.png"
               alt="Portrait of Ravi Barvaliya, lead photographer and founder of Dream Stories"
               fill
               sizes="(min-width: 768px) 50vw, 100vw"

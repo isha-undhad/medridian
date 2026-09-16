@@ -1,10 +1,43 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
 import Reveal from "@/components/ui/Reveal";
 import Section from "@/components/ui/Section";
 import { fadeUp } from "@/lib/motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ChevronRight } from "lucide-react";
+
+const faqs = [
+  {
+    question: "Are you willing to travel?",
+    answer:
+      "Absolutely! I travel extensively for my clients and jump at any opportunity to capture your celebration, whether it is a local gathering or a destination weekend.",
+  },
+  {
+    question: "How many images will we receive?",
+    answer:
+      "Typically, you can expect a beautifully curated gallery of 80–100 final, high-resolution images per hour of coverage, all fully edited in our signature style.",
+  },
+  {
+    question: "Do you shoot film or digital?",
+    answer:
+      "Both! I combine the nostalgic, rich textures of medium-format film with the crisp reliability of modern digital to deliver a timeless and luminous gallery.",
+  },
+  {
+    question: "When can we expect to receive our gallery?",
+    answer:
+      "You will receive a curated sneak peek of highlights within 48 hours of your wedding day. Your complete, fully edited digital gallery will be delivered within 6 to 8 weeks.",
+  },
+  {
+    question: "How do we secure our date with you?",
+    answer:
+      "To officially reserve your date on the calendar, a signed contract and a standard retainer fee are required. The entire booking process is handled seamlessly online.",
+  },
+];
 
 export default function InquireFaqSection() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
   return (
     <Section className="mx-auto max-w-6xl px-6 sm:px-10 border-t border-[var(--color-line)] pt-10 sm:pt-14 md:pt-16 lg:pt-20 pb-5 sm:pb-7 md:pb-8 lg:pb-10">
       {/* Eyebrow & Concise Refined Title */}
@@ -35,56 +68,44 @@ export default function InquireFaqSection() {
           </div>
         </Reveal>
 
-        {/* Right: FAQ Questions & Answers */}
+        {/* Right: FAQ Accordion */}
         <Reveal variants={fadeUp} delay={0.15} className="md:col-span-7 flex flex-col justify-between md:h-full gap-6 md:gap-4">
-          {/* Question 1 */}
-          <div className="flex flex-col gap-1.5">
-            <h3 className="text-base sm:text-lg font-medium text-[var(--color-ink)]">
-              Q. Are you willing to travel?
-            </h3>
-            <p className="text-body leading-relaxed text-[var(--color-muted)]">
-              Absolutely! I travel extensively for my clients and jump at any opportunity to capture your celebration, whether it is a local gathering or a destination weekend.
-            </p>
-          </div>
+          <div className="divide-y divide-[var(--color-line)]">
+            {faqs.map((faq, index) => {
+              const isOpen = openIndex === index;
 
-          {/* Question 2 */}
-          <div className="flex flex-col gap-1.5">
-            <h3 className="text-base sm:text-lg font-medium text-[var(--color-ink)]">
-              Q. How many images will we receive?
-            </h3>
-            <p className="text-body leading-relaxed text-[var(--color-muted)]">
-              Typically, you can expect a beautifully curated gallery of 80–100 final, high-resolution images per hour of coverage, all fully edited in our signature style.
-            </p>
-          </div>
-
-          {/* Question 3 */}
-          <div className="flex flex-col gap-1.5">
-            <h3 className="text-base sm:text-lg font-medium text-[var(--color-ink)]">
-              Q. Do you shoot film or digital?
-            </h3>
-            <p className="text-body leading-relaxed text-[var(--color-muted)]">
-              Both! I combine the nostalgic, rich textures of medium-format film with the crisp reliability of modern digital to deliver a timeless and luminous gallery.
-            </p>
-          </div>
-
-          {/* Question 4 */}
-          <div className="flex flex-col gap-1.5">
-            <h3 className="text-base sm:text-lg font-medium text-[var(--color-ink)]">
-              Q. When can we expect to receive our gallery?
-            </h3>
-            <p className="text-body leading-relaxed text-[var(--color-muted)]">
-              You will receive a curated sneak peek of highlights within 48 hours of your wedding day. Your complete, fully edited digital gallery will be delivered within 6 to 8 weeks.
-            </p>
-          </div>
-
-          {/* Question 5 */}
-          <div className="flex flex-col gap-1.5">
-            <h3 className="text-base sm:text-lg font-medium text-[var(--color-ink)]">
-              Q. How do we secure our date with you?
-            </h3>
-            <p className="text-body leading-relaxed text-[var(--color-muted)]">
-              To officially reserve your date on the calendar, a signed contract and a standard retainer fee are required. The entire booking process is handled seamlessly online.
-            </p>
+              return (
+                <div key={faq.question} className="py-3 first:pt-0 last:pb-0">
+                  <button
+                    type="button"
+                    onClick={() => setOpenIndex(isOpen ? null : index)}
+                    aria-expanded={isOpen}
+                    className="flex w-full items-center gap-3 text-left cursor-pointer touch-manipulation"
+                  >
+                    <ChevronRight
+                      aria-hidden="true"
+                      className={`h-3.5 w-3.5 shrink-0 text-[var(--color-muted)] transition-transform duration-300 ${
+                        isOpen ? "rotate-90" : ""
+                      }`}
+                    />
+                    <h3 className="text-base sm:text-lg font-medium text-[var(--color-ink)]">
+                      {faq.question}
+                    </h3>
+                  </button>
+                  <div
+                    className={`grid transition-all duration-300 ease-in-out ${
+                      isOpen ? "grid-rows-[1fr] opacity-100 mt-1.5" : "grid-rows-[0fr] opacity-0"
+                    }`}
+                  >
+                    <div className="overflow-hidden">
+                      <p className="pl-[26px] text-body leading-relaxed text-[var(--color-muted)]">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
 
           {/* More Link */}

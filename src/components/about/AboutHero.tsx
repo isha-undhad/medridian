@@ -32,60 +32,58 @@ export default function AboutHero({
   heading = defaultHeading,
   label = defaultLabel,
   bodyText = defaultBodyText,
-  colorImageSrc = "/image/approach_about/1.jpg",
+  colorImageSrc = "/image/about_approch/Tezza-2775.JPG",
   colorImageAlt = "Bride and groom in front of the brick house",
-  bwImageSrc = "/image/approach_about/2.jpg",
+  bwImageSrc = "/image/about_approch/Tezza-2875.JPG",
   bwImageAlt = "Black and white veil close-up",
   className,
 }: AboutHeroProps) {
   return (
     <section
       className={cn(
-        "relative w-full min-h-[100dvh] flex flex-col justify-center items-center bg-[#faf8f5] px-6 sm:px-10 lg:px-16 pt-28 sm:pt-32 md:pt-36 pb-16 sm:pb-20 md:pb-24 overflow-hidden",
+        "relative w-full flex flex-col items-center bg-[#faf8f5] px-6 sm:px-10 lg:px-16 pt-10 sm:pt-14 md:pt-16 pb-12 sm:pb-16 md:pb-20 overflow-hidden",
         className
       )}
     >
-      <div className="mx-auto w-full max-w-6xl flex flex-col lg:flex-row items-start justify-center gap-10 lg:gap-12 xl:gap-16">
-        {/* COLUMN 1 (Left: Heading on top-left, Color image lower-left, B&W image overlapping beside heading) */}
-        <div className="relative flex flex-col items-start w-full lg:w-[540px] xl:w-[560px] shrink-0">
+      <div className="mx-auto w-full max-w-6xl flex flex-col lg:grid lg:grid-cols-[1.05fr_0.95fr] items-start gap-10 lg:gap-10 xl:gap-14">
+        {/* COLUMN 1 (Left: Heading on top-left, two photos side by side below it) */}
+        <div className="relative flex flex-col items-start w-full">
           {/* 1. Heading on the upper-left (z-30 so it renders on top of the overlapping photo) */}
           <Reveal variants={slideInLeft} className="relative z-30 w-full">
-            <h2 className="font-cormorant text-[20px] sm:text-[23px] md:text-[25px] lg:text-[27px] font-light tracking-[0.01em] leading-[1.25] text-neutral-900 uppercase text-left max-w-full sm:max-w-[460px] lg:max-w-[380px]">
+            <h2 className="font-cormorant text-[20px] sm:text-[23px] md:text-[25px] lg:text-[27px] font-light tracking-[0.01em] leading-[1.25] text-neutral-900 uppercase text-left max-w-full sm:max-w-[460px] lg:max-w-[420px]">
               {heading}
             </h2>
           </Reveal>
 
-          {/* 2. Responsive Photo Composition (Staggered layered collage on mobile, exact absolute positioning on desktop) */}
-          <div className="relative mt-8 sm:mt-10 lg:mt-0 w-full max-w-[330px] sm:max-w-[400px] lg:max-w-none">
-            {/* Color Photo (Primary) */}
-            <div className="relative z-10 w-[72%] sm:w-[68%] lg:w-[280px] lg:mt-12">
-              <Reveal
-                variants={fadeUp}
-                delay={0.15}
-                className="relative w-full aspect-[4/5] lg:aspect-auto lg:h-[400px] overflow-hidden rounded-none shadow-none border-none bg-[var(--color-line)]/20"
-              >
-                <Image
-                  src={colorImageSrc}
-                  alt={colorImageAlt}
-                  fill
-                  sizes="(min-width: 1024px) 280px, (min-width: 640px) 270px, 230px"
-                  className="object-cover"
-                  priority
-                />
-              </Reveal>
-            </div>
+          {/* 2. Side-by-Side Photo Pair — equal-height, no overlap */}
+          <div className="flex w-full max-w-[340px] sm:max-w-[400px] lg:max-w-[480px] items-stretch gap-1 mt-6 sm:mt-7 lg:mt-4">
+            {/* Color Photo */}
+            <Reveal
+              variants={fadeUp}
+              delay={0.15}
+              className="relative flex-1 aspect-[3/4] lg:aspect-auto lg:h-[320px] overflow-hidden rounded-none shadow-none border-none bg-[var(--color-line)]/20"
+            >
+              <Image
+                src={colorImageSrc}
+                alt={colorImageAlt}
+                fill
+                sizes="(min-width: 1024px) 230px, (min-width: 640px) 190px, 150px"
+                className="object-cover"
+                priority
+              />
+            </Reveal>
 
-            {/* B&W Photo (Secondary Overlapping) */}
+            {/* B&W Photo */}
             <Reveal
               variants={fadeUp}
               delay={0.25}
-              className="absolute right-0 bottom-[-16px] sm:bottom-[-20px] lg:bottom-auto lg:right-auto lg:left-[230px] lg:top-[90px] z-20 w-[55%] sm:w-[52%] lg:w-[305px] aspect-[3/4] lg:aspect-auto lg:h-[425px] overflow-hidden rounded-none shadow-none ring-[4px] sm:ring-[5px] ring-[#faf8f5] bg-[var(--color-line)]/20"
+              className="relative flex-1 aspect-[3/4] lg:aspect-auto lg:h-[320px] overflow-hidden rounded-none shadow-none bg-[var(--color-line)]/20"
             >
               <Image
                 src={bwImageSrc}
                 alt={bwImageAlt}
                 fill
-                sizes="(min-width: 1024px) 305px, (min-width: 640px) 210px, 175px"
+                sizes="(min-width: 1024px) 230px, (min-width: 640px) 190px, 150px"
                 className="object-cover"
                 priority
               />
@@ -94,7 +92,7 @@ export default function AboutHero({
         </div>
 
         {/* COLUMN 2 (Right: MY APPROACH text block, positioned closely beside the B&W photo) */}
-        <div className="w-full lg:max-w-[400px] xl:max-w-[430px] flex flex-col items-start justify-center pt-6 lg:pt-24 xl:pt-28">
+        <div className="w-full lg:max-w-[480px] xl:max-w-[500px] flex flex-col items-start justify-center pt-6 lg:pt-24 xl:pt-28">
           <Reveal variants={slideInRight} delay={0.2} className="flex flex-col items-start text-left w-full">
             <span className="font-serif text-[11px] sm:text-xs font-normal uppercase tracking-[0.25em] text-amber-800/70 mb-4 sm:mb-6">
               {label}

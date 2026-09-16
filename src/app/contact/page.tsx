@@ -17,7 +17,7 @@ export default function ContactPage() {
         title="Let's Create Something Timeless"
         description="We'd love to be part of your celebration. Tell us a little about your day — the date, the details, the dream — and we'll take it from there."
         tone="clay"
-        image="/image/hero_inquire.jpg"
+        image="/image/inquire_hero_2.png"
         imageAlt="Bride and groom kissing inside a domed garden temple surrounded by trees"
       />
       <div id="inquiry-form">
