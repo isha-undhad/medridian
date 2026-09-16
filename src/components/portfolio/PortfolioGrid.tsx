@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import Reveal from "@/components/ui/Reveal";
 import { fadeUp } from "@/lib/motion";
 import { portfolioItems, type PortfolioItem } from "@/data/portfolio";
@@ -219,21 +218,16 @@ export default function PortfolioGrid({
                     className={`${cellClass} h-full w-full`}
                   >
                     <div className="relative block w-full h-full overflow-hidden rounded-none bg-[var(--color-line)]/20">
-                      <Link
-                        href={`/portfolio#${item.id}`}
-                        className="block w-full h-full relative cursor-pointer outline-none focus:outline-none focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-white/60"
-                      >
-                        <Image
-                          src={item.image}
-                          alt={item.title || "Wedding photograph"}
-                          fill
-                          priority={isPriority}
-                          loading="eager"
-                          sizes="(max-width: 768px) 50vw, 33vw"
-                          className="object-cover"
-                          style={{ objectPosition: item.mobileObjectPosition || item.objectPosition || "center" }}
-                        />
-                      </Link>
+                      <Image
+                        src={item.image}
+                        alt={item.title || "Wedding photograph"}
+                        fill
+                        priority={isPriority}
+                        loading="eager"
+                        sizes="(max-width: 768px) 50vw, 33vw"
+                        className="object-cover"
+                        style={{ objectPosition: item.mobileObjectPosition || item.objectPosition || "center" }}
+                      />
                     </div>
                   </Reveal>
                 );
@@ -264,21 +258,16 @@ export default function PortfolioGrid({
                   className={`${slot.gridClass} h-full w-full`}
                 >
                   <div className="relative block w-full h-full overflow-hidden rounded-none bg-[var(--color-line)]/20">
-                    <Link
-                      href={`/portfolio#${item.id}`}
-                      className="block w-full h-full relative cursor-pointer outline-none focus:outline-none focus-visible:ring-1 focus-visible:ring-inset focus-visible:ring-white/60"
-                    >
-                      <Image
-                        src={item.image}
-                        alt={item.title || "Wedding photograph"}
-                        fill
-                        priority={isPriority}
-                        loading="eager"
-                        sizes={slot.sizes}
-                        className="object-cover"
-                        style={{ objectPosition: item.objectPosition || "center" }}
-                      />
-                    </Link>
+                    <Image
+                      src={item.image}
+                      alt={item.title || "Wedding photograph"}
+                      fill
+                      priority={isPriority}
+                      loading="eager"
+                      sizes={slot.sizes}
+                      className="object-cover"
+                      style={{ objectPosition: item.objectPosition || "center" }}
+                    />
                   </div>
                 </Reveal>
               );

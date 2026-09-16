@@ -61,7 +61,7 @@ export default function PortfolioBrowser() {
         ) : (
         */}
         <div className="mt-6 sm:mt-8 lg:mt-10">
-          <PortfolioGrid items={filteredItems} layout="columns" />
+          <PortfolioGrid items={filteredItems} limit={40} layout="columns" />
         </div>
         {/* )} */}
       </Section>
