@@ -31,9 +31,13 @@ const instagramLinks = [
 
 type InstagramFollowProps = {
   className?: string;
+  loading?: "eager" | "lazy";
 };
 
-export default function InstagramFollow({ className }: InstagramFollowProps = {}) {
+export default function InstagramFollow({
+  className,
+  loading = "eager",
+}: InstagramFollowProps = {}) {
   return (
     <Section className={cn("bg-[var(--color-bg)] text-center", className)}>
       <div className="mx-auto max-w-5xl px-6">
@@ -59,6 +63,7 @@ export default function InstagramFollow({ className }: InstagramFollowProps = {}
               src={src}
               alt={instagramImageAlts[index]}
               fill
+              loading={loading}
               sizes="(min-width: 768px) 25vw, 50vw"
               className={cn(
                 "object-cover transition-transform duration-500 ease-out group-hover:scale-105",

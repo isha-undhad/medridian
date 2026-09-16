@@ -75,8 +75,8 @@ const WEDDINGS_PORTFOLIO_FILES: {
 
   // Chunk 1
   { file: "TDS_2948 copy.JPG", width: 4480, height: 6720, objectPosition: "center 30%" },
-  // Swapped from index 10: white mosque / palace dome architecture in 1x1 cell on desktop; on mobile shifted down to prevent cutting feet/legs
-  { file: "3B4A2932.jpg", width: 3648, height: 5472, objectPosition: "center 45%", mobileObjectPosition: "center 85%" },
+  // White mosque / palace dome architecture: centered on the domes to prevent top-cropping in wide landscape slots
+  { file: "3B4A2932.jpg", width: 3648, height: 5472, objectPosition: "50% 30%" },
   { file: "TDS_8297.jpg", width: 4480, height: 6720, objectPosition: "center 30%" },
   { file: "3B4A3745.jpg", width: 3648, height: 5472, objectPosition: "center" },
   // Swapped from index 7: stage dance under string lights & sparklers in wide 2x1 horizontal cell

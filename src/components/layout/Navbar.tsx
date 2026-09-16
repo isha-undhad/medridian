@@ -56,19 +56,13 @@ export default function Navbar() {
     return () => window.removeEventListener("toggle-hide-nav", handleHideNav);
   }, []);
 
-  // Determine whether the current route opens with a full-bleed dark hero image
-  // (where transparent navbar + white text is legible before scrolling).
-  // Pages with a light cream background (e.g. /about, /stories, /stories/*)
-  // always render in solid dark mode so text and logo are 100% legible.
-  // Home ("/") is excluded here too — its hero now starts below the header
-  // rather than overlapping it, so there's nothing for a transparent/frosted
-  // header to sit on top of; it's just solid at all times, like About.
-  const hasDarkHero =
-    pathname === "/portfolio" ||
-    pathname.startsWith("/portfolio/") ||
-    pathname === "/contact";
+  // The header starts transparent with light text/logo ONLY on the home page ("/"),
+  // resting cleanly on top of the full-bleed hero slider.
+  // On all other routes, the header is always solid so content and nav
+  // remain crisp and legible at all times.
+  const isHome = pathname === "/";
 
-  const solid = scrolled || menuOpen || !hasDarkHero;
+  const solid = scrolled || menuOpen || !isHome;
 
   const headerBgClass = solid
     ? "border-b border-[var(--color-line)] bg-[var(--color-bg)]/90 backdrop-blur-md"

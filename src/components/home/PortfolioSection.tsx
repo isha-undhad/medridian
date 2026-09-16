@@ -49,7 +49,7 @@ const defaultItems: PortfolioSectionItem[] = [
     image: "/image/portfolio_home/1.jpg",
     alt: "Bride in motion, tulle dress caught mid-turn",
     link: "/portfolio",
-    hoverText: ["Timeless", "Romance"],
+    hoverText: ["Art Of", "Moments"],
     // Full-length shot against a tall stone building — center-cropping was
     // cutting the couple's feet off the bottom, so anchor to the bottom
     // instead and let the sky/roofline take any crop.
@@ -59,13 +59,13 @@ const defaultItems: PortfolioSectionItem[] = [
     image: "/image/portfolio_home/3.JPG",
     alt: "Bride and groom embracing at the reception table",
     link: "/portfolio",
-    hoverText: ["Quiet", "Moments"],
+    hoverText: ["Frames Of", "Forever"],
   },
   {
     image: "/image/portfolio_home/2.jpg",
     alt: "Bride and groom standing together among tropical foliage",
     link: "/portfolio",
-    hoverText: ["Golden", "Hour"],
+    hoverText: ["Timeless Love", "Stories"],
   },
 ];
 
@@ -117,10 +117,14 @@ export default function PortfolioSection({
 
                   {lines.length > 0 ? (
                     <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center text-center opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100">
+                      {/* Dark scrim behind the caption — without it, white text
+                          on a bright/light photo (like a pale stone facade)
+                          has almost no contrast and reads as invisible. */}
+                      <div className="absolute inset-0 bg-black/35" />
                       {lines.map((line, index) => (
                         <span
                           key={index}
-                          className={`${playfair.className} text-3xl leading-tight text-white/80 italic lg:text-4xl`}
+                          className={`${playfair.className} relative text-3xl leading-tight text-white italic lg:text-4xl [text-shadow:0_2px_10px_rgba(0,0,0,0.7)]`}
                         >
                           {line}
                         </span>

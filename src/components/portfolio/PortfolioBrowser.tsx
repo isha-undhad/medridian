@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import PortfolioHeader from "./PortfolioHeader";
 import PortfolioGrid from "./PortfolioGrid";
@@ -9,7 +9,8 @@ import PortfolioGrid from "./PortfolioGrid";
 // import FamilyMaternityGrid from "@/components/signature-work/FamilyMaternityGrid";
 import PhotoMarquee from "@/components/home/PhotoMarquee";
 import Section from "@/components/ui/Section";
-import { portfolioItems, portfolioCategories } from "@/data/portfolio";
+import { portfolioCategories } from "@/data/portfolio";
+import { portfolio1Items } from "@/data/portfolio1";
 
 export default function PortfolioBrowser() {
   const searchParams = useSearchParams();
@@ -33,10 +34,7 @@ export default function PortfolioBrowser() {
   }, [categoryParam]);
 
   // Only Weddings category items are displayed
-  const filteredItems = useMemo(
-    () => portfolioItems.filter((item) => item.category === "Weddings"),
-    [],
-  );
+  const filteredItems = portfolio1Items;
 
   // Sub-category flags commented out:
   // const isEngagements = activeCategory === "Engagements";
