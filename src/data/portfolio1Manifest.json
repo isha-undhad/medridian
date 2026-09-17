@@ -1,776 +1,905 @@
 [
   {
-    "file": "3B4A0930.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
-  },
-  {
     "file": "3B4A1050.jpg",
+    "path": "/image/portfolio_1/landscape/3B4A1050.jpg",
     "width": 5472,
     "height": 3648,
     "orientation": "landscape"
   },
   {
-    "file": "3B4A1125.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
-  },
-  {
-    "file": "3B4A1148.jpg",
-    "width": 4677,
-    "height": 6580,
-    "orientation": "portrait"
-  },
-  {
     "file": "3B4A1152.jpg",
+    "path": "/image/portfolio_1/landscape/3B4A1152.jpg",
     "width": 5395,
     "height": 3597,
     "orientation": "landscape"
   },
   {
-    "file": "3B4A1181.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
-  },
-  {
     "file": "3B4A1295.jpg",
+    "path": "/image/portfolio_1/landscape/3B4A1295.jpg",
     "width": 5472,
     "height": 3648,
     "orientation": "landscape"
   },
   {
     "file": "3B4A1319.jpg",
+    "path": "/image/portfolio_1/landscape/3B4A1319.jpg",
     "width": 5472,
     "height": 3648,
     "orientation": "landscape"
   },
   {
     "file": "3B4A1368.jpg",
+    "path": "/image/portfolio_1/landscape/3B4A1368.jpg",
     "width": 5472,
     "height": 3648,
     "orientation": "landscape"
   },
   {
     "file": "3B4A1403.jpg",
+    "path": "/image/portfolio_1/landscape/3B4A1403.jpg",
     "width": 5472,
     "height": 3648,
     "orientation": "landscape"
   },
   {
     "file": "3B4A1419.jpg",
+    "path": "/image/portfolio_1/landscape/3B4A1419.jpg",
     "width": 5472,
     "height": 3648,
     "orientation": "landscape"
   },
   {
     "file": "3B4A1759.jpg",
+    "path": "/image/portfolio_1/landscape/3B4A1759.jpg",
     "width": 5322,
     "height": 3548,
     "orientation": "landscape"
   },
   {
-    "file": "3B4A1819.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
-  },
-  {
     "file": "3B4A1823.jpg",
+    "path": "/image/portfolio_1/landscape/3B4A1823.jpg",
     "width": 5441,
     "height": 3627,
     "orientation": "landscape"
   },
   {
-    "file": "3B4A1826.jpg",
-    "width": 3487,
-    "height": 5231,
-    "orientation": "portrait"
-  },
-  {
-    "file": "3B4A1845.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
-  },
-  {
-    "file": "3B4A1872.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
-  },
-  {
-    "file": "3B4A2147.jpg",
-    "width": 3338,
-    "height": 5007,
-    "orientation": "portrait"
-  },
-  {
     "file": "3B4A2187.jpg",
+    "path": "/image/portfolio_1/landscape/3B4A2187.jpg",
     "width": 3408,
     "height": 2272,
     "orientation": "landscape"
   },
   {
     "file": "3B4A2213.jpg",
+    "path": "/image/portfolio_1/landscape/3B4A2213.jpg",
     "width": 5000,
     "height": 3333,
     "orientation": "landscape"
   },
   {
-    "file": "3B4A2304.jpg",
-    "width": 3534,
-    "height": 5301,
-    "orientation": "portrait"
-  },
-  {
-    "file": "3B4A2477.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
-  },
-  {
-    "file": "3B4A2557.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
-  },
-  {
-    "file": "3B4A2636.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
-  },
-  {
-    "file": "3B4A2721.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
-  },
-  {
-    "file": "3B4A2723.jpg",
-    "width": 3561,
-    "height": 5341,
-    "orientation": "portrait"
-  },
-  {
-    "file": "3B4A2768.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
-  },
-  {
-    "file": "3B4A2784.jpg",
-    "width": 3364,
-    "height": 5046,
-    "orientation": "portrait"
-  },
-  {
-    "file": "3B4A2818.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
-  },
-  {
-    "file": "3B4A2932.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
-  },
-  {
-    "file": "3B4A2935.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
-  },
-  {
-    "file": "3B4A3012.jpg",
-    "width": 4487,
-    "height": 6531,
-    "orientation": "portrait"
-  },
-  {
-    "file": "3B4A3245.jpg",
-    "width": 3497,
-    "height": 5245,
-    "orientation": "portrait"
-  },
-  {
     "file": "3B4A3278.jpg",
+    "path": "/image/portfolio_1/landscape/3B4A3278.jpg",
     "width": 5472,
     "height": 3648,
     "orientation": "landscape"
   },
   {
     "file": "3B4A3299.jpg",
+    "path": "/image/portfolio_1/landscape/3B4A3299.jpg",
     "width": 5472,
     "height": 3648,
     "orientation": "landscape"
-  },
-  {
-    "file": "3B4A3423.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
-  },
-  {
-    "file": "3B4A3476.jpg",
-    "width": 4911,
-    "height": 6555,
-    "orientation": "portrait"
-  },
-  {
-    "file": "3B4A3480.jpg",
-    "width": 4904,
-    "height": 6228,
-    "orientation": "portrait"
-  },
-  {
-    "file": "3B4A3489.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
   },
   {
     "file": "3B4A3500.jpg",
+    "path": "/image/portfolio_1/landscape/3B4A3500.jpg",
     "width": 5472,
     "height": 3648,
     "orientation": "landscape"
-  },
-  {
-    "file": "3B4A3505.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
-  },
-  {
-    "file": "3B4A3570.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
-  },
-  {
-    "file": "3B4A3573.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
-  },
-  {
-    "file": "3B4A3596.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
-  },
-  {
-    "file": "3B4A3623.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
-  },
-  {
-    "file": "3B4A3639.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
-  },
-  {
-    "file": "3B4A3655.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
-  },
-  {
-    "file": "3B4A3659.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
   },
   {
     "file": "3B4A3663.jpg",
+    "path": "/image/portfolio_1/landscape/3B4A3663.jpg",
     "width": 5472,
     "height": 3648,
     "orientation": "landscape"
   },
   {
-    "file": "3B4A3679.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
-  },
-  {
-    "file": "3B4A3704.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
-  },
-  {
-    "file": "3B4A3713.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
-  },
-  {
-    "file": "3B4A3717.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
-  },
-  {
-    "file": "3B4A3728.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
-  },
-  {
-    "file": "3B4A3745.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
-  },
-  {
-    "file": "3B4A3756.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
-  },
-  {
-    "file": "3B4A3772.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
-  },
-  {
-    "file": "3B4A3778.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
-  },
-  {
-    "file": "3B4A3781.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
-  },
-  {
-    "file": "3B4A4033.jpg",
-    "width": 2267,
-    "height": 3400,
-    "orientation": "portrait"
-  },
-  {
-    "file": "ANK_4155.jpg",
-    "width": 5464,
-    "height": 8192,
-    "orientation": "portrait"
-  },
-  {
-    "file": "ANK_4198.jpg",
-    "width": 5431,
-    "height": 8143,
-    "orientation": "portrait"
-  },
-  {
-    "file": "ANK_4225.jpg",
-    "width": 5231,
-    "height": 7843,
-    "orientation": "portrait"
-  },
-  {
-    "file": "ANK_4358.jpg",
-    "width": 5464,
-    "height": 8192,
-    "orientation": "portrait"
-  },
-  {
-    "file": "ANK_4463.jpg",
-    "width": 5453,
-    "height": 8175,
-    "orientation": "portrait"
-  },
-  {
     "file": "ANK_4468.jpg",
+    "path": "/image/portfolio_1/landscape/ANK_4468.jpg",
     "width": 8192,
     "height": 5464,
     "orientation": "landscape"
   },
   {
-    "file": "ANK_4492.jpg",
-    "width": 5464,
-    "height": 8192,
-    "orientation": "portrait"
-  },
-  {
-    "file": "ANK_4543.jpg",
-    "width": 5464,
-    "height": 8192,
-    "orientation": "portrait"
-  },
-  {
-    "file": "ANK_4569.jpg",
-    "width": 5464,
-    "height": 8192,
-    "orientation": "portrait"
-  },
-  {
-    "file": "ANK_4631.jpg",
-    "width": 5464,
-    "height": 8192,
-    "orientation": "portrait"
-  },
-  {
-    "file": "ANK_4645.jpg",
-    "width": 5464,
-    "height": 8192,
-    "orientation": "portrait"
-  },
-  {
     "file": "ANK_4778.jpg",
+    "path": "/image/portfolio_1/landscape/ANK_4778.jpg",
     "width": 8192,
     "height": 5464,
     "orientation": "landscape"
   },
   {
     "file": "ANK_4935.jpg",
+    "path": "/image/portfolio_1/landscape/ANK_4935.jpg",
     "width": 8192,
     "height": 5464,
     "orientation": "landscape"
   },
   {
     "file": "ANK_5015.jpg",
+    "path": "/image/portfolio_1/landscape/ANK_5015.jpg",
     "width": 8192,
     "height": 5464,
     "orientation": "landscape"
   },
   {
     "file": "ANK_5063.jpg",
+    "path": "/image/portfolio_1/landscape/ANK_5063.jpg",
     "width": 8192,
     "height": 5464,
     "orientation": "landscape"
   },
   {
     "file": "ANK_5072.jpg",
+    "path": "/image/portfolio_1/landscape/ANK_5072.jpg",
     "width": 7332,
     "height": 4890,
     "orientation": "landscape"
   },
   {
     "file": "ANK_5174.jpg",
+    "path": "/image/portfolio_1/landscape/ANK_5174.jpg",
     "width": 8192,
     "height": 5464,
     "orientation": "landscape"
   },
   {
     "file": "ANK_5175.jpg",
+    "path": "/image/portfolio_1/landscape/ANK_5175.jpg",
     "width": 8192,
     "height": 5464,
     "orientation": "landscape"
   },
   {
-    "file": "DSC00875 ARE-min.jpg",
-    "width": 4672,
-    "height": 7008,
-    "orientation": "portrait"
-  },
-  {
     "file": "DSC01131 ARE ++.jpg",
+    "path": "/image/portfolio_1/landscape/DSC01131 ARE ++.jpg",
     "width": 3504,
     "height": 2336,
     "orientation": "landscape"
   },
   {
-    "file": "F83A0E9E-7C61-4049-AF28-59111C5D4AAD 2.JPG",
-    "width": 3276,
-    "height": 4096,
-    "orientation": "portrait"
-  },
-  {
-    "file": "HPPF0403.jpg",
-    "width": 3575,
-    "height": 5362,
-    "orientation": "portrait"
-  },
-  {
-    "file": "HPPF0411.jpg",
-    "width": 3623,
-    "height": 5434,
-    "orientation": "portrait"
-  },
-  {
     "file": "HPPF0419.jpg",
+    "path": "/image/portfolio_1/landscape/HPPF0419.jpg",
     "width": 5472,
     "height": 3648,
     "orientation": "landscape"
   },
   {
     "file": "HPPF0622.jpg",
+    "path": "/image/portfolio_1/landscape/HPPF0622.jpg",
     "width": 5472,
     "height": 3648,
     "orientation": "landscape"
   },
   {
-    "file": "HPPF0630.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
-  },
-  {
-    "file": "HPPF0637.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
-  },
-  {
-    "file": "HPPF0654.jpg",
-    "width": 3648,
-    "height": 5472,
-    "orientation": "portrait"
-  },
-  {
     "file": "HPPF0768.jpg",
+    "path": "/image/portfolio_1/landscape/HPPF0768.jpg",
     "width": 5472,
     "height": 3648,
     "orientation": "landscape"
   },
   {
     "file": "HPPF0772.jpg",
+    "path": "/image/portfolio_1/landscape/HPPF0772.jpg",
     "width": 5472,
     "height": 3648,
     "orientation": "landscape"
   },
   {
     "file": "HPPF0845.jpg",
+    "path": "/image/portfolio_1/landscape/HPPF0845.jpg",
     "width": 5472,
     "height": 3648,
     "orientation": "landscape"
   },
   {
     "file": "Ravi-barvaliya-wedding-photographer-surat.JPG",
+    "path": "/image/portfolio_1/landscape/Ravi-barvaliya-wedding-photographer-surat.JPG",
     "width": 5472,
     "height": 3648,
     "orientation": "landscape"
   },
   {
     "file": "TDS_0393.jpg",
+    "path": "/image/portfolio_1/landscape/TDS_0393.jpg",
     "width": 6720,
     "height": 4480,
     "orientation": "landscape"
   },
   {
     "file": "TDS_0415.jpg",
+    "path": "/image/portfolio_1/landscape/TDS_0415.jpg",
     "width": 6720,
     "height": 4480,
     "orientation": "landscape"
   },
   {
     "file": "TDS_0577.jpg",
+    "path": "/image/portfolio_1/landscape/TDS_0577.jpg",
     "width": 6960,
     "height": 4640,
     "orientation": "landscape"
   },
   {
-    "file": "TDS_0578.jpg",
-    "width": 4599,
-    "height": 6899,
-    "orientation": "portrait"
-  },
-  {
-    "file": "TDS_0579.jpg",
-    "width": 4456,
-    "height": 6684,
-    "orientation": "portrait"
-  },
-  {
-    "file": "TDS_0593.jpg",
-    "width": 4640,
-    "height": 6960,
-    "orientation": "portrait"
-  },
-  {
-    "file": "TDS_0598.jpg",
-    "width": 4640,
-    "height": 6960,
-    "orientation": "portrait"
-  },
-  {
-    "file": "TDS_0635.jpg",
-    "width": 4640,
-    "height": 6960,
-    "orientation": "portrait"
-  },
-  {
     "file": "TDS_1982+.jpg",
+    "path": "/image/portfolio_1/landscape/TDS_1982+.jpg",
     "width": 6720,
     "height": 4480,
     "orientation": "landscape"
-  },
-  {
-    "file": "TDS_2027.jpg",
-    "width": 4480,
-    "height": 6720,
-    "orientation": "portrait"
   },
   {
     "file": "TDS_2889-.jpg",
+    "path": "/image/portfolio_1/landscape/TDS_2889-.jpg",
     "width": 6720,
     "height": 4480,
     "orientation": "landscape"
-  },
-  {
-    "file": "TDS_2948 copy.JPG",
-    "width": 4480,
-    "height": 6720,
-    "orientation": "portrait"
-  },
-  {
-    "file": "TDS_8114.jpg",
-    "width": 4480,
-    "height": 6720,
-    "orientation": "portrait"
   },
   {
     "file": "TDS_8167.jpg",
-    "width": 6720,
-    "height": 4480,
-    "orientation": "landscape"
-  },
-  {
-    "file": "TDS_8175.jpg",
-    "width": 4480,
-    "height": 6720,
-    "orientation": "portrait"
-  },
-  {
-    "file": "TDS_8214.jpg",
-    "width": 4480,
-    "height": 6720,
-    "orientation": "portrait"
-  },
-  {
-    "file": "TDS_8250.jpg",
-    "width": 4480,
-    "height": 6720,
-    "orientation": "portrait"
-  },
-  {
-    "file": "TDS_8323.jpg",
-    "width": 4480,
-    "height": 6720,
-    "orientation": "portrait"
-  },
-  {
-    "file": "TDS_8334.jpg",
-    "width": 4480,
-    "height": 6720,
-    "orientation": "portrait"
-  },
-  {
-    "file": "Tezza-0226.JPG",
+    "path": "/image/portfolio_1/landscape/TDS_8167.jpg",
     "width": 6720,
     "height": 4480,
     "orientation": "landscape"
   },
   {
     "file": "Tezza-0259.JPG",
-    "width": 6720,
-    "height": 4480,
-    "orientation": "landscape"
-  },
-  {
-    "file": "Tezza-0373.JPG",
-    "width": 6720,
-    "height": 4480,
-    "orientation": "landscape"
-  },
-  {
-    "file": "Tezza-1101.JPG",
+    "path": "/image/portfolio_1/landscape/Tezza-0259.JPG",
     "width": 6720,
     "height": 4480,
     "orientation": "landscape"
   },
   {
     "file": "Tezza-1152.JPG",
-    "width": 6720,
-    "height": 4480,
-    "orientation": "landscape"
-  },
-  {
-    "file": "Tezza-2296.JPG",
-    "width": 6720,
-    "height": 4480,
-    "orientation": "landscape"
-  },
-  {
-    "file": "Tezza-2775.JPG",
-    "width": 6720,
-    "height": 4480,
-    "orientation": "landscape"
-  },
-  {
-    "file": "Tezza-2875.JPG",
-    "width": 6720,
-    "height": 4480,
-    "orientation": "landscape"
-  },
-  {
-    "file": "Tezza-2934.JPG",
-    "width": 6720,
-    "height": 4480,
-    "orientation": "landscape"
-  },
-  {
-    "file": "Tezza-3993.JPG",
+    "path": "/image/portfolio_1/landscape/Tezza-1152.JPG",
     "width": 6720,
     "height": 4480,
     "orientation": "landscape"
   },
   {
     "file": "Tezza-5254.JPG",
-    "width": 6720,
-    "height": 4480,
-    "orientation": "landscape"
-  },
-  {
-    "file": "Tezza-6378.JPG",
-    "width": 6720,
-    "height": 4480,
-    "orientation": "landscape"
-  },
-  {
-    "file": "Tezza-6737.JPG",
-    "width": 6720,
-    "height": 4480,
-    "orientation": "landscape"
-  },
-  {
-    "file": "Tezza-7451.JPG",
-    "width": 4480,
-    "height": 6720,
-    "orientation": "portrait"
-  },
-  {
-    "file": "Tezza-8627.JPG",
+    "path": "/image/portfolio_1/landscape/Tezza-5254.JPG",
     "width": 6720,
     "height": 4480,
     "orientation": "landscape"
   },
   {
     "file": "Tezza-9206.JPG",
+    "path": "/image/portfolio_1/landscape/Tezza-9206.JPG",
     "width": 6720,
     "height": 4480,
     "orientation": "landscape"
   },
   {
     "file": "Tezza-9489.JPG",
+    "path": "/image/portfolio_1/landscape/Tezza-9489.JPG",
     "width": 6720,
     "height": 4480,
     "orientation": "landscape"
   },
   {
-    "file": "Tezza-9725.JPG",
+    "file": "3B4A0930.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A0930.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A1125.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A1125.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A1148.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A1148.jpg",
+    "width": 4677,
+    "height": 6580,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A1181.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A1181.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A1819.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A1819.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A1826.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A1826.jpg",
+    "width": 3487,
+    "height": 5231,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A1845.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A1845.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A1872.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A1872.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A2147.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A2147.jpg",
+    "width": 3338,
+    "height": 5007,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A2304.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A2304.jpg",
+    "width": 3534,
+    "height": 5301,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A2477.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A2477.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A2557.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A2557.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A2636.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A2636.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A2721.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A2721.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A2723.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A2723.jpg",
+    "width": 3561,
+    "height": 5341,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A2768.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A2768.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A2784.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A2784.jpg",
+    "width": 3364,
+    "height": 5046,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A2818.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A2818.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A2932.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A2932.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A2935.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A2935.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A3012.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A3012.jpg",
+    "width": 4487,
+    "height": 6531,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A3245.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A3245.jpg",
+    "width": 3497,
+    "height": 5245,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A3423.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A3423.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A3476.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A3476.jpg",
+    "width": 4911,
+    "height": 6555,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A3480.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A3480.jpg",
+    "width": 4904,
+    "height": 6228,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A3489.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A3489.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A3505.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A3505.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A3570.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A3570.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A3573.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A3573.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A3596.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A3596.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A3623.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A3623.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A3639.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A3639.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A3655.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A3655.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A3659.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A3659.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A3679.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A3679.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A3704.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A3704.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A3713.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A3713.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A3717.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A3717.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A3728.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A3728.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A3745.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A3745.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A3756.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A3756.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A3772.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A3772.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A3778.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A3778.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A3781.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A3781.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "3B4A4033.jpg",
+    "path": "/image/portfolio_1/portrait/3B4A4033.jpg",
+    "width": 2267,
+    "height": 3400,
+    "orientation": "portrait"
+  },
+  {
+    "file": "ANK_4155.jpg",
+    "path": "/image/portfolio_1/portrait/ANK_4155.jpg",
+    "width": 5464,
+    "height": 8192,
+    "orientation": "portrait"
+  },
+  {
+    "file": "ANK_4198.jpg",
+    "path": "/image/portfolio_1/portrait/ANK_4198.jpg",
+    "width": 5431,
+    "height": 8143,
+    "orientation": "portrait"
+  },
+  {
+    "file": "ANK_4225.jpg",
+    "path": "/image/portfolio_1/portrait/ANK_4225.jpg",
+    "width": 5231,
+    "height": 7843,
+    "orientation": "portrait"
+  },
+  {
+    "file": "ANK_4358.jpg",
+    "path": "/image/portfolio_1/portrait/ANK_4358.jpg",
+    "width": 5464,
+    "height": 8192,
+    "orientation": "portrait"
+  },
+  {
+    "file": "ANK_4463.jpg",
+    "path": "/image/portfolio_1/portrait/ANK_4463.jpg",
+    "width": 5453,
+    "height": 8175,
+    "orientation": "portrait"
+  },
+  {
+    "file": "ANK_4492.jpg",
+    "path": "/image/portfolio_1/portrait/ANK_4492.jpg",
+    "width": 5464,
+    "height": 8192,
+    "orientation": "portrait"
+  },
+  {
+    "file": "ANK_4543.jpg",
+    "path": "/image/portfolio_1/portrait/ANK_4543.jpg",
+    "width": 5464,
+    "height": 8192,
+    "orientation": "portrait"
+  },
+  {
+    "file": "ANK_4569.jpg",
+    "path": "/image/portfolio_1/portrait/ANK_4569.jpg",
+    "width": 5464,
+    "height": 8192,
+    "orientation": "portrait"
+  },
+  {
+    "file": "ANK_4631.jpg",
+    "path": "/image/portfolio_1/portrait/ANK_4631.jpg",
+    "width": 5464,
+    "height": 8192,
+    "orientation": "portrait"
+  },
+  {
+    "file": "ANK_4645.jpg",
+    "path": "/image/portfolio_1/portrait/ANK_4645.jpg",
+    "width": 5464,
+    "height": 8192,
+    "orientation": "portrait"
+  },
+  {
+    "file": "DSC00875 ARE-min.jpg",
+    "path": "/image/portfolio_1/portrait/DSC00875 ARE-min.jpg",
+    "width": 4672,
+    "height": 7008,
+    "orientation": "portrait"
+  },
+  {
+    "file": "F83A0E9E-7C61-4049-AF28-59111C5D4AAD 2.JPG",
+    "path": "/image/portfolio_1/portrait/F83A0E9E-7C61-4049-AF28-59111C5D4AAD 2.JPG",
+    "width": 3276,
+    "height": 4096,
+    "orientation": "portrait"
+  },
+  {
+    "file": "HPPF0403.jpg",
+    "path": "/image/portfolio_1/portrait/HPPF0403.jpg",
+    "width": 3575,
+    "height": 5362,
+    "orientation": "portrait"
+  },
+  {
+    "file": "HPPF0411.jpg",
+    "path": "/image/portfolio_1/portrait/HPPF0411.jpg",
+    "width": 3623,
+    "height": 5434,
+    "orientation": "portrait"
+  },
+  {
+    "file": "HPPF0630.jpg",
+    "path": "/image/portfolio_1/portrait/HPPF0630.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "HPPF0637.jpg",
+    "path": "/image/portfolio_1/portrait/HPPF0637.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "HPPF0654.jpg",
+    "path": "/image/portfolio_1/portrait/HPPF0654.jpg",
+    "width": 3648,
+    "height": 5472,
+    "orientation": "portrait"
+  },
+  {
+    "file": "TDS_0578.jpg",
+    "path": "/image/portfolio_1/portrait/TDS_0578.jpg",
+    "width": 4599,
+    "height": 6899,
+    "orientation": "portrait"
+  },
+  {
+    "file": "TDS_0579.jpg",
+    "path": "/image/portfolio_1/portrait/TDS_0579.jpg",
+    "width": 4456,
+    "height": 6684,
+    "orientation": "portrait"
+  },
+  {
+    "file": "TDS_0593.jpg",
+    "path": "/image/portfolio_1/portrait/TDS_0593.jpg",
+    "width": 4640,
+    "height": 6960,
+    "orientation": "portrait"
+  },
+  {
+    "file": "TDS_0598.jpg",
+    "path": "/image/portfolio_1/portrait/TDS_0598.jpg",
+    "width": 4640,
+    "height": 6960,
+    "orientation": "portrait"
+  },
+  {
+    "file": "TDS_0635.jpg",
+    "path": "/image/portfolio_1/portrait/TDS_0635.jpg",
+    "width": 4640,
+    "height": 6960,
+    "orientation": "portrait"
+  },
+  {
+    "file": "TDS_2027.jpg",
+    "path": "/image/portfolio_1/portrait/TDS_2027.jpg",
+    "width": 4480,
+    "height": 6720,
+    "orientation": "portrait"
+  },
+  {
+    "file": "TDS_2948 copy.JPG",
+    "path": "/image/portfolio_1/portrait/TDS_2948 copy.JPG",
+    "width": 4480,
+    "height": 6720,
+    "orientation": "portrait"
+  },
+  {
+    "file": "TDS_8114.jpg",
+    "path": "/image/portfolio_1/portrait/TDS_8114.jpg",
+    "width": 4480,
+    "height": 6720,
+    "orientation": "portrait"
+  },
+  {
+    "file": "TDS_8175.jpg",
+    "path": "/image/portfolio_1/portrait/TDS_8175.jpg",
+    "width": 4480,
+    "height": 6720,
+    "orientation": "portrait"
+  },
+  {
+    "file": "TDS_8214.jpg",
+    "path": "/image/portfolio_1/portrait/TDS_8214.jpg",
+    "width": 4480,
+    "height": 6720,
+    "orientation": "portrait"
+  },
+  {
+    "file": "TDS_8250.jpg",
+    "path": "/image/portfolio_1/portrait/TDS_8250.jpg",
+    "width": 4480,
+    "height": 6720,
+    "orientation": "portrait"
+  },
+  {
+    "file": "TDS_8323.jpg",
+    "path": "/image/portfolio_1/portrait/TDS_8323.jpg",
+    "width": 4480,
+    "height": 6720,
+    "orientation": "portrait"
+  },
+  {
+    "file": "TDS_8334.jpg",
+    "path": "/image/portfolio_1/portrait/TDS_8334.jpg",
+    "width": 4480,
+    "height": 6720,
+    "orientation": "portrait"
+  },
+  {
+    "file": "Tezza-0226.JPG",
+    "path": "/image/portfolio_1/portrait/Tezza-0226.JPG",
     "width": 6720,
     "height": 4480,
-    "orientation": "landscape"
+    "orientation": "portrait"
+  },
+  {
+    "file": "Tezza-0373.JPG",
+    "path": "/image/portfolio_1/portrait/Tezza-0373.JPG",
+    "width": 6720,
+    "height": 4480,
+    "orientation": "portrait"
+  },
+  {
+    "file": "Tezza-1101.JPG",
+    "path": "/image/portfolio_1/portrait/Tezza-1101.JPG",
+    "width": 6720,
+    "height": 4480,
+    "orientation": "portrait"
+  },
+  {
+    "file": "Tezza-2296.JPG",
+    "path": "/image/portfolio_1/portrait/Tezza-2296.JPG",
+    "width": 6720,
+    "height": 4480,
+    "orientation": "portrait"
+  },
+  {
+    "file": "Tezza-2775.JPG",
+    "path": "/image/portfolio_1/portrait/Tezza-2775.JPG",
+    "width": 6720,
+    "height": 4480,
+    "orientation": "portrait"
+  },
+  {
+    "file": "Tezza-2875.JPG",
+    "path": "/image/portfolio_1/portrait/Tezza-2875.JPG",
+    "width": 6720,
+    "height": 4480,
+    "orientation": "portrait"
+  },
+  {
+    "file": "Tezza-2934.JPG",
+    "path": "/image/portfolio_1/portrait/Tezza-2934.JPG",
+    "width": 6720,
+    "height": 4480,
+    "orientation": "portrait"
+  },
+  {
+    "file": "Tezza-3993.JPG",
+    "path": "/image/portfolio_1/portrait/Tezza-3993.JPG",
+    "width": 6720,
+    "height": 4480,
+    "orientation": "portrait"
+  },
+  {
+    "file": "Tezza-6378.JPG",
+    "path": "/image/portfolio_1/portrait/Tezza-6378.JPG",
+    "width": 6720,
+    "height": 4480,
+    "orientation": "portrait"
+  },
+  {
+    "file": "Tezza-6737.JPG",
+    "path": "/image/portfolio_1/portrait/Tezza-6737.JPG",
+    "width": 6720,
+    "height": 4480,
+    "orientation": "portrait"
+  },
+  {
+    "file": "Tezza-7451.JPG",
+    "path": "/image/portfolio_1/portrait/Tezza-7451.JPG",
+    "width": 4480,
+    "height": 6720,
+    "orientation": "portrait"
+  },
+  {
+    "file": "Tezza-8627.JPG",
+    "path": "/image/portfolio_1/portrait/Tezza-8627.JPG",
+    "width": 6720,
+    "height": 4480,
+    "orientation": "portrait"
+  },
+  {
+    "file": "Tezza-9725.JPG",
+    "path": "/image/portfolio_1/portrait/Tezza-9725.JPG",
+    "width": 6720,
+    "height": 4480,
+    "orientation": "portrait"
   }
 ]

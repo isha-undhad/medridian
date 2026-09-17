@@ -14,6 +14,81 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
+/** Camera/shoot prefix from a filename (e.g. "3B4A1148" → "3B4A", "TDS_0579"
+ * → "TDS") — photos from the same wedding are shot on the same camera body
+ * in one burst, so this prefix is a reasonable stand-in for "same shoot"
+ * grouping. Strips the extension and trailing digits (with an optional
+ * underscore before them). */
+function shootGroupOf(image: MarqueeImage): string {
+  const base = image.src.split("/").pop()?.replace(/\.[a-z0-9]+$/i, "") ?? image.src;
+  return base.match(/^(.*?)_?\d+$/)?.[1] ?? base;
+}
+
+function shuffleArr<T>(items: T[]): T[] {
+  const result = [...items];
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+}
+
+/** Randomizes `images`, keeping same-shoot photos apart so no two adjacent
+ * tiles come from the same shoot — checked circularly, since the marquee
+ * loops (the doubled track's seam is the last tile meeting the first).
+ *
+ * Pass 1 is the standard "most-remaining-group-first" reorganize (grouping
+ * items by shootGroupOf, then repeatedly placing from whichever remaining
+ * group is largest and isn't the previous tile's group) — guaranteed
+ * clash-free as a linear sequence whenever no group exceeds half the total
+ * (true here: largest shoot group is 4 of 10).
+ *
+ * Pass 1 alone can still end on the same group it started with, which the
+ * linear guarantee doesn't cover but the marquee's loop makes adjacent; pass
+ * 2 repairs just that one wraparound seam with a single swap. */
+function shuffleAvoidingAdjacentShoots(images: MarqueeImage[]): MarqueeImage[] {
+  const groupsMap = new Map<string, MarqueeImage[]>();
+  for (const image of images) {
+    const group = shootGroupOf(image);
+    const bucket = groupsMap.get(group);
+    if (bucket) bucket.push(image);
+    else groupsMap.set(group, [image]);
+  }
+  const buckets = shuffleArr([...groupsMap.entries()]).map(([group, items]) => ({
+    group,
+    items: shuffleArr(items),
+    idx: 0,
+  }));
+
+  const n = images.length;
+  const placed: { group: string; image: MarqueeImage }[] = [];
+  for (let pos = 0; pos < n; pos++) {
+    const lastGroup = pos > 0 ? placed[pos - 1].group : null;
+    const candidates = buckets
+      .filter((b) => b.idx < b.items.length && b.group !== lastGroup)
+      .sort((a, b) => b.items.length - b.idx - (a.items.length - a.idx));
+    const pick = candidates[0] ?? buckets.find((b) => b.idx < b.items.length)!;
+    placed.push({ group: pick.group, image: pick.items[pick.idx] });
+    pick.idx++;
+  }
+
+  const groupAt = (i: number) => placed[i].group;
+  if (n > 2 && groupAt(0) === groupAt(n - 1)) {
+    for (let k = 1; k < n - 1; k++) {
+      const movingGroup = groupAt(k);
+      if (movingGroup === groupAt(0)) continue;
+      const wouldClashAtK = movingGroup === groupAt(n - 2);
+      const displacedGroup = groupAt(n - 1);
+      const wouldClashAtEnd = displacedGroup === groupAt(k - 1) || displacedGroup === groupAt(k + 1);
+      if (wouldClashAtK || wouldClashAtEnd) continue;
+      [placed[k], placed[n - 1]] = [placed[n - 1], placed[k]];
+      break;
+    }
+  }
+
+  return placed.map((p) => p.image);
+}
+
 export type MarqueeCategory = "ceremony" | "portrait" | "detail" | "candid" | "venue";
 
 export type MarqueeImage = {
@@ -248,20 +323,33 @@ export default function PhotoMarquee({
   const [hovered, setHovered] = useState(false);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
+  // Randomize once per page load, client-side only — starts `null` so the
+  // server render and the client's pre-hydration render both use `images` in
+  // its original order (identical output, no hydration mismatch), then the
+  // effect below shuffles right after mount. Same pattern as PortfolioGrid.
+  const [shuffled, setShuffled] = useState<MarqueeImage[] | null>(null);
+  useEffect(() => {
+    setShuffled(shuffleAvoidingAdjacentShoots(images));
+  }, [images]);
+  const orderedImages = shuffled ?? images;
+
   // Doubled track for the seamless loop: translating the whole track by
   // exactly -50% during the animation snaps back to an identical-looking
   // frame, since the second half is a duplicate of the first.
-  const trackImages = useMemo(() => [...images, ...images], [images]);
+  const trackImages = useMemo(() => [...orderedImages, ...orderedImages], [orderedImages]);
 
   const openAt = useCallback((index: number) => setLightboxIndex(index), []);
   const close = useCallback(() => setLightboxIndex(null), []);
   const prev = useCallback(
-    () => setLightboxIndex((current) => (current === null ? null : (current - 1 + images.length) % images.length)),
-    [images.length],
+    () =>
+      setLightboxIndex((current) =>
+        current === null ? null : (current - 1 + orderedImages.length) % orderedImages.length,
+      ),
+    [orderedImages.length],
   );
   const next = useCallback(
-    () => setLightboxIndex((current) => (current === null ? null : (current + 1) % images.length)),
-    [images.length],
+    () => setLightboxIndex((current) => (current === null ? null : (current + 1) % orderedImages.length)),
+    [orderedImages.length],
   );
 
   // Paused for two independent reasons — hovering the strip, or the
@@ -299,7 +387,7 @@ export default function PhotoMarquee({
               image={image}
               priority={index < 4}
               heightClassName={heightClassName}
-              onOpen={() => openAt(index % images.length)}
+              onOpen={() => openAt(index % orderedImages.length)}
             />
           ))}
         </div>
@@ -307,7 +395,7 @@ export default function PhotoMarquee({
 
       <AnimatePresence>
         {lightboxIndex !== null ? (
-          <Lightbox images={images} index={lightboxIndex} onClose={close} onPrev={prev} onNext={next} />
+          <Lightbox images={orderedImages} index={lightboxIndex} onClose={close} onPrev={prev} onNext={next} />
         ) : null}
       </AnimatePresence>
     </section>

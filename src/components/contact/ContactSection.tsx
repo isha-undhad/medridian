@@ -59,7 +59,8 @@ export default function ContactSection() {
       setSubmitted(true);
       setSelectedInterest("");
       form.reset();
-    } catch {
+    } catch (error) {
+      console.error("EmailJS send failed:", error);
       setErrorMessage(
         "Unable to send your inquiry. Please check your internet connection and try again."
       );

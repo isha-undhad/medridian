@@ -20,6 +20,7 @@ export default function PortfolioPage() {
           priority
           sizes="100vw"
           className="object-cover"
+          style={{ objectPosition: "center 10%" }}
         />
       </section>
       <Suspense fallback={null}>

@@ -19,50 +19,79 @@ function shuffleItems(items: PortfolioItem[]): PortfolioItem[] {
 
 type Shape = "square" | "portrait" | "landscape";
 
-/** Real photos are essentially never pixel-perfect square, so orientation is
- * just width vs height; "square" grid slots want a portrait photo (a
- * portrait frame crops into a square far more naturally than a landscape one). */
+/** Orientation is which subfolder the photo lives in
+ * (public/image/portfolio_1/landscape|portrait/...), not a width/height
+ * comparison — that's the source of truth the images were sorted against. */
 function orientationOf(item: PortfolioItem): "portrait" | "landscape" {
-  return item.width > item.height ? "landscape" : "portrait";
+  return item.image.includes("/landscape/") ? "landscape" : "portrait";
 }
 
-/** Reorders `items` so the item at each position matches `shapes[position % shapes.length]`
- * — a "square" or "portrait" slot draws from the portrait pool, a "landscape" slot from the
- * landscape pool. If one pool runs dry the other fills in, so every photo still gets placed
- * and the layout never breaks even when the portrait/landscape split is uneven. */
-function orderByShape(items: PortfolioItem[], shapes: Shape[]): PortfolioItem[] {
-  const portraits = items.filter((item) => orientationOf(item) === "portrait");
-  const landscapes = items.filter((item) => orientationOf(item) === "landscape");
+/** Reorders `batch` so the item at each position matches `shapes[position % shapes.length]`'s
+ * required pool:
+ *  - "portrait" slot → portrait photos only
+ *  - "landscape" slot → landscape photos only
+ *  - "square" slot → portrait photos only (a portrait center-cropped to a square keeps the
+ *    subject in frame; a landscape image cropped down to a square is far more likely to cut
+ *    off the subject, so landscape photos must never land in a square slot)
+ *
+ * If `batch`'s own portrait/landscape split can't fill a slot's required pool, this pulls a
+ * same-pool photo from `fullPool` (the entire manifest, not just this batch) instead of
+ * force-feeding the wrong shape — with 88 portrait / 41 landscape photos across 129 images, a
+ * portrait photo is effectively always available somewhere in the full pool for square slots. */
+function orderByShape(batch: PortfolioItem[], shapes: Shape[], fullPool: PortfolioItem[]): PortfolioItem[] {
+  const usedIds = new Set(batch.map((item) => item.id));
+  const portraits = batch.filter((item) => orientationOf(item) === "portrait");
+  const landscapes = batch.filter((item) => orientationOf(item) === "landscape");
+  const extraPortraits = fullPool.filter((item) => !usedIds.has(item.id) && orientationOf(item) === "portrait");
+  const extraLandscapes = fullPool.filter((item) => !usedIds.has(item.id) && orientationOf(item) === "landscape");
+
   let pIdx = 0;
   let lIdx = 0;
-  const result: PortfolioItem[] = [];
+  let epIdx = 0;
+  let elIdx = 0;
+  const result: (PortfolioItem | undefined)[] = new Array(batch.length);
 
-  for (let i = 0; i < items.length; i++) {
-    const wantsLandscape = shapes[i % shapes.length] === "landscape";
-    if (wantsLandscape && lIdx < landscapes.length) {
-      result.push(landscapes[lIdx++]);
-    } else if (!wantsLandscape && pIdx < portraits.length) {
-      result.push(portraits[pIdx++]);
-    } else if (pIdx < portraits.length) {
-      result.push(portraits[pIdx++]);
-    } else {
-      result.push(landscapes[lIdx++]);
+  // Pass 1: portrait/landscape slots claim their exact orientation first, so
+  // square slots (pass 2) — which draw from the same portrait pool — don't
+  // starve a "portrait" slot of its one matching shape.
+  for (let i = 0; i < batch.length; i++) {
+    const shape = shapes[i % shapes.length];
+    if (shape === "portrait") {
+      result[i] = pIdx < portraits.length ? portraits[pIdx++] : extraPortraits[epIdx++];
+    } else if (shape === "landscape") {
+      result[i] = lIdx < landscapes.length ? landscapes[lIdx++] : extraLandscapes[elIdx++];
     }
   }
 
-  return result;
+  // Pass 2: square slots — portrait pool only, never landscape.
+  for (let i = 0; i < batch.length; i++) {
+    if (result[i]) continue;
+    result[i] = pIdx < portraits.length ? portraits[pIdx++] : extraPortraits[epIdx++];
+  }
+
+  // ponytail: unreachable with the current 129-photo pool (88 portrait always
+  // covers pass 1 + pass 2's portrait/square demand) — if the portrait pool
+  // were ever fully exhausted, fall back to landscape rather than leaving a
+  // slot empty.
+  for (let i = 0; i < batch.length; i++) {
+    if (!result[i]) {
+      result[i] = portraits[pIdx++] ?? extraPortraits[epIdx++] ?? landscapes[lIdx++] ?? extraLandscapes[elIdx++];
+    }
+  }
+
+  return result as PortfolioItem[];
 }
 
 // Ratios below track the real photo pool (~59% portrait / 41% landscape,
 // see portfolio1Manifest.json) instead of an arbitrary split — the old 5:1
 // portrait:landscape schedule drained the portrait pool early and forced
-// leftover landscape photos into portrait/square slots. Desktop uses 2
-// landscape per 6 slots; mobile alternates 1-per-4 (pattern A) and 2-per-4
-// (pattern B) since a single 4-slot chunk can't hit the ratio exactly —
-// averaged across both patterns this lands closest to the real split.
-const DESKTOP_SLOT_SHAPES: Shape[] = ["square", "landscape", "portrait", "square", "landscape", "portrait"];
+// leftover landscape photos into portrait/square slots. Each index here must
+// match the physical shape of the same index in DESKTOP_SLOTS / MOBILE_PATTERN_A
+// / MOBILE_PATTERN_B below — a "landscape" label on a cell that's actually
+// square-shaped is what let wide photos land in square-looking cells.
+const DESKTOP_SLOT_SHAPES: Shape[] = ["square", "square", "portrait", "square", "landscape", "portrait"];
 const MOBILE_PATTERN_A_SHAPES: Shape[] = ["square", "square", "portrait", "landscape"];
-const MOBILE_PATTERN_B_SHAPES: Shape[] = ["portrait", "landscape", "square", "landscape"];
+const MOBILE_PATTERN_B_SHAPES: Shape[] = ["portrait", "square", "square", "landscape"];
 
 /** Builds the per-index shape schedule mobile renders (patterns A/B alternate
  * every 4 items). Any items past the last full chunk of 4 are trimmed before
@@ -196,8 +225,8 @@ export default function PortfolioGrid({
   // Re-order (independently per breakpoint, since their slot shapes and chunk
   // sizes differ) so the item landing in each grid cell matches that cell's
   // shape: portrait photos in portrait/square cells, landscape in landscape cells.
-  const desktopOrdered = orderByShape(visible, DESKTOP_SLOT_SHAPES);
-  const mobileOrdered = orderByShape(visible, mobileShapeSchedule(visible.length));
+  const desktopOrdered = orderByShape(visible, DESKTOP_SLOT_SHAPES, items);
+  const mobileOrdered = orderByShape(visible, mobileShapeSchedule(visible.length), items);
 
   // Each chunk's row/column template is a fixed-size mosaic (6 slots on
   // desktop, 4 on mobile) — a trailing chunk with fewer items than that would
