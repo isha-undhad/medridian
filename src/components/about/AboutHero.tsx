@@ -50,7 +50,7 @@ export default function AboutHero({
         <div className="relative flex flex-col items-start w-full">
           {/* 1. Heading on the upper-left (z-30 so it renders on top of the overlapping photo) */}
           <Reveal variants={slideInLeft} className="relative z-30 w-full">
-            <h2 className="font-cormorant text-[20px] sm:text-[23px] md:text-[25px] lg:text-[27px] font-light tracking-[0.01em] leading-[1.25] text-neutral-900 uppercase text-left max-w-full sm:max-w-[460px] lg:max-w-[420px]">
+            <h2 className="font-serif text-[20px] sm:text-[23px] md:text-[25px] lg:text-[27px] font-medium tracking-[0.01em] leading-[1.25] text-neutral-900 uppercase text-left max-w-full sm:max-w-[460px] lg:max-w-[420px]">
               {heading}
             </h2>
           </Reveal>

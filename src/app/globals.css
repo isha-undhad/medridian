@@ -43,33 +43,25 @@
   }
 }
 
-@font-face {
-  font-family: 'Copperplate CC Heavy';
-  src: url('https://static.showit.co/file/ipp4rYZkTF6HRvMEQnK9Kw/shared/copperplatecc-heavy.woff') format('woff');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
 .font-copperplate {
-  font-family: 'Copperplate CC Heavy', 'Copperplate', 'Copperplate Gothic Bold', 'Copperplate Gothic', serif, sans-serif;
+  font-family: var(--font-geist-sans), sans-serif;
   letter-spacing: 0.16em;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .font-times-now {
-  font-family: var(--font-cormorant), 'Cormorant Garamond', 'Times New Roman', serif !important;
+  font-family: var(--font-playfair), 'Playfair Display', 'Times New Roman', serif !important;
   font-weight: 300;
 }
 
 .font-times-now-italic {
-  font-family: var(--font-cormorant), 'Cormorant Garamond', 'Times New Roman', serif !important;
+  font-family: var(--font-playfair), 'Playfair Display', 'Times New Roman', serif !important;
   font-style: italic;
   font-weight: 300;
 }
 
 .font-cormorant {
-  font-family: var(--font-cormorant), 'Cormorant Garamond', 'Times New Roman', serif;
+  font-family: var(--font-playfair), 'Playfair Display', 'Times New Roman', serif;
 }
 
 .site-container {

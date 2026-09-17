@@ -1,15 +1,21 @@
+import dynamic from "next/dynamic";
 import HeroSlider from "@/components/home/HeroSlider";
 import IntroSection from "@/components/home/IntroSection";
 import OfferingsHeadline from "@/components/home/OfferingsHeadline";
 import PortfolioSection from "@/components/home/PortfolioSection";
 import AboutPhotographerSection from "@/components/home/AboutPhotographerSection";
 import HowItWorks from "@/components/home/HowItWorks";
-import ExploreWeddingsGrid from "@/components/home/ExploreWeddingsGrid";
-import ClientTestimonials from "@/components/home/ClientTestimonials";
 import InquireEditorial from "@/components/contact/InquireEditorial";
-import InstagramFollow from "@/components/home/InstagramFollow";
 import Section from "@/components/ui/Section";
 import SectionHeading from "@/components/ui/SectionHeading";
+
+// Below-the-fold sections: code-split out of the initial bundle so their
+// (framer-motion-heavy) JS loads after the parts of the page users see
+// first, instead of blocking hydration. SSR stays on, so the rendered HTML
+// and visuals are unchanged — only the JS chunk timing moves.
+const ExploreWeddingsGrid = dynamic(() => import("@/components/home/ExploreWeddingsGrid"));
+const ClientTestimonials = dynamic(() => import("@/components/home/ClientTestimonials"));
+const InstagramFollow = dynamic(() => import("@/components/home/InstagramFollow"));
 
 export default function Home() {
   return (

@@ -185,7 +185,6 @@ export default function ExploreWeddingsGrid({
                 src={tile.src}
                 alt={tile.alt}
                 fill
-                loading="eager"
                 sizes="(min-width: 1024px) 35vw, 60vw"
                 className="object-cover"
               />
@@ -212,7 +211,6 @@ export default function ExploreWeddingsGrid({
                 src={tile.src}
                 alt={tile.alt}
                 fill
-                loading="eager"
                 sizes="(min-width: 1024px) 35vw, 60vw"
                 className="object-cover"
               />

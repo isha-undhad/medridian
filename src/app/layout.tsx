@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Playfair_Display, Cormorant_Garamond } from "next/font/google";
+import { Geist, Playfair_Display } from "next/font/google";
 import { MotionConfig } from "framer-motion";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -20,12 +20,6 @@ const playfair = Playfair_Display({
   weight: ["400", "500", "600", "700"],
 });
 
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
-});
-
 export const metadata: Metadata = {
   title: `${brand.name} — Fine-Art Photography`,
   description: brand.tagline,
@@ -44,7 +38,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       data-scroll-behavior="smooth"
       suppressHydrationWarning
-      className={`${geistSans.variable} ${playfair.variable} ${cormorant.variable} antialiased`}
+      className={`${geistSans.variable} ${playfair.variable} antialiased`}
     >
       <head>
         <script

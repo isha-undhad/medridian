@@ -112,7 +112,7 @@ export default function OfferingsHeadline() {
       */}
       <div className="sm:relative z-10 flex h-full w-full flex-col items-center justify-between pointer-events-none">
         {/* TOP: Small uppercase tracking label */}
-        <span className="text-center text-[11px] font-copperplate uppercase text-[var(--color-ink)] shrink-0 max-sm:pt-2 sm:pt-4">
+        <span className="text-center max-sm:text-[13px] sm:text-[22px] font-serif uppercase text-[var(--color-ink)] shrink-0 max-sm:pt-2 sm:pt-4">
           MOMENTS, MADE TIMELESS
         </span>
 
@@ -123,7 +123,7 @@ export default function OfferingsHeadline() {
               key={item.label}
               className={headingClass}
               style={{
-                fontFamily: "var(--font-cormorant), 'Cormorant Garamond', serif",
+                fontFamily: "var(--font-playfair), 'Playfair Display', Georgia, serif",
                 fontWeight: 500,
                 fontSynthesis: "none",
               }}

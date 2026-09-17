@@ -75,7 +75,7 @@ export default function ContactSection() {
         <Reveal variants={slideInRight} delay={0.1} className="flex flex-col gap-6 sm:gap-8">
           <div>
             <h1 className="font-serif text-heading text-balance tracking-tight text-[var(--color-ink)] uppercase">
-              Contact {brand.short}
+              Contact TDS
             </h1>
             <p className="mt-3 sm:mt-4 max-w-md text-body leading-relaxed text-[var(--color-body)] text-pretty">
               We&apos;d love to hear about your celebration and the moments you want to remember forever. Tell us a little about your plans, and we&apos;ll be in touch shortly.
