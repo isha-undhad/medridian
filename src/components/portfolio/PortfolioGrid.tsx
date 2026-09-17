@@ -1,8 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import Reveal from "@/components/ui/Reveal";
+import Lightbox from "@/components/ui/Lightbox";
 import { fadeUp } from "@/lib/motion";
 import { portfolioItems, type PortfolioItem } from "@/data/portfolio";
 
@@ -52,9 +53,16 @@ function orderByShape(items: PortfolioItem[], shapes: Shape[]): PortfolioItem[] 
   return result;
 }
 
-const DESKTOP_SLOT_SHAPES: Shape[] = ["square", "square", "portrait", "square", "landscape", "portrait"];
+// Ratios below track the real photo pool (~59% portrait / 41% landscape,
+// see portfolio1Manifest.json) instead of an arbitrary split — the old 5:1
+// portrait:landscape schedule drained the portrait pool early and forced
+// leftover landscape photos into portrait/square slots. Desktop uses 2
+// landscape per 6 slots; mobile alternates 1-per-4 (pattern A) and 2-per-4
+// (pattern B) since a single 4-slot chunk can't hit the ratio exactly —
+// averaged across both patterns this lands closest to the real split.
+const DESKTOP_SLOT_SHAPES: Shape[] = ["square", "landscape", "portrait", "square", "landscape", "portrait"];
 const MOBILE_PATTERN_A_SHAPES: Shape[] = ["square", "square", "portrait", "landscape"];
-const MOBILE_PATTERN_B_SHAPES: Shape[] = ["portrait", "square", "square", "landscape"];
+const MOBILE_PATTERN_B_SHAPES: Shape[] = ["portrait", "landscape", "square", "landscape"];
 
 /** Builds the per-index shape schedule mobile renders (patterns A/B alternate
  * every 4 items). Any items past the last full chunk of 4 are trimmed before
@@ -163,6 +171,28 @@ export default function PortfolioGrid({
   const orderedItems = shuffled ?? items;
   const visible = typeof limit === "number" ? orderedItems.slice(0, limit) : orderedItems;
 
+  // Lightbox navigates over `visible` (the grid's own item order) regardless
+  // of which breakpoint's reshuffled mosaic slot was clicked.
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const lightboxImages = useMemo(
+    () => visible.map((item) => ({ src: item.image, alt: item.title || "Wedding photograph" })),
+    [visible]
+  );
+  const idToIndex = useMemo(() => {
+    const map = new Map<string, number>();
+    visible.forEach((item, i) => map.set(item.id, i));
+    return map;
+  }, [visible]);
+  const closeLightbox = useCallback(() => setLightboxIndex(null), []);
+  const prevLightbox = useCallback(
+    () => setLightboxIndex((current) => (current === null ? null : (current - 1 + visible.length) % visible.length)),
+    [visible.length]
+  );
+  const nextLightbox = useCallback(
+    () => setLightboxIndex((current) => (current === null ? null : (current + 1) % visible.length)),
+    [visible.length]
+  );
+
   // Re-order (independently per breakpoint, since their slot shapes and chunk
   // sizes differ) so the item landing in each grid cell matches that cell's
   // shape: portrait photos in portrait/square cells, landscape in landscape cells.
@@ -217,7 +247,12 @@ export default function PortfolioGrid({
                     delay={idx * 0.04}
                     className={`${cellClass} h-full w-full`}
                   >
-                    <div className="relative block w-full h-full overflow-hidden rounded-none bg-[var(--color-line)]/20">
+                    <button
+                      type="button"
+                      onClick={() => setLightboxIndex(idToIndex.get(item.id) ?? 0)}
+                      aria-label={`View larger: ${item.title || "Wedding photograph"}`}
+                      className="relative block w-full h-full overflow-hidden rounded-none bg-[var(--color-line)]/20 cursor-pointer"
+                    >
                       <Image
                         src={item.image}
                         alt={item.title || "Wedding photograph"}
@@ -228,7 +263,7 @@ export default function PortfolioGrid({
                         className="object-cover"
                         style={{ objectPosition: item.mobileObjectPosition || item.objectPosition || "center" }}
                       />
-                    </div>
+                    </button>
                   </Reveal>
                 );
               })}
@@ -257,7 +292,12 @@ export default function PortfolioGrid({
                   delay={slotIdx * 0.05}
                   className={`${slot.gridClass} h-full w-full`}
                 >
-                  <div className="relative block w-full h-full overflow-hidden rounded-none bg-[var(--color-line)]/20">
+                  <button
+                    type="button"
+                    onClick={() => setLightboxIndex(idToIndex.get(item.id) ?? 0)}
+                    aria-label={`View larger: ${item.title || "Wedding photograph"}`}
+                    className="relative block w-full h-full overflow-hidden rounded-none bg-[var(--color-line)]/20 cursor-pointer"
+                  >
                     <Image
                       src={item.image}
                       alt={item.title || "Wedding photograph"}
@@ -268,13 +308,21 @@ export default function PortfolioGrid({
                       className="object-cover"
                       style={{ objectPosition: item.objectPosition || "center" }}
                     />
-                  </div>
+                  </button>
                 </Reveal>
               );
             })}
           </div>
         ))}
       </div>
+
+      <Lightbox
+        images={lightboxImages}
+        index={lightboxIndex}
+        onClose={closeLightbox}
+        onPrev={prevLightbox}
+        onNext={nextLightbox}
+      />
     </>
   );
 }

@@ -21,7 +21,7 @@ export default function InquireCta({
   subtitle = "Every wedding is different. Every couple has a story worth remembering.",
   ctaText = "Inquire",
   ctaLink = "/contact",
-  image = "/image/inquire_about.jpg",
+  image = "/image/about_inquire.JPG",
   imageAlt = "Couple standing on rooftop balcony at golden hour",
   grayscale = false,
 }: InquireCtaProps) {

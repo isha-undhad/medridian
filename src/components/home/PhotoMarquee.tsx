@@ -58,16 +58,16 @@ export interface PhotoMarqueeProps {
  * rather than force-fit to match the target split.
  */
 const defaultImages: MarqueeImage[] = [
-  { src: "/image/portfolio/slider/1.jpg", alt: "Wedding reception outdoor stage with fairy lights and textured backdrop", category: "venue" },
-  { src: "/image/portfolio/slider/2.jpg", alt: "Bride and groom in vibrant pink attire at a heritage palace pavilion", category: "portrait" },
-  { src: "/image/portfolio/slider/3.jpg", alt: "Floral and palm leaf garland entrance installation", category: "detail" },
-  { src: "/image/portfolio/slider/4.jpg", alt: "Couple embracing on a sunlit palace balcony", category: "portrait" },
-  { src: "/image/portfolio/slider/5.jpg", alt: "Bride and groom walking together at palace celebration", category: "candid" },
-  { src: "/image/portfolio/slider/6.jpg", alt: "Romantic wedding portrait of bride and groom", category: "portrait" },
-  { src: "/image/portfolio/slider/7.jpg", alt: "Wedding ceremony and varmala moment", category: "ceremony" },
-  { src: "/image/portfolio/slider/8.jpg", alt: "Scenic wedding decor details and floral arrangement", category: "detail" },
-  { src: "/image/portfolio/slider/9.jpg", alt: "Intimate couple portrait during wedding festivities", category: "portrait" },
-  { src: "/image/portfolio/slider/10.jpg", alt: "Bride and groom joyfully celebrating their ceremony", category: "ceremony" },
+  { src: "/image/portfolio_slider/2X7A2999.jpg", alt: "Wedding photography", category: "candid" },
+  { src: "/image/portfolio_slider/2X7A4249.jpg", alt: "Wedding photography", category: "portrait" },
+  { src: "/image/portfolio_slider/3B4A1148.jpg", alt: "Wedding photography", category: "ceremony" },
+  { src: "/image/portfolio_slider/3B4A3505.jpg", alt: "Wedding photography", category: "detail" },
+  { src: "/image/portfolio_slider/3B4A3596.jpg", alt: "Wedding photography", category: "venue" },
+  { src: "/image/portfolio_slider/3B4A3756.jpg", alt: "Wedding photography", category: "candid" },
+  { src: "/image/portfolio_slider/ANK_4543.jpg", alt: "Wedding photography", category: "portrait" },
+  { src: "/image/portfolio_slider/TDS_0579.jpg", alt: "Wedding photography", category: "ceremony" },
+  { src: "/image/portfolio_slider/TDS_0628.jpg", alt: "Wedding photography", category: "detail" },
+  { src: "/image/portfolio_slider/TDS_2027.jpg", alt: "Wedding photography", category: "candid" },
 ];
 
 // Width only — height comes from the `heightClassName` prop so it can be

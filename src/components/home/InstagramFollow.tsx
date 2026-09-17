@@ -11,22 +11,22 @@ const INSTAGRAM_URL = "https://www.instagram.com/the_dream_stories_";
 const instagramImages = [
   "/image/instagram/1.jpeg",
   "/image/instagram/6.jpg",
-  "/image/instagram/5.jpg",
   "/image/instagram/7.jpg",
+  "/image/instagram/8.jpg",
 ];
 
 const instagramImageAlts = [
   "Groom playfully carrying the laughing bride over his shoulder across a garden lawn",
   "Couple sharing an intimate embrace surrounded by tropical foliage",
-  "Bride and groom in traditional wedding attire walking hand in hand across a courtyard lawn",
   "Bride in an embroidered pastel lehenga and groom in ivory sherwani holding hands on garden steps",
+  "Bride and groom in traditional wedding attire walking hand in hand across a courtyard lawn",
 ];
 
 const instagramLinks = [
   "https://www.instagram.com/p/DE9eF8Bp6ZT/",
   "https://www.instagram.com/p/DI1iXAnyNQu/",
-  "https://www.instagram.com/p/C057TXooc6-/",
   "https://www.instagram.com/p/Db8as3-DN1B/?utm_source=ig_web_copy_link&stkn=NTc4MTIwNjQ2YQ==",
+  "https://www.instagram.com/p/DAklZypIwOC/",
 ];
 
 type InstagramFollowProps = {
@@ -69,7 +69,7 @@ export default function InstagramFollow({
                 "object-cover transition-transform duration-500 ease-out group-hover:scale-105",
                 (index === 2 || index === 3) && "object-top"
               )}
-              style={index === 2 ? { objectPosition: "center 15%" } : undefined}
+              style={src === "/image/instagram/8.jpg" ? { objectPosition: "center 70%" } : undefined}
             />
           </a>
         ))}
