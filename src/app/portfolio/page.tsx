@@ -12,7 +12,14 @@ export const metadata: Metadata = {
 export default function PortfolioPage() {
   return (
     <>
-      <section className="relative w-full h-svh md:h-dvh overflow-hidden">
+      {/* Navbar is `fixed`, always opaque on this route (see Navbar's `isHome`
+          check), and sits on top of everything — so this section is pushed
+          down by exactly the navbar's rendered height at each breakpoint
+          (56/64/68px) instead of starting at y:0 underneath it. Height
+          shrinks by the same amount so the section's bottom edge still lands
+          at the viewport edge; the image only ever loses more from the
+          bottom, never the top. */}
+      <section className="relative w-full overflow-hidden mt-14 h-[calc(100svh-56px)] sm:mt-16 sm:h-[calc(100svh-64px)] md:mt-[68px] md:h-[calc(100dvh-68px)]">
         <Image
           src="/image/portfolio_hero.jpg"
           alt="Dream Stories portfolio hero photograph"
@@ -20,7 +27,7 @@ export default function PortfolioPage() {
           priority
           sizes="100vw"
           className="object-cover"
-          style={{ objectPosition: "center 10%" }}
+          style={{ objectPosition: "center top" }}
         />
       </section>
       <Suspense fallback={null}>

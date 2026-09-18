@@ -200,33 +200,52 @@ export default function PortfolioGrid({
   const orderedItems = shuffled ?? items;
   const visible = typeof limit === "number" ? orderedItems.slice(0, limit) : orderedItems;
 
-  // Lightbox navigates over `visible` (the grid's own item order) regardless
-  // of which breakpoint's reshuffled mosaic slot was clicked.
-  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-  const lightboxImages = useMemo(
-    () => visible.map((item) => ({ src: item.image, alt: item.title || "Wedding photograph" })),
-    [visible]
-  );
-  const idToIndex = useMemo(() => {
-    const map = new Map<string, number>();
-    visible.forEach((item, i) => map.set(item.id, i));
-    return map;
-  }, [visible]);
-  const closeLightbox = useCallback(() => setLightboxIndex(null), []);
-  const prevLightbox = useCallback(
-    () => setLightboxIndex((current) => (current === null ? null : (current - 1 + visible.length) % visible.length)),
-    [visible.length]
-  );
-  const nextLightbox = useCallback(
-    () => setLightboxIndex((current) => (current === null ? null : (current + 1) % visible.length)),
-    [visible.length]
-  );
-
   // Re-order (independently per breakpoint, since their slot shapes and chunk
   // sizes differ) so the item landing in each grid cell matches that cell's
   // shape: portrait photos in portrait/square cells, landscape in landscape cells.
   const desktopOrdered = orderByShape(visible, DESKTOP_SLOT_SHAPES, items);
   const mobileOrdered = orderByShape(visible, mobileShapeSchedule(visible.length), items);
+
+  // Lightbox navigates over `visible` (the grid's own item order) regardless
+  // of which breakpoint's reshuffled mosaic slot was clicked — but when a
+  // batch runs short of one orientation, orderByShape() backfills a slot from
+  // outside `visible` (the full `items` pool), and both breakpoints' chunks
+  // are always in the DOM (only one is CSS-hidden at a time). Any such
+  // backfilled photo must still get a real lightbox index, so it's appended
+  // here rather than left to fall through to `?? 0` on click.
+  const lightboxItems = useMemo(() => {
+    const seen = new Set(visible.map((item) => item.id));
+    const extras: PortfolioItem[] = [];
+    for (const item of [...desktopOrdered, ...mobileOrdered]) {
+      if (seen.has(item.id)) continue;
+      seen.add(item.id);
+      extras.push(item);
+    }
+    return [...visible, ...extras];
+  }, [visible, desktopOrdered, mobileOrdered]);
+
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const lightboxImages = useMemo(
+    () => lightboxItems.map((item) => ({ src: item.image, alt: item.title || "Wedding photograph" })),
+    [lightboxItems]
+  );
+  const idToIndex = useMemo(() => {
+    const map = new Map<string, number>();
+    lightboxItems.forEach((item, i) => map.set(item.id, i));
+    return map;
+  }, [lightboxItems]);
+  const closeLightbox = useCallback(() => setLightboxIndex(null), []);
+  const prevLightbox = useCallback(
+    () =>
+      setLightboxIndex((current) =>
+        current === null ? null : (current - 1 + lightboxItems.length) % lightboxItems.length
+      ),
+    [lightboxItems.length]
+  );
+  const nextLightbox = useCallback(
+    () => setLightboxIndex((current) => (current === null ? null : (current + 1) % lightboxItems.length)),
+    [lightboxItems.length]
+  );
 
   // Each chunk's row/column template is a fixed-size mosaic (6 slots on
   // desktop, 4 on mobile) — a trailing chunk with fewer items than that would
