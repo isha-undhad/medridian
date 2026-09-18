@@ -2,7 +2,6 @@
 
 import { useState, type FormEvent } from "react";
 import Image from "next/image";
-import emailjs from "@emailjs/browser";
 import Reveal from "@/components/ui/Reveal";
 import Section from "@/components/ui/Section";
 import { slideInLeft, slideInRight } from "@/lib/motion";
@@ -32,35 +31,28 @@ export default function ContactSection() {
     const form = event.currentTarget;
     const formData = new FormData(form);
 
-    const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
-    const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
-    const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
-
-    if (!serviceId || !templateId || !publicKey) {
-      setErrorMessage(
-        "Unable to send your inquiry. Please check your internet connection and try again."
-      );
-      setIsSubmitting(false);
-      return;
-    }
-
-    const templateParams = {
-      first_name: (formData.get("firstName") as string) || "",
-      last_name: (formData.get("lastName") as string) || "",
+    const payload = {
+      firstName: (formData.get("firstName") as string) || "",
+      lastName: (formData.get("lastName") as string) || "",
       email: (formData.get("email") as string) || "",
       phone: (formData.get("phone") as string) || "",
-      interested_in: selectedInterest || (formData.get("interest") as string) || "",
-      session_date: (formData.get("sessionDate") as string) || "",
+      interestedIn: selectedInterest || (formData.get("interest") as string) || "",
+      sessionDate: (formData.get("sessionDate") as string) || "",
       budget: (formData.get("budget") as string) || "",
     };
 
     try {
-      await emailjs.send(serviceId, templateId, templateParams, publicKey);
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!response.ok) throw new Error(`Contact API responded with ${response.status}`);
       setSubmitted(true);
       setSelectedInterest("");
       form.reset();
     } catch (error) {
-      console.error("EmailJS send failed:", error);
+      console.error("Contact form send failed:", error);
       setErrorMessage(
         "Unable to send your inquiry. Please check your internet connection and try again."
       );
